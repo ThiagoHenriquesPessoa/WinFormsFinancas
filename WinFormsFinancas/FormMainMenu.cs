@@ -76,32 +76,32 @@ namespace WinFormsFinancas
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormProducts(), sender);
         }
 
         private void btnOrders_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormOrders(), sender);
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormCostumers(), sender);
         }
 
         private void btnReporting_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormReporting(), sender);
         }
 
         private void btnNotifications_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormNotifications(), sender);
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender);
+            OpenChildForm(new Forms.FormSetting(), sender);
         }
     }
 }
