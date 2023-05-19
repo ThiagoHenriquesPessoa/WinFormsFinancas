@@ -60,7 +60,7 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 450);
+            panelMenu.Size = new Size(220, 673);
             panelMenu.TabIndex = 0;
             // 
             // btnSetting
@@ -209,7 +209,7 @@
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(580, 80);
+            panelTitleBar.Size = new Size(1002, 80);
             panelTitleBar.TabIndex = 1;
             // 
             // label2
@@ -218,7 +218,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("MS PGothic", 14F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
-            label2.Location = new Point(251, 28);
+            label2.Location = new Point(462, 28);
             label2.Name = "label2";
             label2.Size = new Size(78, 24);
             label2.TabIndex = 1;
@@ -230,7 +230,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("MS PGothic", 14F, FontStyle.Bold, GraphicsUnit.Point);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(252, 29);
+            lblTitle.Location = new Point(463, 29);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(78, 24);
             lblTitle.TabIndex = 0;
@@ -241,14 +241,14 @@
             panelDesctopPanel.Dock = DockStyle.Fill;
             panelDesctopPanel.Location = new Point(220, 80);
             panelDesctopPanel.Name = "panelDesctopPanel";
-            panelDesctopPanel.Size = new Size(580, 370);
+            panelDesctopPanel.Size = new Size(1002, 593);
             panelDesctopPanel.TabIndex = 2;
             // 
             // FormMainMenu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1222, 673);
             Controls.Add(panelDesctopPanel);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
