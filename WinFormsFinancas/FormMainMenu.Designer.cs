@@ -35,7 +35,7 @@
             btnReporting = new Button();
             btnCustomer = new Button();
             btnOrders = new Button();
-            btnProducts = new Button();
+            btnAddRenda = new Button();
             panelLogo = new Panel();
             lblLogo = new Label();
             panelTitleBar = new Panel();
@@ -55,7 +55,7 @@
             panelMenu.Controls.Add(btnReporting);
             panelMenu.Controls.Add(btnCustomer);
             panelMenu.Controls.Add(btnOrders);
-            panelMenu.Controls.Add(btnProducts);
+            panelMenu.Controls.Add(btnAddRenda);
             panelMenu.Controls.Add(panelLogo);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
@@ -159,25 +159,25 @@
             btnOrders.UseVisualStyleBackColor = true;
             btnOrders.Click += btnOrders_Click;
             // 
-            // btnProducts
+            // btnAddRenda
             // 
-            btnProducts.Dock = DockStyle.Top;
-            btnProducts.FlatAppearance.BorderSize = 0;
-            btnProducts.FlatStyle = FlatStyle.Flat;
-            btnProducts.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            btnProducts.ForeColor = SystemColors.GradientInactiveCaption;
-            btnProducts.Image = Properties.Resources.icons8_apresentação_16;
-            btnProducts.ImageAlign = ContentAlignment.MiddleLeft;
-            btnProducts.Location = new Point(0, 80);
-            btnProducts.Name = "btnProducts";
-            btnProducts.Padding = new Padding(12, 0, 0, 0);
-            btnProducts.Size = new Size(220, 45);
-            btnProducts.TabIndex = 1;
-            btnProducts.Text = "   Products";
-            btnProducts.TextAlign = ContentAlignment.MiddleLeft;
-            btnProducts.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnProducts.UseVisualStyleBackColor = true;
-            btnProducts.Click += btnProducts_Click;
+            btnAddRenda.Dock = DockStyle.Top;
+            btnAddRenda.FlatAppearance.BorderSize = 0;
+            btnAddRenda.FlatStyle = FlatStyle.Flat;
+            btnAddRenda.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAddRenda.ForeColor = SystemColors.GradientInactiveCaption;
+            btnAddRenda.Image = Properties.Resources.icons8_apresentação_16;
+            btnAddRenda.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddRenda.Location = new Point(0, 80);
+            btnAddRenda.Name = "btnAddRenda";
+            btnAddRenda.Padding = new Padding(12, 0, 0, 0);
+            btnAddRenda.Size = new Size(220, 45);
+            btnAddRenda.TabIndex = 1;
+            btnAddRenda.Text = "   AddRenda";
+            btnAddRenda.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddRenda.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddRenda.UseVisualStyleBackColor = true;
+            btnAddRenda.Click += btnProducts_Click;
             // 
             // panelLogo
             // 
@@ -271,7 +271,7 @@
         private Button btnReporting;
         private Button btnCustomer;
         private Button btnOrders;
-        private Button btnProducts;
+        private Button btnAddRenda;
         private Panel panelTitleBar;
         private Label lblTitle;
         private Label lblLogo;

@@ -76,7 +76,7 @@ namespace WinFormsFinancas
 
         private void btnProducts_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormProducts(), sender);
+            OpenChildForm(new Forms.FormAddRenda(), sender);
         }
 
         private void btnOrders_Click(object sender, EventArgs e)

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinFormsFinancas.Forms
 {
-    public partial class FormProducts : Form
+    public partial class FormAddRenda : Form
     {
-        public FormProducts()
+        public FormAddRenda()
         {
             InitializeComponent();
         }
