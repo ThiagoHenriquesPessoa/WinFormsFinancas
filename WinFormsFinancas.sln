@@ -3,7 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsFinancas", "WinFormsFinancas\WinFormsFinancas.csproj", "{8E366161-250F-406F-B23D-83C3DD86FC36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsFinancas", "WinFormsFinancas\WinFormsFinancas.csproj", "{8E366161-250F-406F-B23D-83C3DD86FC36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormDomain", "WinFormDomain\WinFormDomain.csproj", "{E790B17C-4413-4EDC-8107-E70C1A7D5B5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormInfrastructure", "WinFormInfrastructure\WinFormInfrastructure.csproj", "{DCA82364-E573-4949-AA49-353BFFB344C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormRepository", "WinFormRepository\WinFormRepository.csproj", "{EBF39A57-F68B-4899-8A31-26306B960301}"
+	ProjectSection(ProjectDependencies) = postProject
+		{DCA82364-E573-4949-AA49-353BFFB344C3} = {DCA82364-E573-4949-AA49-353BFFB344C3}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormBusiness", "WinFormBusiness\WinFormBusiness.csproj", "{CFF63C63-3533-4224-A15E-B2BCFE96DDDD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +26,22 @@ Global
 		{8E366161-250F-406F-B23D-83C3DD86FC36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E366161-250F-406F-B23D-83C3DD86FC36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E366161-250F-406F-B23D-83C3DD86FC36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E790B17C-4413-4EDC-8107-E70C1A7D5B5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E790B17C-4413-4EDC-8107-E70C1A7D5B5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E790B17C-4413-4EDC-8107-E70C1A7D5B5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E790B17C-4413-4EDC-8107-E70C1A7D5B5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCA82364-E573-4949-AA49-353BFFB344C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCA82364-E573-4949-AA49-353BFFB344C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCA82364-E573-4949-AA49-353BFFB344C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCA82364-E573-4949-AA49-353BFFB344C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBF39A57-F68B-4899-8A31-26306B960301}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBF39A57-F68B-4899-8A31-26306B960301}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBF39A57-F68B-4899-8A31-26306B960301}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBF39A57-F68B-4899-8A31-26306B960301}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFF63C63-3533-4224-A15E-B2BCFE96DDDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFF63C63-3533-4224-A15E-B2BCFE96DDDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFF63C63-3533-4224-A15E-B2BCFE96DDDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFF63C63-3533-4224-A15E-B2BCFE96DDDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
