@@ -1,3 +1,7 @@
+using WinFormBusiness.Business;
+using WinFormBusiness.InterfaceBusiness;
+using WinFormRepository.Repository;
+
 namespace WinFormsFinancas
 {
     public partial class FormMainMenu : Form
@@ -6,10 +10,13 @@ namespace WinFormsFinancas
         private Random random;
         private int tempIndex;
         private Form activeForm;
-        public FormMainMenu()
+        private readonly IRendaService _repository;
+        public FormMainMenu(IRendaService repository)
         {
             InitializeComponent();
             random = new Random();
+            _repository = repository;
+            tbxRendaTotal.Text = Convert.ToString(_repository.GetRendaTotal());
         }
 
         private Color SelectthemeColor()
@@ -74,11 +81,6 @@ namespace WinFormsFinancas
             lblTitle.Text = childForm.Text;
         }
 
-        private void btnProducts_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Forms.FormAddRenda(), sender);
-        }
-
         private void btnOrders_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.FormOrders(), sender);
@@ -103,5 +105,13 @@ namespace WinFormsFinancas
         {
             OpenChildForm(new Forms.FormSetting(), sender);
         }
+
+        private void btnAddRenda_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.FormAddRenda(new RendaService(new RendaRepository())), sender);
+            tbxRendaTotal.Text = Convert.ToString(_repository.GetRendaTotal());
+        }
+
+        
     }
 }

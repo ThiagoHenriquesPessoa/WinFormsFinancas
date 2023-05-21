@@ -31,11 +31,13 @@
             lblNovaRenda = new Label();
             txtNovaRenda = new TextBox();
             lblTipoRenda = new Label();
-            listBox1 = new ListBox();
             lblDataEntrada = new Label();
             cldDataEntrada = new MonthCalendar();
             btnCanelar = new Button();
             btnSalvar = new Button();
+            lblValorFixo = new Label();
+            ckbValorFixo = new CheckBox();
+            cbTipoRenda = new ComboBox();
             SuspendLayout();
             // 
             // lblNovaRenda
@@ -65,21 +67,11 @@
             lblTipoRenda.TabIndex = 2;
             lblTipoRenda.Text = "Tipo de Renda";
             // 
-            // listBox1
-            // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 20;
-            listBox1.Items.AddRange(new object[] { "Salario", "Extra", "Emprestimo", "Pis", "Outros" });
-            listBox1.Location = new Point(189, 73);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(171, 24);
-            listBox1.TabIndex = 3;
-            // 
             // lblDataEntrada
             // 
             lblDataEntrada.AutoSize = true;
             lblDataEntrada.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDataEntrada.Location = new Point(34, 126);
+            lblDataEntrada.Location = new Point(34, 174);
             lblDataEntrada.Name = "lblDataEntrada";
             lblDataEntrada.Size = new Size(140, 23);
             lblDataEntrada.TabIndex = 4;
@@ -87,7 +79,7 @@
             // 
             // cldDataEntrada
             // 
-            cldDataEntrada.Location = new Point(189, 126);
+            cldDataEntrada.Location = new Point(189, 174);
             cldDataEntrada.Name = "cldDataEntrada";
             cldDataEntrada.TabIndex = 5;
             // 
@@ -110,6 +102,36 @@
             btnSalvar.TabIndex = 7;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
+            // 
+            // lblValorFixo
+            // 
+            lblValorFixo.AutoSize = true;
+            lblValorFixo.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblValorFixo.Location = new Point(34, 124);
+            lblValorFixo.Name = "lblValorFixo";
+            lblValorFixo.Size = new Size(89, 23);
+            lblValorFixo.TabIndex = 8;
+            lblValorFixo.Text = "Valor Fixo";
+            // 
+            // ckbValorFixo
+            // 
+            ckbValorFixo.AutoSize = true;
+            ckbValorFixo.Location = new Point(189, 123);
+            ckbValorFixo.Name = "ckbValorFixo";
+            ckbValorFixo.Size = new Size(56, 24);
+            ckbValorFixo.TabIndex = 9;
+            ckbValorFixo.Text = "Sim";
+            ckbValorFixo.UseVisualStyleBackColor = true;
+            // 
+            // cbTipoRenda
+            // 
+            cbTipoRenda.FormattingEnabled = true;
+            cbTipoRenda.Items.AddRange(new object[] { "Salario", "Extra", "Emprestimo", "Pis", "Outros" });
+            cbTipoRenda.Location = new Point(189, 68);
+            cbTipoRenda.Name = "cbTipoRenda";
+            cbTipoRenda.Size = new Size(171, 28);
+            cbTipoRenda.TabIndex = 10;
             // 
             // FormAddRenda
             // 
@@ -117,16 +139,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
+            Controls.Add(cbTipoRenda);
+            Controls.Add(ckbValorFixo);
+            Controls.Add(lblValorFixo);
             Controls.Add(btnSalvar);
             Controls.Add(btnCanelar);
             Controls.Add(cldDataEntrada);
             Controls.Add(lblDataEntrada);
-            Controls.Add(listBox1);
             Controls.Add(lblTipoRenda);
             Controls.Add(txtNovaRenda);
             Controls.Add(lblNovaRenda);
             Name = "FormAddRenda";
-            Text = "FormProducts";
+            Text = "FormNovaRenda";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -136,10 +160,12 @@
         private Label lblNovaRenda;
         private TextBox txtNovaRenda;
         private Label lblTipoRenda;
-        private ListBox listBox1;
         private Label lblDataEntrada;
         private MonthCalendar cldDataEntrada;
         private Button btnCanelar;
         private Button btnSalvar;
+        private Label lblValorFixo;
+        private CheckBox ckbValorFixo;
+        private ComboBox cbTipoRenda;
     }
 }

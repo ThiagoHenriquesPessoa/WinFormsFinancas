@@ -42,9 +42,11 @@
             label2 = new Label();
             lblTitle = new Label();
             panelDesctopPanel = new Panel();
+            tbxRendaTotal = new TextBox();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
+            panelDesctopPanel.SuspendLayout();
             SuspendLayout();
             // 
             // panelMenu
@@ -177,7 +179,7 @@
             btnAddRenda.TextAlign = ContentAlignment.MiddleLeft;
             btnAddRenda.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddRenda.UseVisualStyleBackColor = true;
-            btnAddRenda.Click += btnProducts_Click;
+            btnAddRenda.Click += btnAddRenda_Click;
             // 
             // panelLogo
             // 
@@ -238,11 +240,19 @@
             // 
             // panelDesctopPanel
             // 
+            panelDesctopPanel.Controls.Add(tbxRendaTotal);
             panelDesctopPanel.Dock = DockStyle.Fill;
             panelDesctopPanel.Location = new Point(220, 80);
             panelDesctopPanel.Name = "panelDesctopPanel";
             panelDesctopPanel.Size = new Size(1002, 593);
             panelDesctopPanel.TabIndex = 2;
+            // 
+            // tbxRendaTotal
+            // 
+            tbxRendaTotal.Location = new Point(107, 63);
+            tbxRendaTotal.Name = "tbxRendaTotal";
+            tbxRendaTotal.Size = new Size(125, 27);
+            tbxRendaTotal.TabIndex = 0;
             // 
             // FormMainMenu
             // 
@@ -259,6 +269,8 @@
             panelLogo.PerformLayout();
             panelTitleBar.ResumeLayout(false);
             panelTitleBar.PerformLayout();
+            panelDesctopPanel.ResumeLayout(false);
+            panelDesctopPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -277,5 +289,6 @@
         private Label lblLogo;
         private Label label2;
         private Panel panelDesctopPanel;
+        private TextBox tbxRendaTotal;
     }
 }

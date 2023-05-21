@@ -1,3 +1,6 @@
+using WinFormBusiness.Business;
+using WinFormRepository.Repository;
+
 namespace WinFormsFinancas
 {
     internal static class Program
@@ -11,7 +14,7 @@ namespace WinFormsFinancas
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new FormMainMenu());
+            Application.Run(new FormMainMenu(new RendaService(new RendaRepository())));
         }
     }
 }
