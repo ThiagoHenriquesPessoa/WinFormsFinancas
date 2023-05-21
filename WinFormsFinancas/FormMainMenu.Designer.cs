@@ -34,7 +34,7 @@
             btnNotifications = new Button();
             btnReporting = new Button();
             btnCustomer = new Button();
-            btnOrders = new Button();
+            btnAddDespesa = new Button();
             btnAddRenda = new Button();
             panelLogo = new Panel();
             lblLogo = new Label();
@@ -56,7 +56,7 @@
             panelMenu.Controls.Add(btnNotifications);
             panelMenu.Controls.Add(btnReporting);
             panelMenu.Controls.Add(btnCustomer);
-            panelMenu.Controls.Add(btnOrders);
+            panelMenu.Controls.Add(btnAddDespesa);
             panelMenu.Controls.Add(btnAddRenda);
             panelMenu.Controls.Add(panelLogo);
             panelMenu.Dock = DockStyle.Left;
@@ -142,24 +142,24 @@
             btnCustomer.UseVisualStyleBackColor = true;
             btnCustomer.Click += btnCustomer_Click;
             // 
-            // btnOrders
+            // btnAddDespesa
             // 
-            btnOrders.Dock = DockStyle.Top;
-            btnOrders.FlatAppearance.BorderSize = 0;
-            btnOrders.FlatStyle = FlatStyle.Flat;
-            btnOrders.ForeColor = SystemColors.GradientInactiveCaption;
-            btnOrders.Image = (Image)resources.GetObject("btnOrders.Image");
-            btnOrders.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOrders.Location = new Point(0, 125);
-            btnOrders.Name = "btnOrders";
-            btnOrders.Padding = new Padding(12, 0, 0, 0);
-            btnOrders.Size = new Size(220, 45);
-            btnOrders.TabIndex = 2;
-            btnOrders.Text = "   Orders";
-            btnOrders.TextAlign = ContentAlignment.MiddleLeft;
-            btnOrders.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnOrders.UseVisualStyleBackColor = true;
-            btnOrders.Click += btnOrders_Click;
+            btnAddDespesa.Dock = DockStyle.Top;
+            btnAddDespesa.FlatAppearance.BorderSize = 0;
+            btnAddDespesa.FlatStyle = FlatStyle.Flat;
+            btnAddDespesa.ForeColor = SystemColors.GradientInactiveCaption;
+            btnAddDespesa.Image = (Image)resources.GetObject("btnAddDespesa.Image");
+            btnAddDespesa.ImageAlign = ContentAlignment.MiddleLeft;
+            btnAddDespesa.Location = new Point(0, 125);
+            btnAddDespesa.Name = "btnAddDespesa";
+            btnAddDespesa.Padding = new Padding(12, 0, 0, 0);
+            btnAddDespesa.Size = new Size(220, 45);
+            btnAddDespesa.TabIndex = 2;
+            btnAddDespesa.Text = "   AddDespesa";
+            btnAddDespesa.TextAlign = ContentAlignment.MiddleLeft;
+            btnAddDespesa.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnAddDespesa.UseVisualStyleBackColor = true;
+            btnAddDespesa.Click += btnAddDespesa_Click;
             // 
             // btnAddRenda
             // 
@@ -282,7 +282,7 @@
         private Button btnNotifications;
         private Button btnReporting;
         private Button btnCustomer;
-        private Button btnOrders;
+        private Button btnAddDespesa;
         private Button btnAddRenda;
         private Panel panelTitleBar;
         private Label lblTitle;

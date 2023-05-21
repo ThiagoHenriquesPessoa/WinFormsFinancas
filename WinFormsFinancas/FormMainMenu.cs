@@ -81,11 +81,6 @@ namespace WinFormsFinancas
             lblTitle.Text = childForm.Text;
         }
 
-        private void btnOrders_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Forms.FormOrders(), sender);
-        }
-
         private void btnCustomer_Click(object sender, EventArgs e)
         {
             OpenChildForm(new Forms.FormCostumers(), sender);
@@ -112,6 +107,10 @@ namespace WinFormsFinancas
             tbxRendaTotal.Text = Convert.ToString(_repository.GetRendaTotal());
         }
 
-        
+        private void btnAddDespesa_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new Forms.FormAddDespesa(), sender);
+            tbxRendaTotal.Text = Convert.ToString(_repository.GetRendaTotal());
+        }
     }
 }
