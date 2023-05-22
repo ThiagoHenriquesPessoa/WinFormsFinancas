@@ -39,10 +39,21 @@
             panelLogo = new Panel();
             lblLogo = new Label();
             panelTitleBar = new Panel();
-            label2 = new Label();
+            lblPage = new Label();
             lblTitle = new Label();
             panelDesctopPanel = new Panel();
+            tbxDespesaTotal = new TextBox();
             tbxRendaTotal = new TextBox();
+            lblRendaTotal = new Label();
+            lblDespesaTotal = new Label();
+            lblDespesaAnoAtual = new Label();
+            lblRendaAnoAtual = new Label();
+            tbxDespesaAnoAtual = new TextBox();
+            tbxRendaAnoAtual = new TextBox();
+            lblDespesaMesAtual = new Label();
+            lblRendaMesAtual = new Label();
+            tbxDespesaMesAtual = new TextBox();
+            tbxRendaMesAtul = new TextBox();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
@@ -79,7 +90,7 @@
             btnSetting.Padding = new Padding(12, 0, 0, 0);
             btnSetting.Size = new Size(220, 45);
             btnSetting.TabIndex = 6;
-            btnSetting.Text = "   Setting";
+            btnSetting.Text = "   =======";
             btnSetting.TextAlign = ContentAlignment.MiddleLeft;
             btnSetting.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnSetting.UseVisualStyleBackColor = true;
@@ -98,7 +109,7 @@
             btnNotifications.Padding = new Padding(12, 0, 0, 0);
             btnNotifications.Size = new Size(220, 45);
             btnNotifications.TabIndex = 5;
-            btnNotifications.Text = "   Notifications";
+            btnNotifications.Text = "  =======";
             btnNotifications.TextAlign = ContentAlignment.MiddleLeft;
             btnNotifications.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnNotifications.UseVisualStyleBackColor = true;
@@ -117,7 +128,7 @@
             btnReporting.Padding = new Padding(12, 0, 0, 0);
             btnReporting.Size = new Size(220, 45);
             btnReporting.TabIndex = 4;
-            btnReporting.Text = "   Reporting";
+            btnReporting.Text = "   =======";
             btnReporting.TextAlign = ContentAlignment.MiddleLeft;
             btnReporting.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnReporting.UseVisualStyleBackColor = true;
@@ -136,7 +147,7 @@
             btnCustomer.Padding = new Padding(12, 0, 0, 0);
             btnCustomer.Size = new Size(220, 45);
             btnCustomer.TabIndex = 3;
-            btnCustomer.Text = "   Customer";
+            btnCustomer.Text = "   =======";
             btnCustomer.TextAlign = ContentAlignment.MiddleLeft;
             btnCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCustomer.UseVisualStyleBackColor = true;
@@ -206,7 +217,7 @@
             // panelTitleBar
             // 
             panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
-            panelTitleBar.Controls.Add(label2);
+            panelTitleBar.Controls.Add(lblPage);
             panelTitleBar.Controls.Add(lblTitle);
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
@@ -214,17 +225,17 @@
             panelTitleBar.Size = new Size(1002, 80);
             panelTitleBar.TabIndex = 1;
             // 
-            // label2
+            // lblPage
             // 
-            label2.Anchor = AnchorStyles.None;
-            label2.AutoSize = true;
-            label2.Font = new Font("MS PGothic", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(462, 28);
-            label2.Name = "label2";
-            label2.Size = new Size(78, 24);
-            label2.TabIndex = 1;
-            label2.Text = "HOME";
+            lblPage.Anchor = AnchorStyles.None;
+            lblPage.AutoSize = true;
+            lblPage.Font = new Font("MS PGothic", 14F, FontStyle.Bold, GraphicsUnit.Point);
+            lblPage.ForeColor = Color.White;
+            lblPage.Location = new Point(462, 28);
+            lblPage.Name = "lblPage";
+            lblPage.Size = new Size(78, 24);
+            lblPage.TabIndex = 1;
+            lblPage.Text = "HOME";
             // 
             // lblTitle
             // 
@@ -240,6 +251,17 @@
             // 
             // panelDesctopPanel
             // 
+            panelDesctopPanel.Controls.Add(lblDespesaMesAtual);
+            panelDesctopPanel.Controls.Add(lblRendaMesAtual);
+            panelDesctopPanel.Controls.Add(tbxDespesaMesAtual);
+            panelDesctopPanel.Controls.Add(tbxRendaMesAtul);
+            panelDesctopPanel.Controls.Add(lblDespesaAnoAtual);
+            panelDesctopPanel.Controls.Add(lblRendaAnoAtual);
+            panelDesctopPanel.Controls.Add(tbxDespesaAnoAtual);
+            panelDesctopPanel.Controls.Add(tbxRendaAnoAtual);
+            panelDesctopPanel.Controls.Add(lblDespesaTotal);
+            panelDesctopPanel.Controls.Add(lblRendaTotal);
+            panelDesctopPanel.Controls.Add(tbxDespesaTotal);
             panelDesctopPanel.Controls.Add(tbxRendaTotal);
             panelDesctopPanel.Dock = DockStyle.Fill;
             panelDesctopPanel.Location = new Point(220, 80);
@@ -247,12 +269,101 @@
             panelDesctopPanel.Size = new Size(1002, 593);
             panelDesctopPanel.TabIndex = 2;
             // 
+            // tbxDespesaTotal
+            // 
+            tbxDespesaTotal.Location = new Point(181, 77);
+            tbxDespesaTotal.Name = "tbxDespesaTotal";
+            tbxDespesaTotal.Size = new Size(125, 27);
+            tbxDespesaTotal.TabIndex = 1;
+            // 
             // tbxRendaTotal
             // 
-            tbxRendaTotal.Location = new Point(107, 63);
+            tbxRendaTotal.Location = new Point(181, 37);
             tbxRendaTotal.Name = "tbxRendaTotal";
             tbxRendaTotal.Size = new Size(125, 27);
             tbxRendaTotal.TabIndex = 0;
+            // 
+            // lblRendaTotal
+            // 
+            lblRendaTotal.AutoSize = true;
+            lblRendaTotal.Location = new Point(24, 40);
+            lblRendaTotal.Name = "lblRendaTotal";
+            lblRendaTotal.Size = new Size(88, 20);
+            lblRendaTotal.TabIndex = 2;
+            lblRendaTotal.Text = "Renda Total";
+            // 
+            // lblDespesaTotal
+            // 
+            lblDespesaTotal.AutoSize = true;
+            lblDespesaTotal.Location = new Point(24, 77);
+            lblDespesaTotal.Name = "lblDespesaTotal";
+            lblDespesaTotal.Size = new Size(102, 20);
+            lblDespesaTotal.TabIndex = 3;
+            lblDespesaTotal.Text = "Despesa Total";
+            // 
+            // lblDespesaAnoAtual
+            // 
+            lblDespesaAnoAtual.AutoSize = true;
+            lblDespesaAnoAtual.Location = new Point(24, 184);
+            lblDespesaAnoAtual.Name = "lblDespesaAnoAtual";
+            lblDespesaAnoAtual.Size = new Size(135, 20);
+            lblDespesaAnoAtual.TabIndex = 7;
+            lblDespesaAnoAtual.Text = "Despesa Ano Atual";
+            // 
+            // lblRendaAnoAtual
+            // 
+            lblRendaAnoAtual.AutoSize = true;
+            lblRendaAnoAtual.Location = new Point(24, 147);
+            lblRendaAnoAtual.Name = "lblRendaAnoAtual";
+            lblRendaAnoAtual.Size = new Size(121, 20);
+            lblRendaAnoAtual.TabIndex = 6;
+            lblRendaAnoAtual.Text = "Renda Ano Atual";
+            // 
+            // tbxDespesaAnoAtual
+            // 
+            tbxDespesaAnoAtual.Location = new Point(181, 181);
+            tbxDespesaAnoAtual.Name = "tbxDespesaAnoAtual";
+            tbxDespesaAnoAtual.Size = new Size(125, 27);
+            tbxDespesaAnoAtual.TabIndex = 5;
+            // 
+            // tbxRendaAnoAtual
+            // 
+            tbxRendaAnoAtual.Location = new Point(181, 141);
+            tbxRendaAnoAtual.Name = "tbxRendaAnoAtual";
+            tbxRendaAnoAtual.Size = new Size(125, 27);
+            tbxRendaAnoAtual.TabIndex = 4;
+            // 
+            // lblDespesaMesAtual
+            // 
+            lblDespesaMesAtual.AutoSize = true;
+            lblDespesaMesAtual.Location = new Point(24, 288);
+            lblDespesaMesAtual.Name = "lblDespesaMesAtual";
+            lblDespesaMesAtual.Size = new Size(135, 20);
+            lblDespesaMesAtual.TabIndex = 11;
+            lblDespesaMesAtual.Text = "Despesa Mês Atual";
+            // 
+            // lblRendaMesAtual
+            // 
+            lblRendaMesAtual.AutoSize = true;
+            lblRendaMesAtual.Location = new Point(24, 251);
+            lblRendaMesAtual.Name = "lblRendaMesAtual";
+            lblRendaMesAtual.Size = new Size(121, 20);
+            lblRendaMesAtual.TabIndex = 10;
+            lblRendaMesAtual.Text = "Renda Mês Atual";
+            // 
+            // tbxDespesaMesAtual
+            // 
+            tbxDespesaMesAtual.Location = new Point(181, 285);
+            tbxDespesaMesAtual.Name = "tbxDespesaMesAtual";
+            tbxDespesaMesAtual.Size = new Size(125, 27);
+            tbxDespesaMesAtual.TabIndex = 9;
+            // 
+            // tbxRendaMesAtul
+            // 
+            tbxRendaMesAtul.Location = new Point(181, 245);
+            tbxRendaMesAtul.Name = "tbxRendaMesAtul";
+            tbxRendaMesAtul.Size = new Size(125, 27);
+            tbxRendaMesAtul.TabIndex = 8;
             // 
             // FormMainMenu
             // 
@@ -287,8 +398,19 @@
         private Panel panelTitleBar;
         private Label lblTitle;
         private Label lblLogo;
-        private Label label2;
+        private Label lblPage;
         private Panel panelDesctopPanel;
         private TextBox tbxRendaTotal;
+        private TextBox tbxDespesaTotal;
+        private Label lblDespesaMesAtual;
+        private Label lblRendaMesAtual;
+        private TextBox tbxDespesaMesAtual;
+        private TextBox tbxRendaMesAtul;
+        private Label lblDespesaAnoAtual;
+        private Label lblRendaAnoAtual;
+        private TextBox tbxDespesaAnoAtual;
+        private TextBox tbxRendaAnoAtual;
+        private Label lblDespesaTotal;
+        private Label lblRendaTotal;
     }
 }

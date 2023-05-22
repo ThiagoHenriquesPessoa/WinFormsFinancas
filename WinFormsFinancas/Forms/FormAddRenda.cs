@@ -5,8 +5,8 @@ namespace WinFormsFinancas.Forms
 {
     public partial class FormAddRenda : Form
     {
-        private readonly IRendaService _rendaService;
-        public FormAddRenda(IRendaService rendaService)
+        private readonly IRendaBusiness _rendaService;
+        public FormAddRenda(IRendaBusiness rendaService)
         {
             InitializeComponent();
             _rendaService = rendaService;
@@ -16,13 +16,17 @@ namespace WinFormsFinancas.Forms
         {
             var renda = new Renda
             {
-                ValorRenda = Convert.ToDouble(txtNovaRenda.Text),
-                TipoRenda = cbTipoRenda.Text,
-                ValorFixo = ckbValorFixo.Checked,
+                ValorRenda = txtNovaRenda.Text != "" ? Convert.ToDouble(txtNovaRenda.Text) : 0,
+                TipoRenda = cbTipoRenda.Text != "" ? cbTipoRenda.Text : "Outros",
                 DataEntrada = cldDataEntrada.SelectionRange.Start
             };
             _rendaService.InsertRenda(renda);
-           Close();            
+            Close();
+        }
+
+        private void btnCanelar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

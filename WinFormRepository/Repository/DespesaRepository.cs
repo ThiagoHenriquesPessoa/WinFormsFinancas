@@ -1,25 +1,28 @@
 ﻿using System;
-using System.Data;
 using System.Data.SQLite;
+using System.Data;
 using WinFormDomain.Models;
 using WinFormInfrastructure.Data;
 using WinFormRepository.InterfaceRepository;
 
 namespace WinFormRepository.Repository
 {
-    public class RendaRepository : IRendaRepository
+    public class DespesaRepository : IDespesaRepository
     {
-        public void InsertRenda(Renda renda)
+        public void InsertDespesa(Despesa despesa)
         {
             try
             {
                 using (var context = WinFormDbContext.DbConnection().CreateCommand())
                 {
-                    var sql = "INSERT INTO [Renda] ([ValorRenda] ,[TipoRenda] ,[DataEntrada]) VALUES  (@ValorRenda, '@TipoRenda', @DataEntrada);";
+                    var sql = "INSERT INTO [Despesa] ([ValorDespesa], [TipoDespesa], [QuantidadeParcelas], [DataCriacaoDespesa], [DespesaPaga], [FormaPagamento]) VALUES  (@ValorDespesa, '@TipoDespesa', @QuantidadeParcelas, @DataCriacaoDespesa, @DespesaPaga, @FormaPagamento);";
                     context.CommandText = sql;
-                    context.Parameters.AddWithValue("@ValorRenda", renda.ValorRenda);
-                    context.Parameters.AddWithValue("@TipoRenda", renda.TipoRenda);
-                    context.Parameters.AddWithValue("@DataEntrada", renda.DataEntrada);
+                    context.Parameters.AddWithValue("@ValorDespesa", despesa.ValorDespesa);
+                    context.Parameters.AddWithValue("@TipoDespesa", despesa.TipoDespesa);   
+                    context.Parameters.AddWithValue("@QuantidadeParcelas", despesa.QuantidadeParcelas);
+                    context.Parameters.AddWithValue("@DataCriacaoDespesa", despesa.DataCriacaoDespesa);
+                    context.Parameters.AddWithValue("@DespesaPaga", despesa.DespesaPaga);
+                    context.Parameters.AddWithValue("@FormaPagamento", despesa.FormaPagamento);
                     context.ExecuteNonQuery();
                 }
             }
@@ -29,7 +32,7 @@ namespace WinFormRepository.Repository
             }
         }
 
-        public DataTable GetRendaAll()
+        public DataTable GetValorDespesaAll()
         {
             SQLiteDataAdapter adapter = null;
             DataTable dataTable = new DataTable();
@@ -37,7 +40,7 @@ namespace WinFormRepository.Repository
             {
                 using (var context = WinFormDbContext.DbConnection().CreateCommand())
                 {
-                    context.CommandText = "SELECT ValorRenda FROM [Renda];";
+                    context.CommandText = "SELECT ValorDespesa FROM [Despesa];";
                     adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
                     adapter.Fill(dataTable);
                     return dataTable;

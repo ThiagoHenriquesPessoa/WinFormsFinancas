@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             cbTipoDespesa = new ComboBox();
-            cbxValorDespesaFixo = new CheckBox();
-            lblValorDespesaFixa = new Label();
+            cbxDespesaPaga = new CheckBox();
+            lblDespesaPaga = new Label();
             btnSalvar = new Button();
             btnCanelar = new Button();
             cldDataVencimento = new MonthCalendar();
@@ -40,37 +40,39 @@
             lblNovaDespesa = new Label();
             lblQtdParcelas = new Label();
             NumUpQtdParcelas = new NumericUpDown();
+            cbxFormaPagamento = new ComboBox();
+            lblFormaPagamento = new Label();
             ((System.ComponentModel.ISupportInitialize)NumUpQtdParcelas).BeginInit();
             SuspendLayout();
             // 
             // cbTipoDespesa
             // 
             cbTipoDespesa.FormattingEnabled = true;
-            cbTipoDespesa.Items.AddRange(new object[] { "Salario", "Extra", "Emprestimo", "Pis", "Outros" });
+            cbTipoDespesa.Items.AddRange(new object[] { "Água", "Energia", "Internet", "Claro Rayane", "Claro Thiago", "Academia Rayane", "Academia Thiago", "Feira", "Farmácia", "Combustível", "Emprestimo", "Outros" });
             cbTipoDespesa.Location = new Point(205, 71);
             cbTipoDespesa.Name = "cbTipoDespesa";
             cbTipoDespesa.Size = new Size(171, 28);
             cbTipoDespesa.TabIndex = 20;
             // 
-            // cbxValorDespesaFixo
+            // cbxDespesaPaga
             // 
-            cbxValorDespesaFixo.AutoSize = true;
-            cbxValorDespesaFixo.Location = new Point(205, 126);
-            cbxValorDespesaFixo.Name = "cbxValorDespesaFixo";
-            cbxValorDespesaFixo.Size = new Size(56, 24);
-            cbxValorDespesaFixo.TabIndex = 19;
-            cbxValorDespesaFixo.Text = "Sim";
-            cbxValorDespesaFixo.UseVisualStyleBackColor = true;
+            cbxDespesaPaga.AutoSize = true;
+            cbxDespesaPaga.Location = new Point(205, 126);
+            cbxDespesaPaga.Name = "cbxDespesaPaga";
+            cbxDespesaPaga.Size = new Size(56, 24);
+            cbxDespesaPaga.TabIndex = 19;
+            cbxDespesaPaga.Text = "Sim";
+            cbxDespesaPaga.UseVisualStyleBackColor = true;
             // 
-            // lblValorDespesaFixa
+            // lblDespesaPaga
             // 
-            lblValorDespesaFixa.AutoSize = true;
-            lblValorDespesaFixa.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblValorDespesaFixa.Location = new Point(50, 127);
-            lblValorDespesaFixa.Name = "lblValorDespesaFixa";
-            lblValorDespesaFixa.Size = new Size(89, 23);
-            lblValorDespesaFixa.TabIndex = 18;
-            lblValorDespesaFixa.Text = "Valor Fixo";
+            lblDespesaPaga.AutoSize = true;
+            lblDespesaPaga.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblDespesaPaga.Location = new Point(50, 127);
+            lblDespesaPaga.Name = "lblDespesaPaga";
+            lblDespesaPaga.Size = new Size(119, 23);
+            lblDespesaPaga.TabIndex = 18;
+            lblDespesaPaga.Text = "Despesa Paga";
             // 
             // btnSalvar
             // 
@@ -92,6 +94,7 @@
             btnCanelar.TabIndex = 16;
             btnCanelar.Text = "Canelar";
             btnCanelar.UseVisualStyleBackColor = true;
+            btnCanelar.Click += btnCanelar_Click;
             // 
             // cldDataVencimento
             // 
@@ -115,9 +118,9 @@
             lblTipoDespesa.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblTipoDespesa.Location = new Point(50, 76);
             lblTipoDespesa.Name = "lblTipoDespesa";
-            lblTipoDespesa.Size = new Size(126, 23);
+            lblTipoDespesa.Size = new Size(141, 23);
             lblTipoDespesa.TabIndex = 13;
-            lblTipoDespesa.Text = "Tipo de Renda";
+            lblTipoDespesa.Text = "Tipo de Despesa";
             // 
             // txtNovaDespesa
             // 
@@ -154,16 +157,37 @@
             NumUpQtdParcelas.TabIndex = 22;
             NumUpQtdParcelas.Value = new decimal(new int[] { 1, 0, 0, 0 });
             // 
+            // cbxFormaPagamento
+            // 
+            cbxFormaPagamento.FormattingEnabled = true;
+            cbxFormaPagamento.Items.AddRange(new object[] { "Cartão Nubanck Rayane", "Cartão Nubanck Thiago", "Cartão Riachuelo", "Cartão Renner Rayane", "Cartão Renner Mario", "Cartão Arnaldo", "Cartão Francisca", "Cartão Adalto", "Cartão Joyce", "Cartão Witami", "Cartão Thayse", "Cartão Auzi", "Dinheiro", "Outros" });
+            cbxFormaPagamento.Location = new Point(580, 71);
+            cbxFormaPagamento.Name = "cbxFormaPagamento";
+            cbxFormaPagamento.Size = new Size(171, 28);
+            cbxFormaPagamento.TabIndex = 24;
+            // 
+            // lblFormaPagamento
+            // 
+            lblFormaPagamento.AutoSize = true;
+            lblFormaPagamento.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblFormaPagamento.Location = new Point(392, 76);
+            lblFormaPagamento.Name = "lblFormaPagamento";
+            lblFormaPagamento.Size = new Size(182, 23);
+            lblFormaPagamento.TabIndex = 23;
+            lblFormaPagamento.Text = "Forma de Pagamento";
+            // 
             // FormAddDespesa
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(cbxFormaPagamento);
+            Controls.Add(lblFormaPagamento);
             Controls.Add(NumUpQtdParcelas);
             Controls.Add(lblQtdParcelas);
             Controls.Add(cbTipoDespesa);
-            Controls.Add(cbxValorDespesaFixo);
-            Controls.Add(lblValorDespesaFixa);
+            Controls.Add(cbxDespesaPaga);
+            Controls.Add(lblDespesaPaga);
             Controls.Add(btnSalvar);
             Controls.Add(btnCanelar);
             Controls.Add(cldDataVencimento);
@@ -172,7 +196,7 @@
             Controls.Add(txtNovaDespesa);
             Controls.Add(lblNovaDespesa);
             Name = "FormAddDespesa";
-            Text = "FormOrders";
+            Text = "Adicionar Despesa";
             ((System.ComponentModel.ISupportInitialize)NumUpQtdParcelas).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -181,8 +205,8 @@
         #endregion
 
         private ComboBox cbTipoDespesa;
-        private CheckBox cbxValorDespesaFixo;
-        private Label lblValorDespesaFixa;
+        private CheckBox cbxDespesaPaga;
+        private Label lblDespesaPaga;
         private Button btnSalvar;
         private Button btnCanelar;
         private MonthCalendar cldDataVencimento;
@@ -192,5 +216,7 @@
         private Label lblNovaDespesa;
         private Label lblQtdParcelas;
         private NumericUpDown NumUpQtdParcelas;
+        private ComboBox cbxFormaPagamento;
+        private Label lblFormaPagamento;
     }
 }

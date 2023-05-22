@@ -1,6 +1,10 @@
-﻿namespace WinFormBusiness.InterfaceBusiness
+﻿using WinFormDomain.Models;
+
+namespace WinFormBusiness.InterfaceBusiness
 {
-    public class IDespesaBusiness
+    public interface IDespesaBusiness
     {
+        void InsertDespesa(Despesa despesa);
+        double GetDespesaTotal();
     }
 }

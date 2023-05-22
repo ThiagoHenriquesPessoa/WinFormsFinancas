@@ -10,13 +10,16 @@ namespace WinFormsFinancas
         private Random random;
         private int tempIndex;
         private Form activeForm;
-        private readonly IRendaService _repository;
-        public FormMainMenu(IRendaService repository)
+        private readonly IRendaBusiness _rendaBusiness;
+        private readonly IDespesaBusiness _despesaBusiness;
+        public FormMainMenu(IRendaBusiness rendaBusiness, IDespesaBusiness despesaBusiness)
         {
             InitializeComponent();
             random = new Random();
-            _repository = repository;
-            tbxRendaTotal.Text = Convert.ToString(_repository.GetRendaTotal());
+            _rendaBusiness = rendaBusiness;
+            _despesaBusiness = despesaBusiness;
+            tbxRendaTotal.Text = Convert.ToString(_rendaBusiness.GetRendaTotal());
+            tbxDespesaTotal.Text = Convert.ToString(_despesaBusiness.GetDespesaTotal());
         }
 
         private Color SelectthemeColor()
@@ -78,7 +81,7 @@ namespace WinFormsFinancas
             this.panelDesctopPanel.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-            lblTitle.Text = childForm.Text;
+            lblPage.Text = childForm.Text;
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
@@ -103,14 +106,16 @@ namespace WinFormsFinancas
 
         private void btnAddRenda_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormAddRenda(new RendaService(new RendaRepository())), sender);
-            tbxRendaTotal.Text = Convert.ToString(_repository.GetRendaTotal());
+            OpenChildForm(new Forms.FormAddRenda(new RendaBusiness(new RendaRepository())), sender);
+            tbxRendaTotal.Text = Convert.ToString(_rendaBusiness.GetRendaTotal());
+            tbxDespesaTotal.Text = Convert.ToString(_despesaBusiness.GetDespesaTotal());
         }
 
         private void btnAddDespesa_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormAddDespesa(), sender);
-            tbxRendaTotal.Text = Convert.ToString(_repository.GetRendaTotal());
+            OpenChildForm(new Forms.FormAddDespesa(new DespesaBusiness(new DespesaRepository())), sender);
+            tbxRendaTotal.Text = Convert.ToString(_rendaBusiness.GetRendaTotal());
+            tbxDespesaTotal.Text = Convert.ToString(_despesaBusiness.GetDespesaTotal());
         }
     }
 }

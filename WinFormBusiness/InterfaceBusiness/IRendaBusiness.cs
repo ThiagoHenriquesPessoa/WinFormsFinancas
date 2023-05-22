@@ -2,7 +2,7 @@
 
 namespace WinFormBusiness.InterfaceBusiness
 {
-    public interface IRendaService
+    public interface IRendaBusiness
     {
         void InsertRenda(Renda renda);
         double GetRendaTotal();
