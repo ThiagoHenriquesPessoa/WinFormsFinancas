@@ -1,25 +1,26 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Threading.Tasks;
 using WinFormBusiness.InterfaceBusiness;
 using WinFormDomain.Models;
 using WinFormRepository.InterfaceRepository;
 
 namespace WinFormBusiness.Business
 {
-    public class RendaService : IRendaService
+    public class RendaBusiness : IRendaBusiness
     {
         private readonly IRendaRepository _rendaRepository;
 
-        public RendaService(IRendaRepository rendaRepository)
+        public RendaBusiness(IRendaRepository rendaRepository)
         {
             _rendaRepository = rendaRepository;
         }
 
         public void InsertRenda(Renda renda)
         {
-            _rendaRepository.InsertRenda(renda);
+            if (renda.ValorRenda > 0) 
+            {
+                _rendaRepository.InsertRenda(renda);
+            }
         }
 
         public double GetRendaTotal()

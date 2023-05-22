@@ -35,8 +35,6 @@
             cldDataEntrada = new MonthCalendar();
             btnCanelar = new Button();
             btnSalvar = new Button();
-            lblValorFixo = new Label();
-            ckbValorFixo = new CheckBox();
             cbTipoRenda = new ComboBox();
             SuspendLayout();
             // 
@@ -71,7 +69,7 @@
             // 
             lblDataEntrada.AutoSize = true;
             lblDataEntrada.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDataEntrada.Location = new Point(34, 174);
+            lblDataEntrada.Location = new Point(34, 124);
             lblDataEntrada.Name = "lblDataEntrada";
             lblDataEntrada.Size = new Size(140, 23);
             lblDataEntrada.TabIndex = 4;
@@ -79,7 +77,7 @@
             // 
             // cldDataEntrada
             // 
-            cldDataEntrada.Location = new Point(189, 174);
+            cldDataEntrada.Location = new Point(189, 124);
             cldDataEntrada.Name = "cldDataEntrada";
             cldDataEntrada.TabIndex = 5;
             // 
@@ -92,6 +90,7 @@
             btnCanelar.TabIndex = 6;
             btnCanelar.Text = "Canelar";
             btnCanelar.UseVisualStyleBackColor = true;
+            btnCanelar.Click += btnCanelar_Click;
             // 
             // btnSalvar
             // 
@@ -103,26 +102,6 @@
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
             btnSalvar.Click += btnSalvar_Click;
-            // 
-            // lblValorFixo
-            // 
-            lblValorFixo.AutoSize = true;
-            lblValorFixo.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblValorFixo.Location = new Point(34, 124);
-            lblValorFixo.Name = "lblValorFixo";
-            lblValorFixo.Size = new Size(89, 23);
-            lblValorFixo.TabIndex = 8;
-            lblValorFixo.Text = "Valor Fixo";
-            // 
-            // ckbValorFixo
-            // 
-            ckbValorFixo.AutoSize = true;
-            ckbValorFixo.Location = new Point(189, 123);
-            ckbValorFixo.Name = "ckbValorFixo";
-            ckbValorFixo.Size = new Size(56, 24);
-            ckbValorFixo.TabIndex = 9;
-            ckbValorFixo.Text = "Sim";
-            ckbValorFixo.UseVisualStyleBackColor = true;
             // 
             // cbTipoRenda
             // 
@@ -140,8 +119,6 @@
             BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(cbTipoRenda);
-            Controls.Add(ckbValorFixo);
-            Controls.Add(lblValorFixo);
             Controls.Add(btnSalvar);
             Controls.Add(btnCanelar);
             Controls.Add(cldDataEntrada);
@@ -150,7 +127,7 @@
             Controls.Add(txtNovaRenda);
             Controls.Add(lblNovaRenda);
             Name = "FormAddRenda";
-            Text = "FormNovaRenda";
+            Text = "Adicionar Renda";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -164,8 +141,6 @@
         private MonthCalendar cldDataEntrada;
         private Button btnCanelar;
         private Button btnSalvar;
-        private Label lblValorFixo;
-        private CheckBox ckbValorFixo;
         private ComboBox cbTipoRenda;
     }
 }
