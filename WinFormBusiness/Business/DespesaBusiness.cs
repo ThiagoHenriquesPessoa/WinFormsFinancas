@@ -18,7 +18,15 @@ namespace WinFormBusiness.Business
         {
             if (despesa.ValorDespesa > 0)
             {
-                _despesaRepository.InsertDespesa(despesa);
+                int parcelas = despesa.QuantidadeParcelas;
+                double valor = despesa.ValorDespesa / parcelas;
+                despesa.ValorDespesa = valor;
+                for (int i=1; i <= parcelas; i++)
+                {
+                    despesa.DataCriacaoDespesa.AddMonths(+1);
+                    despesa.QuantidadeParcelas = i;                    
+                    _despesaRepository.InsertDespesa(despesa);
+                }                
             }            
         }
 
@@ -28,6 +36,18 @@ namespace WinFormBusiness.Business
             var table = _despesaRepository.GetValorDespesaAll();
             foreach (DataRow row in table.Rows)
             {
+                valorTotal += (double)row["ValorDespesa"];
+            }
+            return valorTotal;
+        }
+
+        public double GetDespesaAnoAtualAll()
+        {
+            double valorTotal = 0;
+            var table = _despesaRepository.GetValorDespesaAnoAtualAll();
+            foreach (DataRow row in table.Rows)
+            {
+
                 valorTotal += (double)row["ValorDespesa"];
             }
             return valorTotal;
