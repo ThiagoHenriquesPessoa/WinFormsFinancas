@@ -20,6 +20,7 @@ namespace WinFormsFinancas
             _despesaBusiness = despesaBusiness;
             tbxRendaTotal.Text = Convert.ToString(_rendaBusiness.GetRendaTotal());
             tbxDespesaTotal.Text = Convert.ToString(_despesaBusiness.GetDespesaTotal());
+            tbxDespesaAnoAtual.Text = Convert.ToString(_despesaBusiness.GetDespesaAnoAtualAll());
         }
 
         private Color SelectthemeColor()
@@ -109,6 +110,7 @@ namespace WinFormsFinancas
             OpenChildForm(new Forms.FormAddRenda(new RendaBusiness(new RendaRepository())), sender);
             tbxRendaTotal.Text = Convert.ToString(_rendaBusiness.GetRendaTotal());
             tbxDespesaTotal.Text = Convert.ToString(_despesaBusiness.GetDespesaTotal());
+            tbxDespesaAnoAtual.Text = Convert.ToString(_despesaBusiness.GetDespesaAnoAtualAll());
         }
 
         private void btnAddDespesa_Click(object sender, EventArgs e)
@@ -116,6 +118,14 @@ namespace WinFormsFinancas
             OpenChildForm(new Forms.FormAddDespesa(new DespesaBusiness(new DespesaRepository())), sender);
             tbxRendaTotal.Text = Convert.ToString(_rendaBusiness.GetRendaTotal());
             tbxDespesaTotal.Text = Convert.ToString(_despesaBusiness.GetDespesaTotal());
+            tbxDespesaAnoAtual.Text = Convert.ToString(_despesaBusiness.GetDespesaAnoAtualAll());
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            tbxRendaTotal.Text = Convert.ToString(_rendaBusiness.GetRendaTotal());
+            tbxDespesaTotal.Text = Convert.ToString(_despesaBusiness.GetDespesaTotal());
+            tbxDespesaAnoAtual.Text = Convert.ToString(_despesaBusiness.GetDespesaAnoAtualAll());
         }
     }
 }

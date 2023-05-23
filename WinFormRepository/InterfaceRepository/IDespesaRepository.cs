@@ -7,5 +7,6 @@ namespace WinFormRepository.InterfaceRepository
     {
         void InsertDespesa(Despesa despesa);
         DataTable GetValorDespesaAll();
+        DataTable GetValorDespesaAnoAtualAll();
     }
 }

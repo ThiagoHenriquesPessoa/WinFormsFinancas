@@ -40,7 +40,27 @@ namespace WinFormRepository.Repository
             {
                 using (var context = WinFormDbContext.DbConnection().CreateCommand())
                 {
-                    context.CommandText = "SELECT ValorDespesa FROM [Despesa];";
+                    context.CommandText = "SELECT ValorDespesa FROM [Despesa] ;";
+                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public DataTable GetValorDespesaAnoAtualAll()
+        {
+            SQLiteDataAdapter adapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                {
+                    context.CommandText = "SELECT ValorDespesa FROM [Despesa] WHERE DataCriacaoDespesa>'2023-01-01 00:00:00' and DataCriacaoDespesa<'2024-01-01 00:00:00';";
                     adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
                     adapter.Fill(dataTable);
                     return dataTable;

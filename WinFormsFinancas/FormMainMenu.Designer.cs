@@ -42,18 +42,19 @@
             lblPage = new Label();
             lblTitle = new Label();
             panelDesctopPanel = new Panel();
-            tbxDespesaTotal = new TextBox();
-            tbxRendaTotal = new TextBox();
-            lblRendaTotal = new Label();
-            lblDespesaTotal = new Label();
-            lblDespesaAnoAtual = new Label();
-            lblRendaAnoAtual = new Label();
-            tbxDespesaAnoAtual = new TextBox();
-            tbxRendaAnoAtual = new TextBox();
             lblDespesaMesAtual = new Label();
             lblRendaMesAtual = new Label();
             tbxDespesaMesAtual = new TextBox();
             tbxRendaMesAtul = new TextBox();
+            lblDespesaAnoAtual = new Label();
+            lblRendaAnoAtual = new Label();
+            tbxDespesaAnoAtual = new TextBox();
+            tbxRendaAnoAtual = new TextBox();
+            lblDespesaTotal = new Label();
+            lblRendaTotal = new Label();
+            tbxDespesaTotal = new TextBox();
+            tbxRendaTotal = new TextBox();
+            btnAtualizar = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
@@ -251,6 +252,7 @@
             // 
             // panelDesctopPanel
             // 
+            panelDesctopPanel.Controls.Add(btnAtualizar);
             panelDesctopPanel.Controls.Add(lblDespesaMesAtual);
             panelDesctopPanel.Controls.Add(lblRendaMesAtual);
             panelDesctopPanel.Controls.Add(tbxDespesaMesAtual);
@@ -269,37 +271,37 @@
             panelDesctopPanel.Size = new Size(1002, 593);
             panelDesctopPanel.TabIndex = 2;
             // 
-            // tbxDespesaTotal
+            // lblDespesaMesAtual
             // 
-            tbxDespesaTotal.Location = new Point(181, 77);
-            tbxDespesaTotal.Name = "tbxDespesaTotal";
-            tbxDespesaTotal.Size = new Size(125, 27);
-            tbxDespesaTotal.TabIndex = 1;
+            lblDespesaMesAtual.AutoSize = true;
+            lblDespesaMesAtual.Location = new Point(24, 288);
+            lblDespesaMesAtual.Name = "lblDespesaMesAtual";
+            lblDespesaMesAtual.Size = new Size(135, 20);
+            lblDespesaMesAtual.TabIndex = 11;
+            lblDespesaMesAtual.Text = "Despesa Mês Atual";
             // 
-            // tbxRendaTotal
+            // lblRendaMesAtual
             // 
-            tbxRendaTotal.Location = new Point(181, 37);
-            tbxRendaTotal.Name = "tbxRendaTotal";
-            tbxRendaTotal.Size = new Size(125, 27);
-            tbxRendaTotal.TabIndex = 0;
+            lblRendaMesAtual.AutoSize = true;
+            lblRendaMesAtual.Location = new Point(24, 251);
+            lblRendaMesAtual.Name = "lblRendaMesAtual";
+            lblRendaMesAtual.Size = new Size(121, 20);
+            lblRendaMesAtual.TabIndex = 10;
+            lblRendaMesAtual.Text = "Renda Mês Atual";
             // 
-            // lblRendaTotal
+            // tbxDespesaMesAtual
             // 
-            lblRendaTotal.AutoSize = true;
-            lblRendaTotal.Location = new Point(24, 40);
-            lblRendaTotal.Name = "lblRendaTotal";
-            lblRendaTotal.Size = new Size(88, 20);
-            lblRendaTotal.TabIndex = 2;
-            lblRendaTotal.Text = "Renda Total";
+            tbxDespesaMesAtual.Location = new Point(181, 285);
+            tbxDespesaMesAtual.Name = "tbxDespesaMesAtual";
+            tbxDespesaMesAtual.Size = new Size(125, 27);
+            tbxDespesaMesAtual.TabIndex = 9;
             // 
-            // lblDespesaTotal
+            // tbxRendaMesAtul
             // 
-            lblDespesaTotal.AutoSize = true;
-            lblDespesaTotal.Location = new Point(24, 77);
-            lblDespesaTotal.Name = "lblDespesaTotal";
-            lblDespesaTotal.Size = new Size(102, 20);
-            lblDespesaTotal.TabIndex = 3;
-            lblDespesaTotal.Text = "Despesa Total";
+            tbxRendaMesAtul.Location = new Point(181, 245);
+            tbxRendaMesAtul.Name = "tbxRendaMesAtul";
+            tbxRendaMesAtul.Size = new Size(125, 27);
+            tbxRendaMesAtul.TabIndex = 8;
             // 
             // lblDespesaAnoAtual
             // 
@@ -333,37 +335,47 @@
             tbxRendaAnoAtual.Size = new Size(125, 27);
             tbxRendaAnoAtual.TabIndex = 4;
             // 
-            // lblDespesaMesAtual
+            // lblDespesaTotal
             // 
-            lblDespesaMesAtual.AutoSize = true;
-            lblDespesaMesAtual.Location = new Point(24, 288);
-            lblDespesaMesAtual.Name = "lblDespesaMesAtual";
-            lblDespesaMesAtual.Size = new Size(135, 20);
-            lblDespesaMesAtual.TabIndex = 11;
-            lblDespesaMesAtual.Text = "Despesa Mês Atual";
+            lblDespesaTotal.AutoSize = true;
+            lblDespesaTotal.Location = new Point(24, 77);
+            lblDespesaTotal.Name = "lblDespesaTotal";
+            lblDespesaTotal.Size = new Size(102, 20);
+            lblDespesaTotal.TabIndex = 3;
+            lblDespesaTotal.Text = "Despesa Total";
             // 
-            // lblRendaMesAtual
+            // lblRendaTotal
             // 
-            lblRendaMesAtual.AutoSize = true;
-            lblRendaMesAtual.Location = new Point(24, 251);
-            lblRendaMesAtual.Name = "lblRendaMesAtual";
-            lblRendaMesAtual.Size = new Size(121, 20);
-            lblRendaMesAtual.TabIndex = 10;
-            lblRendaMesAtual.Text = "Renda Mês Atual";
+            lblRendaTotal.AutoSize = true;
+            lblRendaTotal.Location = new Point(24, 40);
+            lblRendaTotal.Name = "lblRendaTotal";
+            lblRendaTotal.Size = new Size(88, 20);
+            lblRendaTotal.TabIndex = 2;
+            lblRendaTotal.Text = "Renda Total";
             // 
-            // tbxDespesaMesAtual
+            // tbxDespesaTotal
             // 
-            tbxDespesaMesAtual.Location = new Point(181, 285);
-            tbxDespesaMesAtual.Name = "tbxDespesaMesAtual";
-            tbxDespesaMesAtual.Size = new Size(125, 27);
-            tbxDespesaMesAtual.TabIndex = 9;
+            tbxDespesaTotal.Location = new Point(181, 77);
+            tbxDespesaTotal.Name = "tbxDespesaTotal";
+            tbxDespesaTotal.Size = new Size(125, 27);
+            tbxDespesaTotal.TabIndex = 1;
             // 
-            // tbxRendaMesAtul
+            // tbxRendaTotal
             // 
-            tbxRendaMesAtul.Location = new Point(181, 245);
-            tbxRendaMesAtul.Name = "tbxRendaMesAtul";
-            tbxRendaMesAtul.Size = new Size(125, 27);
-            tbxRendaMesAtul.TabIndex = 8;
+            tbxRendaTotal.Location = new Point(181, 37);
+            tbxRendaTotal.Name = "tbxRendaTotal";
+            tbxRendaTotal.Size = new Size(125, 27);
+            tbxRendaTotal.TabIndex = 0;
+            // 
+            // btnAtualizar
+            // 
+            btnAtualizar.Location = new Point(866, 530);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(94, 29);
+            btnAtualizar.TabIndex = 12;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // FormMainMenu
             // 
@@ -412,5 +424,6 @@
         private TextBox tbxRendaAnoAtual;
         private Label lblDespesaTotal;
         private Label lblRendaTotal;
+        private Button btnAtualizar;
     }
 }
