@@ -52,5 +52,17 @@ namespace WinFormBusiness.Business
             }
             return valorTotal;
         }
+
+        public double GetDespesaMesAtualAll()
+        {
+            double valorTotal = 0;
+            var table = _despesaRepository.GetValorDespesaMesAtualAll();
+            foreach (DataRow row in table.Rows)
+            {
+
+                valorTotal += (double)row["ValorDespesa"];
+            }
+            return valorTotal;
+        }
     }
 }

@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using WinFormBusiness.Business;
-using WinFormBusiness.InterfaceBusiness;
+﻿using WinFormBusiness.InterfaceBusiness;
 using WinFormDomain.Models;
 
 namespace WinFormsFinancas.Forms
@@ -16,6 +6,7 @@ namespace WinFormsFinancas.Forms
     public partial class FormAddDespesa : Form
     {
         private readonly IDespesaBusiness _despesaBusiness;
+
         public FormAddDespesa(IDespesaBusiness despesaBusiness)
         {
             InitializeComponent();
