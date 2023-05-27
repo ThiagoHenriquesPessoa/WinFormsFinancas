@@ -15,7 +15,7 @@ namespace WinFormRepository.Repository
             {
                 using (var context = WinFormDbContext.DbConnection().CreateCommand())
                 {
-                    var sql = "INSERT INTO [Despesa] ([ValorDespesa], [TipoDespesa], [QuantidadeParcelas], [DataCriacaoDespesa], [DespesaPaga], [FormaPagamento]) VALUES  (@ValorDespesa, '@TipoDespesa', @QuantidadeParcelas, @DataCriacaoDespesa, @DespesaPaga, @FormaPagamento);";
+                    var sql = "INSERT INTO [Despesa] ([ValorDespesa], [TipoDespesa], [QuantidadeParcelas], [DataCriacaoDespesa], [DespesaPaga], [FormaPagamento]) VALUES  (@ValorDespesa, @TipoDespesa, @QuantidadeParcelas, @DataCriacaoDespesa, @DespesaPaga, @FormaPagamento);";
                     context.CommandText = sql;
                     context.Parameters.AddWithValue("@ValorDespesa", despesa.ValorDespesa);
                     context.Parameters.AddWithValue("@TipoDespesa", despesa.TipoDespesa);   
@@ -60,7 +60,9 @@ namespace WinFormRepository.Repository
             {
                 using (var context = WinFormDbContext.DbConnection().CreateCommand())
                 {
-                    context.CommandText = "SELECT ValorDespesa FROM [Despesa] WHERE DataCriacaoDespesa>'2023-01-01 00:00:00' and DataCriacaoDespesa<'2024-01-01 00:00:00';";
+                    var param0 = DateTime.Now.Date.Year.ToString();
+                    var param1 = DateTime.Now.Date.AddYears(1).Year.ToString();
+                    context.CommandText = String.Format($"SELECT ValorDespesa FROM [Despesa] WHERE DataCriacaoDespesa>'{param0}-01-01 00:00:00' and DataCriacaoDespesa<'{param1}-01-01 00:00:00';");
                     adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
                     adapter.Fill(dataTable);
                     return dataTable;
