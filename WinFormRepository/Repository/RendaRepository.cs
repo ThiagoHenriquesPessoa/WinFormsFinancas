@@ -15,7 +15,7 @@ namespace WinFormRepository.Repository
             {
                 using (var context = WinFormDbContext.DbConnection().CreateCommand())
                 {
-                    var sql = "INSERT INTO [Renda] ([ValorRenda] ,[TipoRenda] ,[DataEntrada]) VALUES  (@ValorRenda, '@TipoRenda', @DataEntrada);";
+                    var sql = "INSERT INTO [Renda] ([ValorRenda] ,[TipoRenda] ,[DataEntrada]) VALUES  (@ValorRenda, @TipoRenda, @DataEntrada);";
                     context.CommandText = sql;
                     context.Parameters.AddWithValue("@ValorRenda", renda.ValorRenda);
                     context.Parameters.AddWithValue("@TipoRenda", renda.TipoRenda);

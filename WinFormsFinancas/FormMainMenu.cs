@@ -1,3 +1,4 @@
+using System.Globalization;
 using WinFormBusiness.Business;
 using WinFormBusiness.InterfaceBusiness;
 using WinFormRepository.Repository;
@@ -18,10 +19,10 @@ namespace WinFormsFinancas
             random = new Random();
             _rendaBusiness = rendaBusiness;
             _despesaBusiness = despesaBusiness;
-            tbxRendaTotal.Text = Convert.ToString(_rendaBusiness.GetRendaTotal());
-            tbxDespesaTotal.Text = Convert.ToString(_despesaBusiness.GetDespesaTotal());
-            tbxDespesaAnoAtual.Text = Convert.ToString(_despesaBusiness.GetDespesaAnoAtualAll());
-            tbxDespesaMesAtual.Text = Convert.ToString(_despesaBusiness.GetDespesaMesAtualAll());
+            tbxRendaTotal.Text = _rendaBusiness.GetRendaTotal().ToString("F2");
+            tbxDespesaTotal.Text = _despesaBusiness.GetDespesaTotal().ToString("F2");
+            tbxDespesaAnoAtual.Text = _despesaBusiness.GetDespesaAnoAtualAll().ToString("F2");
+            tbxDespesaMesAtual.Text = _despesaBusiness.GetDespesaMesAtualAll().ToString("F2");
         }
 
         private Color SelectthemeColor()
@@ -118,10 +119,10 @@ namespace WinFormsFinancas
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            tbxRendaTotal.Text = Convert.ToString(_rendaBusiness.GetRendaTotal());
-            tbxDespesaTotal.Text = Convert.ToString(_despesaBusiness.GetDespesaTotal());
-            tbxDespesaAnoAtual.Text = Convert.ToString(_despesaBusiness.GetDespesaAnoAtualAll());
-            tbxDespesaMesAtual.Text = Convert.ToString(_despesaBusiness.GetDespesaMesAtualAll());
+            tbxRendaTotal.Text = _rendaBusiness.GetRendaTotal().ToString("F2");
+            tbxDespesaTotal.Text = _despesaBusiness.GetDespesaTotal().ToString("F2");
+            tbxDespesaAnoAtual.Text = _despesaBusiness.GetDespesaAnoAtualAll().ToString("F2");
+            tbxDespesaMesAtual.Text = _despesaBusiness.GetDespesaMesAtualAll().ToString("F2");
         }
     }
 }
