@@ -7,5 +7,6 @@ namespace WinFormBusiness.InterfaceBusiness
         void InsertDespesa(Despesa despesa);
         double GetDespesaTotal();
         double GetDespesaAnoAtualAll();
+        double GetDespesaMesAtualAll();
     }
 }

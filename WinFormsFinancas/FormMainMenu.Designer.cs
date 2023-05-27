@@ -42,6 +42,7 @@
             lblPage = new Label();
             lblTitle = new Label();
             panelDesctopPanel = new Panel();
+            btnAtualizar = new Button();
             lblDespesaMesAtual = new Label();
             lblRendaMesAtual = new Label();
             tbxDespesaMesAtual = new TextBox();
@@ -54,7 +55,6 @@
             lblRendaTotal = new Label();
             tbxDespesaTotal = new TextBox();
             tbxRendaTotal = new TextBox();
-            btnAtualizar = new Button();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
@@ -271,6 +271,16 @@
             panelDesctopPanel.Size = new Size(1002, 593);
             panelDesctopPanel.TabIndex = 2;
             // 
+            // btnAtualizar
+            // 
+            btnAtualizar.Location = new Point(866, 530);
+            btnAtualizar.Name = "btnAtualizar";
+            btnAtualizar.Size = new Size(94, 29);
+            btnAtualizar.TabIndex = 12;
+            btnAtualizar.Text = "Atualizar";
+            btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
+            // 
             // lblDespesaMesAtual
             // 
             lblDespesaMesAtual.AutoSize = true;
@@ -366,16 +376,6 @@
             tbxRendaTotal.Name = "tbxRendaTotal";
             tbxRendaTotal.Size = new Size(125, 27);
             tbxRendaTotal.TabIndex = 0;
-            // 
-            // btnAtualizar
-            // 
-            btnAtualizar.Location = new Point(866, 530);
-            btnAtualizar.Name = "btnAtualizar";
-            btnAtualizar.Size = new Size(94, 29);
-            btnAtualizar.TabIndex = 12;
-            btnAtualizar.Text = "Atualizar";
-            btnAtualizar.UseVisualStyleBackColor = true;
-            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // FormMainMenu
             // 

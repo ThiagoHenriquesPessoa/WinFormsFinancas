@@ -73,5 +73,28 @@ namespace WinFormRepository.Repository
                 throw new Exception(ex.Message);
             }
         }
+
+        public DataTable GetValorDespesaMesAtualAll()
+        {
+            SQLiteDataAdapter adapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                {
+                    var param0 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.Month}-01 00:00:00");
+                    var param1 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.AddMonths(1).Month}-01 00:00:00");
+                    
+                    context.CommandText = String.Format($"SELECT ValorDespesa FROM [Despesa] WHERE DataCriacaoDespesa >= '{param0}' and DataCriacaoDespesa < '{param1}';");
+                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
