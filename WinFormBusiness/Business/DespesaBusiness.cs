@@ -23,7 +23,7 @@ namespace WinFormBusiness.Business
                 despesa.ValorDespesa = valor;
                 for (int i=1; i <= parcelas; i++)
                 {
-                    despesa.DataCriacaoDespesa.AddMonths(+1);
+                    despesa.DataCriacaoDespesa = i == 1 ? despesa.DataCriacaoDespesa : despesa.DataCriacaoDespesa.AddMonths(1);
                     despesa.QuantidadeParcelas = i;                    
                     _despesaRepository.InsertDespesa(despesa);
                 }                
