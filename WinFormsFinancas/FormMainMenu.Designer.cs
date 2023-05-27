@@ -316,7 +316,7 @@
             // lblDespesaAnoAtual
             // 
             lblDespesaAnoAtual.AutoSize = true;
-            lblDespesaAnoAtual.Location = new Point(24, 184);
+            lblDespesaAnoAtual.Location = new Point(376, 77);
             lblDespesaAnoAtual.Name = "lblDespesaAnoAtual";
             lblDespesaAnoAtual.Size = new Size(135, 20);
             lblDespesaAnoAtual.TabIndex = 7;
@@ -325,7 +325,7 @@
             // lblRendaAnoAtual
             // 
             lblRendaAnoAtual.AutoSize = true;
-            lblRendaAnoAtual.Location = new Point(24, 147);
+            lblRendaAnoAtual.Location = new Point(376, 40);
             lblRendaAnoAtual.Name = "lblRendaAnoAtual";
             lblRendaAnoAtual.Size = new Size(121, 20);
             lblRendaAnoAtual.TabIndex = 6;
@@ -333,14 +333,14 @@
             // 
             // tbxDespesaAnoAtual
             // 
-            tbxDespesaAnoAtual.Location = new Point(181, 181);
+            tbxDespesaAnoAtual.Location = new Point(533, 74);
             tbxDespesaAnoAtual.Name = "tbxDespesaAnoAtual";
             tbxDespesaAnoAtual.Size = new Size(125, 27);
             tbxDespesaAnoAtual.TabIndex = 5;
             // 
             // tbxRendaAnoAtual
             // 
-            tbxRendaAnoAtual.Location = new Point(181, 141);
+            tbxRendaAnoAtual.Location = new Point(533, 34);
             tbxRendaAnoAtual.Name = "tbxRendaAnoAtual";
             tbxRendaAnoAtual.Size = new Size(125, 27);
             tbxRendaAnoAtual.TabIndex = 4;
