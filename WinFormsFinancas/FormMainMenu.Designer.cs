@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelMenu = new Panel();
             btnSetting = new Button();
             btnNotifications = new Button();
@@ -42,6 +44,7 @@
             lblPage = new Label();
             lblTitle = new Label();
             panelDesctopPanel = new Panel();
+            dgvListDespesasNaoPagas = new DataGridView();
             btnAtualizar = new Button();
             lblDespesaMesAtual = new Label();
             lblRendaMesAtual = new Label();
@@ -59,6 +62,7 @@
             panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
             panelDesctopPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvListDespesasNaoPagas).BeginInit();
             SuspendLayout();
             // 
             // panelMenu
@@ -74,7 +78,7 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 673);
+            panelMenu.Size = new Size(220, 753);
             panelMenu.TabIndex = 0;
             // 
             // btnSetting
@@ -223,7 +227,7 @@
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(1002, 80);
+            panelTitleBar.Size = new Size(962, 80);
             panelTitleBar.TabIndex = 1;
             // 
             // lblPage
@@ -232,7 +236,7 @@
             lblPage.AutoSize = true;
             lblPage.Font = new Font("MS PGothic", 14F, FontStyle.Bold, GraphicsUnit.Point);
             lblPage.ForeColor = Color.White;
-            lblPage.Location = new Point(462, 28);
+            lblPage.Location = new Point(442, 28);
             lblPage.Name = "lblPage";
             lblPage.Size = new Size(78, 24);
             lblPage.TabIndex = 1;
@@ -244,7 +248,7 @@
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("MS PGothic", 14F, FontStyle.Bold, GraphicsUnit.Point);
             lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(463, 29);
+            lblTitle.Location = new Point(443, 29);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(78, 24);
             lblTitle.TabIndex = 0;
@@ -252,6 +256,7 @@
             // 
             // panelDesctopPanel
             // 
+            panelDesctopPanel.Controls.Add(dgvListDespesasNaoPagas);
             panelDesctopPanel.Controls.Add(btnAtualizar);
             panelDesctopPanel.Controls.Add(lblDespesaMesAtual);
             panelDesctopPanel.Controls.Add(lblRendaMesAtual);
@@ -268,12 +273,42 @@
             panelDesctopPanel.Dock = DockStyle.Fill;
             panelDesctopPanel.Location = new Point(220, 80);
             panelDesctopPanel.Name = "panelDesctopPanel";
-            panelDesctopPanel.Size = new Size(1002, 593);
+            panelDesctopPanel.Size = new Size(962, 673);
             panelDesctopPanel.TabIndex = 2;
+            // 
+            // dgvListDespesasNaoPagas
+            // 
+            dgvListDespesasNaoPagas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dgvListDespesasNaoPagas.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvListDespesasNaoPagas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvListDespesasNaoPagas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvListDespesasNaoPagas.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvListDespesasNaoPagas.Location = new Point(362, 135);
+            dgvListDespesasNaoPagas.Name = "dgvListDespesasNaoPagas";
+            dgvListDespesasNaoPagas.RowHeadersWidth = 5;
+            dgvListDespesasNaoPagas.RowTemplate.Height = 20;
+            dgvListDespesasNaoPagas.ScrollBars = ScrollBars.Vertical;
+            dgvListDespesasNaoPagas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvListDespesasNaoPagas.Size = new Size(390, 170);
+            dgvListDespesasNaoPagas.TabIndex = 13;
             // 
             // btnAtualizar
             // 
-            btnAtualizar.Location = new Point(866, 530);
+            btnAtualizar.Location = new Point(846, 621);
             btnAtualizar.Name = "btnAtualizar";
             btnAtualizar.Size = new Size(94, 29);
             btnAtualizar.TabIndex = 12;
@@ -284,7 +319,7 @@
             // lblDespesaMesAtual
             // 
             lblDespesaMesAtual.AutoSize = true;
-            lblDespesaMesAtual.Location = new Point(24, 288);
+            lblDespesaMesAtual.Location = new Point(10, 192);
             lblDespesaMesAtual.Name = "lblDespesaMesAtual";
             lblDespesaMesAtual.Size = new Size(135, 20);
             lblDespesaMesAtual.TabIndex = 11;
@@ -293,7 +328,7 @@
             // lblRendaMesAtual
             // 
             lblRendaMesAtual.AutoSize = true;
-            lblRendaMesAtual.Location = new Point(24, 251);
+            lblRendaMesAtual.Location = new Point(10, 155);
             lblRendaMesAtual.Name = "lblRendaMesAtual";
             lblRendaMesAtual.Size = new Size(121, 20);
             lblRendaMesAtual.TabIndex = 10;
@@ -301,14 +336,14 @@
             // 
             // tbxDespesaMesAtual
             // 
-            tbxDespesaMesAtual.Location = new Point(181, 285);
+            tbxDespesaMesAtual.Location = new Point(151, 189);
             tbxDespesaMesAtual.Name = "tbxDespesaMesAtual";
             tbxDespesaMesAtual.Size = new Size(125, 27);
             tbxDespesaMesAtual.TabIndex = 9;
             // 
             // tbxRendaMesAtul
             // 
-            tbxRendaMesAtul.Location = new Point(181, 245);
+            tbxRendaMesAtul.Location = new Point(151, 149);
             tbxRendaMesAtul.Name = "tbxRendaMesAtul";
             tbxRendaMesAtul.Size = new Size(125, 27);
             tbxRendaMesAtul.TabIndex = 8;
@@ -316,7 +351,7 @@
             // lblDespesaAnoAtual
             // 
             lblDespesaAnoAtual.AutoSize = true;
-            lblDespesaAnoAtual.Location = new Point(376, 77);
+            lblDespesaAnoAtual.Location = new Point(362, 57);
             lblDespesaAnoAtual.Name = "lblDespesaAnoAtual";
             lblDespesaAnoAtual.Size = new Size(135, 20);
             lblDespesaAnoAtual.TabIndex = 7;
@@ -325,7 +360,7 @@
             // lblRendaAnoAtual
             // 
             lblRendaAnoAtual.AutoSize = true;
-            lblRendaAnoAtual.Location = new Point(376, 40);
+            lblRendaAnoAtual.Location = new Point(362, 20);
             lblRendaAnoAtual.Name = "lblRendaAnoAtual";
             lblRendaAnoAtual.Size = new Size(121, 20);
             lblRendaAnoAtual.TabIndex = 6;
@@ -333,14 +368,14 @@
             // 
             // tbxDespesaAnoAtual
             // 
-            tbxDespesaAnoAtual.Location = new Point(533, 74);
+            tbxDespesaAnoAtual.Location = new Point(503, 54);
             tbxDespesaAnoAtual.Name = "tbxDespesaAnoAtual";
             tbxDespesaAnoAtual.Size = new Size(125, 27);
             tbxDespesaAnoAtual.TabIndex = 5;
             // 
             // tbxRendaAnoAtual
             // 
-            tbxRendaAnoAtual.Location = new Point(533, 34);
+            tbxRendaAnoAtual.Location = new Point(503, 14);
             tbxRendaAnoAtual.Name = "tbxRendaAnoAtual";
             tbxRendaAnoAtual.Size = new Size(125, 27);
             tbxRendaAnoAtual.TabIndex = 4;
@@ -348,7 +383,7 @@
             // lblDespesaTotal
             // 
             lblDespesaTotal.AutoSize = true;
-            lblDespesaTotal.Location = new Point(24, 77);
+            lblDespesaTotal.Location = new Point(10, 57);
             lblDespesaTotal.Name = "lblDespesaTotal";
             lblDespesaTotal.Size = new Size(102, 20);
             lblDespesaTotal.TabIndex = 3;
@@ -357,7 +392,7 @@
             // lblRendaTotal
             // 
             lblRendaTotal.AutoSize = true;
-            lblRendaTotal.Location = new Point(24, 40);
+            lblRendaTotal.Location = new Point(10, 20);
             lblRendaTotal.Name = "lblRendaTotal";
             lblRendaTotal.Size = new Size(88, 20);
             lblRendaTotal.TabIndex = 2;
@@ -365,14 +400,14 @@
             // 
             // tbxDespesaTotal
             // 
-            tbxDespesaTotal.Location = new Point(181, 77);
+            tbxDespesaTotal.Location = new Point(112, 57);
             tbxDespesaTotal.Name = "tbxDespesaTotal";
             tbxDespesaTotal.Size = new Size(125, 27);
             tbxDespesaTotal.TabIndex = 1;
             // 
             // tbxRendaTotal
             // 
-            tbxRendaTotal.Location = new Point(181, 37);
+            tbxRendaTotal.Location = new Point(112, 17);
             tbxRendaTotal.Name = "tbxRendaTotal";
             tbxRendaTotal.Size = new Size(125, 27);
             tbxRendaTotal.TabIndex = 0;
@@ -381,7 +416,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1222, 673);
+            ClientSize = new Size(1182, 753);
             Controls.Add(panelDesctopPanel);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
@@ -394,6 +429,7 @@
             panelTitleBar.PerformLayout();
             panelDesctopPanel.ResumeLayout(false);
             panelDesctopPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvListDespesasNaoPagas).EndInit();
             ResumeLayout(false);
         }
 
@@ -425,5 +461,6 @@
         private Label lblDespesaTotal;
         private Label lblRendaTotal;
         private Button btnAtualizar;
+        private DataGridView dgvListDespesasNaoPagas;
     }
 }
