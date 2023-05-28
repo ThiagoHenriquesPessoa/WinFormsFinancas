@@ -9,5 +9,6 @@ namespace WinFormRepository.InterfaceRepository
         DataTable GetValorDespesaAll();
         DataTable GetValorDespesaAnoAtualAll();
         DataTable GetValorDespesaMesAtualAll();
+        DataTable GetDespesaNaoPagasMesAtualAll();
     }
 }

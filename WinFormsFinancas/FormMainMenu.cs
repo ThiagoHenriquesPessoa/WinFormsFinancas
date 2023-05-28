@@ -1,6 +1,7 @@
 using System.Globalization;
 using WinFormBusiness.Business;
 using WinFormBusiness.InterfaceBusiness;
+using WinFormDomain.Models;
 using WinFormRepository.Repository;
 
 namespace WinFormsFinancas
@@ -19,10 +20,17 @@ namespace WinFormsFinancas
             random = new Random();
             _rendaBusiness = rendaBusiness;
             _despesaBusiness = despesaBusiness;
+            AtualizaHome();
+        }
+
+        private void AtualizaHome()
+        {
             tbxRendaTotal.Text = _rendaBusiness.GetRendaTotal().ToString("F2");
             tbxDespesaTotal.Text = _despesaBusiness.GetDespesaTotal().ToString("F2");
             tbxDespesaAnoAtual.Text = _despesaBusiness.GetDespesaAnoAtualAll().ToString("F2");
             tbxDespesaMesAtual.Text = _despesaBusiness.GetDespesaMesAtualAll().ToString("F2");
+            dgvListDespesasNaoPagas.DataSource = _despesaBusiness.GetDespesaNaoPagasMesAtualAll();
+            dgvListDespesasNaoPagas.Columns["IdDespesa"].Visible = false;
         }
 
         private Color SelectthemeColor()
@@ -119,10 +127,7 @@ namespace WinFormsFinancas
 
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
-            tbxRendaTotal.Text = _rendaBusiness.GetRendaTotal().ToString("F2");
-            tbxDespesaTotal.Text = _despesaBusiness.GetDespesaTotal().ToString("F2");
-            tbxDespesaAnoAtual.Text = _despesaBusiness.GetDespesaAnoAtualAll().ToString("F2");
-            tbxDespesaMesAtual.Text = _despesaBusiness.GetDespesaMesAtualAll().ToString("F2");
+            AtualizaHome();
         }
     }
 }
