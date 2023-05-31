@@ -135,9 +135,9 @@
             lblNovaDespesa.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
             lblNovaDespesa.Location = new Point(63, 39);
             lblNovaDespesa.Name = "lblNovaDespesa";
-            lblNovaDespesa.Size = new Size(121, 23);
+            lblNovaDespesa.Size = new Size(146, 23);
             lblNovaDespesa.TabIndex = 11;
-            lblNovaDespesa.Text = "Nova Despesa";
+            lblNovaDespesa.Text = "Valor da Despesa";
             // 
             // lblQtdParcelas
             // 
