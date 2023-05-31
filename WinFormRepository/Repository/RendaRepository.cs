@@ -9,7 +9,7 @@ namespace WinFormRepository.Repository
 {
     public class RendaRepository : IRendaRepository
     {
-        public void InsertRenda(Renda renda)
+        public int InsertRenda(Renda renda)
         {
             try
             {
@@ -21,6 +21,7 @@ namespace WinFormRepository.Repository
                     context.Parameters.AddWithValue("@TipoRenda", renda.TipoRenda);
                     context.Parameters.AddWithValue("@DataEntrada", renda.DataEntrada);
                     context.ExecuteNonQuery();
+                    return 1;
                 }
             }
             catch (Exception ex)

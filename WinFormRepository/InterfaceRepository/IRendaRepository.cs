@@ -5,7 +5,7 @@ namespace WinFormRepository.InterfaceRepository
 {
     public interface IRendaRepository
     {
-        void InsertRenda(Renda renda);
+        int InsertRenda(Renda renda);
         DataTable GetRendaAll();
     }
 }

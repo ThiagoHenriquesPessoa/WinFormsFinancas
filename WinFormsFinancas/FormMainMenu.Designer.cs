@@ -29,17 +29,16 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelMenu = new Panel();
+            btnLogo = new Button();
             btnSetting = new Button();
             btnNotifications = new Button();
             btnReporting = new Button();
             btnCustomer = new Button();
             btnAddDespesa = new Button();
             btnAddRenda = new Button();
-            panelLogo = new Panel();
-            lblLogo = new Label();
             panelTitleBar = new Panel();
             lblPage = new Label();
             lblTitle = new Label();
@@ -59,7 +58,6 @@
             tbxDespesaTotal = new TextBox();
             tbxRendaTotal = new TextBox();
             panelMenu.SuspendLayout();
-            panelLogo.SuspendLayout();
             panelTitleBar.SuspendLayout();
             panelDesctopPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvListDespesasNaoPagas).BeginInit();
@@ -68,22 +66,36 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
+            panelMenu.Controls.Add(btnLogo);
             panelMenu.Controls.Add(btnSetting);
             panelMenu.Controls.Add(btnNotifications);
             panelMenu.Controls.Add(btnReporting);
             panelMenu.Controls.Add(btnCustomer);
             panelMenu.Controls.Add(btnAddDespesa);
             panelMenu.Controls.Add(btnAddRenda);
-            panelMenu.Controls.Add(panelLogo);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(220, 753);
             panelMenu.TabIndex = 0;
             // 
+            // btnLogo
+            // 
+            btnLogo.BackColor = Color.FromArgb(39, 39, 58);
+            btnLogo.Dock = DockStyle.Top;
+            btnLogo.FlatStyle = FlatStyle.Flat;
+            btnLogo.Font = new Font("MS PGothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnLogo.ForeColor = Color.White;
+            btnLogo.Location = new Point(0, 0);
+            btnLogo.Name = "btnLogo";
+            btnLogo.Size = new Size(220, 80);
+            btnLogo.TabIndex = 14;
+            btnLogo.Text = "LOGO";
+            btnLogo.UseVisualStyleBackColor = false;
+            btnLogo.Click += btnLogo_Click;
+            // 
             // btnSetting
             // 
-            btnSetting.Dock = DockStyle.Top;
             btnSetting.FlatAppearance.BorderSize = 0;
             btnSetting.FlatStyle = FlatStyle.Flat;
             btnSetting.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -103,7 +115,6 @@
             // 
             // btnNotifications
             // 
-            btnNotifications.Dock = DockStyle.Top;
             btnNotifications.FlatAppearance.BorderSize = 0;
             btnNotifications.FlatStyle = FlatStyle.Flat;
             btnNotifications.ForeColor = SystemColors.GradientInactiveCaption;
@@ -122,7 +133,6 @@
             // 
             // btnReporting
             // 
-            btnReporting.Dock = DockStyle.Top;
             btnReporting.FlatAppearance.BorderSize = 0;
             btnReporting.FlatStyle = FlatStyle.Flat;
             btnReporting.ForeColor = SystemColors.GradientInactiveCaption;
@@ -141,7 +151,6 @@
             // 
             // btnCustomer
             // 
-            btnCustomer.Dock = DockStyle.Top;
             btnCustomer.FlatAppearance.BorderSize = 0;
             btnCustomer.FlatStyle = FlatStyle.Flat;
             btnCustomer.ForeColor = SystemColors.GradientInactiveCaption;
@@ -160,7 +169,6 @@
             // 
             // btnAddDespesa
             // 
-            btnAddDespesa.Dock = DockStyle.Top;
             btnAddDespesa.FlatAppearance.BorderSize = 0;
             btnAddDespesa.FlatStyle = FlatStyle.Flat;
             btnAddDespesa.ForeColor = SystemColors.GradientInactiveCaption;
@@ -179,7 +187,6 @@
             // 
             // btnAddRenda
             // 
-            btnAddRenda.Dock = DockStyle.Top;
             btnAddRenda.FlatAppearance.BorderSize = 0;
             btnAddRenda.FlatStyle = FlatStyle.Flat;
             btnAddRenda.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
@@ -196,28 +203,6 @@
             btnAddRenda.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddRenda.UseVisualStyleBackColor = true;
             btnAddRenda.Click += btnAddRenda_Click;
-            // 
-            // panelLogo
-            // 
-            panelLogo.BackColor = Color.FromArgb(39, 39, 58);
-            panelLogo.Controls.Add(lblLogo);
-            panelLogo.Dock = DockStyle.Top;
-            panelLogo.Location = new Point(0, 0);
-            panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(220, 80);
-            panelLogo.TabIndex = 0;
-            // 
-            // lblLogo
-            // 
-            lblLogo.Anchor = AnchorStyles.None;
-            lblLogo.AutoSize = true;
-            lblLogo.Font = new Font("MS PGothic", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblLogo.ForeColor = Color.White;
-            lblLogo.Location = new Point(66, 29);
-            lblLogo.Name = "lblLogo";
-            lblLogo.Size = new Size(77, 24);
-            lblLogo.TabIndex = 2;
-            lblLogo.Text = "LOGO";
             // 
             // panelTitleBar
             // 
@@ -280,23 +265,23 @@
             // 
             dgvListDespesasNaoPagas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dgvListDespesasNaoPagas.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvListDespesasNaoPagas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvListDespesasNaoPagas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvListDespesasNaoPagas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvListDespesasNaoPagas.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvListDespesasNaoPagas.DefaultCellStyle = dataGridViewCellStyle4;
             dgvListDespesasNaoPagas.Location = new Point(362, 135);
             dgvListDespesasNaoPagas.Name = "dgvListDespesasNaoPagas";
             dgvListDespesasNaoPagas.RowHeadersWidth = 5;
@@ -421,10 +406,8 @@
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
             Name = "FormMainMenu";
-            Text = "Form1";
+            Text = "Controle Financeiro";
             panelMenu.ResumeLayout(false);
-            panelLogo.ResumeLayout(false);
-            panelLogo.PerformLayout();
             panelTitleBar.ResumeLayout(false);
             panelTitleBar.PerformLayout();
             panelDesctopPanel.ResumeLayout(false);
@@ -436,7 +419,6 @@
         #endregion
 
         private Panel panelMenu;
-        private Panel panelLogo;
         private Button btnSetting;
         private Button btnNotifications;
         private Button btnReporting;
@@ -445,7 +427,6 @@
         private Button btnAddRenda;
         private Panel panelTitleBar;
         private Label lblTitle;
-        private Label lblLogo;
         private Label lblPage;
         private Panel panelDesctopPanel;
         private TextBox tbxRendaTotal;
@@ -462,5 +443,6 @@
         private Label lblRendaTotal;
         private Button btnAtualizar;
         private DataGridView dgvListDespesasNaoPagas;
+        private Button btnLogo;
     }
 }

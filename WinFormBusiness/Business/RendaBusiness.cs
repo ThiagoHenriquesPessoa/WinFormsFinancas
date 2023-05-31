@@ -15,11 +15,15 @@ namespace WinFormBusiness.Business
             _rendaRepository = rendaRepository;
         }
 
-        public void InsertRenda(Renda renda)
+        public int InsertRenda(Renda renda)
         {
             if (renda.ValorRenda > 0) 
             {
-                _rendaRepository.InsertRenda(renda);
+                return _rendaRepository.InsertRenda(renda);               
+            }
+            else
+            {
+               return 0;
             }
         }
 
@@ -32,17 +36,6 @@ namespace WinFormBusiness.Business
                 valorTotal += (double)row["ValorRenda"];
             }
             return valorTotal;
-        }
-
-        private Renda PreparaRenda(DataRow row)
-        {
-            var idRenda = (int)row["IdRenda"];
-            var valorRenda = (double)row["ValorRenda"];
-            var tipoRenda = (string)row["TipoRenda"];
-            var valorFixo = (bool)row["ValorFixo"];
-            var dataEntrada = (DateTime)row["DataEntrada"];
-            var renda = new Renda { IdRenda = idRenda, ValorRenda = valorRenda, TipoRenda = tipoRenda, ValorFixo = valorFixo, DataEntrada = dataEntrada };
-            return renda;
         }
     }
 }
