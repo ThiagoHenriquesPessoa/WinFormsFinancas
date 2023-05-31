@@ -1,7 +1,5 @@
-﻿using WinFormBusiness.Business;
-using WinFormBusiness.InterfaceBusiness;
+﻿using WinFormBusiness.InterfaceBusiness;
 using WinFormDomain.Models;
-using WinFormRepository.Repository;
 
 namespace WinFormsFinancas.Forms
 {
@@ -26,16 +24,25 @@ namespace WinFormsFinancas.Forms
                 DespesaPaga = cbxDespesaPaga.Checked,
                 FormaPagamento = cbxFormaPagamento.Text != "" ? cbxFormaPagamento.Text : "Outros"
             };
-            _despesaBusiness.InsertDespesa(renda);
-            Close();
-            var form = new FormMainMenu(new RendaBusiness(new RendaRepository()), new DespesaBusiness(new DespesaRepository())); ;
-            form.Show();
-
+            var result = _despesaBusiness.InsertDespesa(renda);
+            if (result == 1)
+            {
+                btnCanelar_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Campo Valor da despesa é obrigatorio!");
+            }
         }
 
         private void btnCanelar_Click(object sender, EventArgs e)
         {
-            Close();
+            txtNovaDespesa.Text = "";
+            cbTipoDespesa.Text = "";
+            NumUpQtdParcelas.Value = 1;
+            cldDataVencimento.SelectionStart = DateTime.Now;
+            cbxDespesaPaga.Checked = false;
+            cbxFormaPagamento.Text = "";
         }
     }
 }

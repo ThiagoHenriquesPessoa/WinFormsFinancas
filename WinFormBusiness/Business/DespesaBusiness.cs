@@ -16,20 +16,22 @@ namespace WinFormBusiness.Business
             _despesaRepository = despesaRepository;
         }
 
-        public void InsertDespesa(Despesa despesa)
+        public int InsertDespesa(Despesa despesa)
         {
             if (despesa.ValorDespesa > 0)
             {
                 int parcelas = despesa.QuantidadeParcelas;
                 double valor = despesa.ValorDespesa / parcelas;
                 despesa.ValorDespesa = valor;
-                for (int i=1; i <= parcelas; i++)
+                for (int i = 1; i <= parcelas; i++)
                 {
                     despesa.DataCriacaoDespesa = i == 1 ? despesa.DataCriacaoDespesa : despesa.DataCriacaoDespesa.AddMonths(1);
-                    despesa.QuantidadeParcelas = i;                    
+                    despesa.QuantidadeParcelas = i;
                     _despesaRepository.InsertDespesa(despesa);
-                }                
-            }            
+                }
+                return 1;
+            }
+            return 0;
         }
 
         public double GetDespesaTotal()
@@ -49,7 +51,6 @@ namespace WinFormBusiness.Business
             var table = _despesaRepository.GetValorDespesaAnoAtualAll();
             foreach (DataRow row in table.Rows)
             {
-
                 valorTotal += (double)row["ValorDespesa"];
             }
             return valorTotal;
@@ -61,7 +62,6 @@ namespace WinFormBusiness.Business
             var table = _despesaRepository.GetValorDespesaMesAtualAll();
             foreach (DataRow row in table.Rows)
             {
-
                 valorTotal += (double)row["ValorDespesa"];
             }
             return valorTotal;
@@ -80,11 +80,11 @@ namespace WinFormBusiness.Business
             foreach (DataRow row in table.Rows)
             {
                 if ((Int64)row["DespesaPaga"] == 0)
-                {      
+                {
                     dt.Rows.Add(
                         (Int64)row["IdDespesa"],
-                        (string)row["TipoDespesa"], 
-                        ((double)row["ValorDespesa"]).ToString("C"), 
+                        (string)row["TipoDespesa"],
+                        ((double)row["ValorDespesa"]).ToString("C"),
                         (string)row["FormaPagamento"]);
                 }
             }
