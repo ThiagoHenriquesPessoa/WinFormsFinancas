@@ -42,15 +42,15 @@
             // 
             lblNovaRenda.AutoSize = true;
             lblNovaRenda.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblNovaRenda.Location = new Point(34, 21);
+            lblNovaRenda.Location = new Point(95, 72);
             lblNovaRenda.Name = "lblNovaRenda";
-            lblNovaRenda.Size = new Size(106, 23);
+            lblNovaRenda.Size = new Size(131, 23);
             lblNovaRenda.TabIndex = 0;
-            lblNovaRenda.Text = "Nova Renda";
+            lblNovaRenda.Text = "Valor da Renda";
             // 
             // txtNovaRenda
             // 
-            txtNovaRenda.Location = new Point(189, 17);
+            txtNovaRenda.Location = new Point(250, 68);
             txtNovaRenda.Name = "txtNovaRenda";
             txtNovaRenda.Size = new Size(171, 27);
             txtNovaRenda.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             lblTipoRenda.AutoSize = true;
             lblTipoRenda.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTipoRenda.Location = new Point(34, 73);
+            lblTipoRenda.Location = new Point(95, 150);
             lblTipoRenda.Name = "lblTipoRenda";
             lblTipoRenda.Size = new Size(126, 23);
             lblTipoRenda.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             lblDataEntrada.AutoSize = true;
             lblDataEntrada.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            lblDataEntrada.Location = new Point(34, 124);
+            lblDataEntrada.Location = new Point(95, 225);
             lblDataEntrada.Name = "lblDataEntrada";
             lblDataEntrada.Size = new Size(140, 23);
             lblDataEntrada.TabIndex = 4;
@@ -77,14 +77,14 @@
             // 
             // cldDataEntrada
             // 
-            cldDataEntrada.Location = new Point(189, 124);
+            cldDataEntrada.Location = new Point(250, 225);
             cldDataEntrada.Name = "cldDataEntrada";
             cldDataEntrada.TabIndex = 5;
             // 
             // btnCanelar
             // 
             btnCanelar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCanelar.Location = new Point(513, 398);
+            btnCanelar.Location = new Point(683, 564);
             btnCanelar.Name = "btnCanelar";
             btnCanelar.Size = new Size(94, 29);
             btnCanelar.TabIndex = 6;
@@ -95,7 +95,7 @@
             // btnSalvar
             // 
             btnSalvar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnSalvar.Location = new Point(641, 398);
+            btnSalvar.Location = new Point(811, 564);
             btnSalvar.Name = "btnSalvar";
             btnSalvar.Size = new Size(94, 29);
             btnSalvar.TabIndex = 7;
@@ -107,7 +107,7 @@
             // 
             cbTipoRenda.FormattingEnabled = true;
             cbTipoRenda.Items.AddRange(new object[] { "Salario", "Extra", "Emprestimo", "Pis", "Outros" });
-            cbTipoRenda.Location = new Point(189, 68);
+            cbTipoRenda.Location = new Point(250, 145);
             cbTipoRenda.Name = "cbTipoRenda";
             cbTipoRenda.Size = new Size(171, 28);
             cbTipoRenda.TabIndex = 10;
@@ -117,7 +117,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.InactiveCaption;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(944, 626);
             Controls.Add(cbTipoRenda);
             Controls.Add(btnSalvar);
             Controls.Add(btnCanelar);

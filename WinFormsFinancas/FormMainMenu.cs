@@ -58,7 +58,7 @@ namespace WinFormsFinancas
                     currentButton.ForeColor = Color.White;
                     currentButton.Font = new Font("Segoe UI", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
                     panelTitleBar.BackColor = color;
-                    panelLogo.BackColor = ThemerColor.ChangerColorBrightness(color, -0.3);
+                    btnLogo.BackColor = ThemerColor.ChangerColorBrightness(color, -0.3);
 
                 }
             }
@@ -129,5 +129,11 @@ namespace WinFormsFinancas
         {
             AtualizaHome();
         }
+
+        private void btnLogo_Click(object sender, EventArgs e)
+        {
+            activeForm.Close();
+            AtualizaHome();
+        }        
     }
 }

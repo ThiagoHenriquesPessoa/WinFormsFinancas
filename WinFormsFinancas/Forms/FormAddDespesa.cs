@@ -1,5 +1,7 @@
-﻿using WinFormBusiness.InterfaceBusiness;
+﻿using WinFormBusiness.Business;
+using WinFormBusiness.InterfaceBusiness;
 using WinFormDomain.Models;
+using WinFormRepository.Repository;
 
 namespace WinFormsFinancas.Forms
 {
@@ -26,6 +28,9 @@ namespace WinFormsFinancas.Forms
             };
             _despesaBusiness.InsertDespesa(renda);
             Close();
+            var form = new FormMainMenu(new RendaBusiness(new RendaRepository()), new DespesaBusiness(new DespesaRepository())); ;
+            form.Show();
+
         }
 
         private void btnCanelar_Click(object sender, EventArgs e)
