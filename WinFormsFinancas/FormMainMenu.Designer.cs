@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelMenu = new Panel();
             btnLogo = new Button();
             btnSetting = new Button();
@@ -41,7 +41,6 @@
             btnAddRenda = new Button();
             panelTitleBar = new Panel();
             lblPage = new Label();
-            lblTitle = new Label();
             panelDesctopPanel = new Panel();
             dgvListDespesasNaoPagas = new DataGridView();
             btnAtualizar = new Button();
@@ -90,7 +89,7 @@
             btnLogo.Name = "btnLogo";
             btnLogo.Size = new Size(220, 80);
             btnLogo.TabIndex = 14;
-            btnLogo.Text = "LOGO";
+            btnLogo.Text = "HOME";
             btnLogo.UseVisualStyleBackColor = false;
             btnLogo.Click += btnLogo_Click;
             // 
@@ -208,7 +207,6 @@
             // 
             panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
             panelTitleBar.Controls.Add(lblPage);
-            panelTitleBar.Controls.Add(lblTitle);
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
             panelTitleBar.Name = "panelTitleBar";
@@ -217,27 +215,17 @@
             // 
             // lblPage
             // 
-            lblPage.Anchor = AnchorStyles.None;
-            lblPage.AutoSize = true;
+            lblPage.Dock = DockStyle.Bottom;
+            lblPage.FlatStyle = FlatStyle.System;
             lblPage.Font = new Font("MS PGothic", 14F, FontStyle.Bold, GraphicsUnit.Point);
             lblPage.ForeColor = Color.White;
-            lblPage.Location = new Point(442, 28);
+            lblPage.Location = new Point(0, 30);
+            lblPage.Margin = new Padding(0);
             lblPage.Name = "lblPage";
-            lblPage.Size = new Size(78, 24);
+            lblPage.Size = new Size(962, 50);
             lblPage.TabIndex = 1;
             lblPage.Text = "HOME";
-            // 
-            // lblTitle
-            // 
-            lblTitle.Anchor = AnchorStyles.None;
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("MS PGothic", 14F, FontStyle.Bold, GraphicsUnit.Point);
-            lblTitle.ForeColor = Color.White;
-            lblTitle.Location = new Point(443, 29);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(78, 24);
-            lblTitle.TabIndex = 0;
-            lblTitle.Text = "HOME";
+            lblPage.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panelDesctopPanel
             // 
@@ -263,25 +251,26 @@
             // 
             // dgvListDespesasNaoPagas
             // 
+            dgvListDespesasNaoPagas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvListDespesasNaoPagas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
             dgvListDespesasNaoPagas.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvListDespesasNaoPagas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvListDespesasNaoPagas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvListDespesasNaoPagas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvListDespesasNaoPagas.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvListDespesasNaoPagas.DefaultCellStyle = dataGridViewCellStyle2;
             dgvListDespesasNaoPagas.Location = new Point(362, 135);
             dgvListDespesasNaoPagas.Name = "dgvListDespesasNaoPagas";
             dgvListDespesasNaoPagas.RowHeadersWidth = 5;
@@ -293,6 +282,7 @@
             // 
             // btnAtualizar
             // 
+            btnAtualizar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnAtualizar.Location = new Point(846, 621);
             btnAtualizar.Name = "btnAtualizar";
             btnAtualizar.Size = new Size(94, 29);
@@ -303,6 +293,7 @@
             // 
             // lblDespesaMesAtual
             // 
+            lblDespesaMesAtual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblDespesaMesAtual.AutoSize = true;
             lblDespesaMesAtual.Location = new Point(10, 192);
             lblDespesaMesAtual.Name = "lblDespesaMesAtual";
@@ -312,6 +303,7 @@
             // 
             // lblRendaMesAtual
             // 
+            lblRendaMesAtual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblRendaMesAtual.AutoSize = true;
             lblRendaMesAtual.Location = new Point(10, 155);
             lblRendaMesAtual.Name = "lblRendaMesAtual";
@@ -321,6 +313,7 @@
             // 
             // tbxDespesaMesAtual
             // 
+            tbxDespesaMesAtual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbxDespesaMesAtual.Location = new Point(151, 189);
             tbxDespesaMesAtual.Name = "tbxDespesaMesAtual";
             tbxDespesaMesAtual.Size = new Size(125, 27);
@@ -328,6 +321,7 @@
             // 
             // tbxRendaMesAtul
             // 
+            tbxRendaMesAtul.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbxRendaMesAtul.Location = new Point(151, 149);
             tbxRendaMesAtul.Name = "tbxRendaMesAtul";
             tbxRendaMesAtul.Size = new Size(125, 27);
@@ -335,6 +329,7 @@
             // 
             // lblDespesaAnoAtual
             // 
+            lblDespesaAnoAtual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblDespesaAnoAtual.AutoSize = true;
             lblDespesaAnoAtual.Location = new Point(362, 57);
             lblDespesaAnoAtual.Name = "lblDespesaAnoAtual";
@@ -344,6 +339,7 @@
             // 
             // lblRendaAnoAtual
             // 
+            lblRendaAnoAtual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblRendaAnoAtual.AutoSize = true;
             lblRendaAnoAtual.Location = new Point(362, 20);
             lblRendaAnoAtual.Name = "lblRendaAnoAtual";
@@ -353,6 +349,7 @@
             // 
             // tbxDespesaAnoAtual
             // 
+            tbxDespesaAnoAtual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbxDespesaAnoAtual.Location = new Point(503, 54);
             tbxDespesaAnoAtual.Name = "tbxDespesaAnoAtual";
             tbxDespesaAnoAtual.Size = new Size(125, 27);
@@ -360,6 +357,7 @@
             // 
             // tbxRendaAnoAtual
             // 
+            tbxRendaAnoAtual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbxRendaAnoAtual.Location = new Point(503, 14);
             tbxRendaAnoAtual.Name = "tbxRendaAnoAtual";
             tbxRendaAnoAtual.Size = new Size(125, 27);
@@ -367,6 +365,7 @@
             // 
             // lblDespesaTotal
             // 
+            lblDespesaTotal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblDespesaTotal.AutoSize = true;
             lblDespesaTotal.Location = new Point(10, 57);
             lblDespesaTotal.Name = "lblDespesaTotal";
@@ -376,6 +375,7 @@
             // 
             // lblRendaTotal
             // 
+            lblRendaTotal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             lblRendaTotal.AutoSize = true;
             lblRendaTotal.Location = new Point(10, 20);
             lblRendaTotal.Name = "lblRendaTotal";
@@ -385,6 +385,7 @@
             // 
             // tbxDespesaTotal
             // 
+            tbxDespesaTotal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbxDespesaTotal.Location = new Point(112, 57);
             tbxDespesaTotal.Name = "tbxDespesaTotal";
             tbxDespesaTotal.Size = new Size(125, 27);
@@ -392,6 +393,7 @@
             // 
             // tbxRendaTotal
             // 
+            tbxRendaTotal.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             tbxRendaTotal.Location = new Point(112, 17);
             tbxRendaTotal.Name = "tbxRendaTotal";
             tbxRendaTotal.Size = new Size(125, 27);
@@ -405,11 +407,12 @@
             Controls.Add(panelDesctopPanel);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FormMainMenu";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Controle Financeiro";
             panelMenu.ResumeLayout(false);
             panelTitleBar.ResumeLayout(false);
-            panelTitleBar.PerformLayout();
             panelDesctopPanel.ResumeLayout(false);
             panelDesctopPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvListDespesasNaoPagas).EndInit();
@@ -426,7 +429,6 @@
         private Button btnAddDespesa;
         private Button btnAddRenda;
         private Panel panelTitleBar;
-        private Label lblTitle;
         private Label lblPage;
         private Panel panelDesctopPanel;
         private TextBox tbxRendaTotal;
