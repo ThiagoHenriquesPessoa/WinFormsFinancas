@@ -93,6 +93,9 @@ namespace WinFormsFinancas
             childForm.BringToFront();
             childForm.Show();
             lblPage.Text = childForm.Text;
+            //int x = panelTitleBar.Size.Width / 2;
+            //int y = panelTitleBar.Size.Height / 2;
+            //lblPage.Location = new Point(x, y);
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
@@ -133,7 +136,8 @@ namespace WinFormsFinancas
         private void btnLogo_Click(object sender, EventArgs e)
         {
             activeForm.Close();
+            lblPage.Text = "HOME";
             AtualizaHome();
-        }        
+        }
     }
 }
