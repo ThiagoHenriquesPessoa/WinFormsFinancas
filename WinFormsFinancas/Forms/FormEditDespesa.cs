@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WinFormsFinancas.Forms
 {
-    public partial class FormCostumers : Form
+    public partial class FormEditDespesa : Form
     {
-        public FormCostumers()
+        public FormEditDespesa()
         {
             InitializeComponent();
         }
