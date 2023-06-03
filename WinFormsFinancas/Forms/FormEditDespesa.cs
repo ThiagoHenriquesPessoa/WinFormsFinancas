@@ -1,20 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using WinFormBusiness.InterfaceBusiness;
 
 namespace WinFormsFinancas.Forms
 {
     public partial class FormEditDespesa : Form
     {
-        public FormEditDespesa()
+        private readonly IDespesaBusiness _despesaBusiness;
+
+        public FormEditDespesa(IDespesaBusiness despesaBusiness)
         {
             InitializeComponent();
+            _despesaBusiness = despesaBusiness;
+        }
+
+        private void btnExibirLista_Click(object sender, EventArgs e)
+        {
+            dgvListaDespesas.DataSource = _despesaBusiness.GetAllDespesaPorData(dtpDataInicial.Value.Date, dtpDataFim.Value);
+            dgvListaDespesas.Columns["IdDespesa"].Visible = false;
         }
     }
 }

@@ -20,7 +20,7 @@ namespace WinFormBusiness.Business
         {
             if (despesa.ValorDespesa > 0)
             {
-                int parcelas = despesa.QuantidadeParcelas;
+                Int64 parcelas = despesa.QuantidadeParcelas;
                 double valor = despesa.ValorDespesa / parcelas;
                 despesa.ValorDespesa = valor;
                 for (int i = 1; i <= parcelas; i++)
@@ -90,5 +90,26 @@ namespace WinFormBusiness.Business
             }
             return dt;
         }
+
+        public List<Despesa> GetAllDespesaPorData(DateTime inicio, DateTime fim)
+        {
+            var listDespesas = new List<Despesa>();
+            var table = _despesaRepository.GetAllDespesaPorData(inicio, fim);
+            foreach (DataRow row in table.Rows)
+            {
+                listDespesas.Add(new Despesa
+                {
+                    IdDespesa = (Int64)row["IdDespesa"],
+                    ValorDespesa = Convert.ToDouble(((double)row["ValorDespesa"]).ToString("F2")),
+                    TipoDespesa = (string)row["TipoDespesa"],
+                    QuantidadeParcelas = (Int64)row["QuantidadeParcelas"],
+                    DataCriacaoDespesa = Convert.ToDateTime((string)row["DataCriacaoDespesa"]),
+                    DespesaPaga = Convert.ToBoolean((Int64)row["DespesaPaga"]),
+                    FormaPagamento = (string)row["FormaPagamento"]
+                });
+            }
+            return listDespesas;
+        }
     }
 }
+

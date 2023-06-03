@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System;
+using System.Data;
 using WinFormDomain.Models;
 
 namespace WinFormBusiness.InterfaceBusiness
@@ -14,5 +16,6 @@ namespace WinFormBusiness.InterfaceBusiness
         double GetDespesaMesAtualAll();
 
         DataTable GetDespesaNaoPagasMesAtualAll();
+        List<Despesa> GetAllDespesaPorData(DateTime inicio, DateTime fim);
     }
 }

@@ -6,11 +6,11 @@ namespace WinFormDomain.Models
     public class Despesa
     {
         [PrimaryKey, AutoIncrement]
-        public int IdDespesa { get; set; }
+        public Int64 IdDespesa { get; set; }
 
         public double ValorDespesa { get; set; }
         public string TipoDespesa { get; set; }
-        public int QuantidadeParcelas { get; set; }
+        public Int64 QuantidadeParcelas { get; set; }
         public DateTime DataCriacaoDespesa { get; set; }
         public bool DespesaPaga { get; set; }
         public string FormaPagamento { get; set; }
