@@ -160,11 +160,11 @@
             btnCustomer.Padding = new Padding(12, 0, 0, 0);
             btnCustomer.Size = new Size(220, 45);
             btnCustomer.TabIndex = 3;
-            btnCustomer.Text = "   =======";
+            btnCustomer.Text = "   EditeDespesa";
             btnCustomer.TextAlign = ContentAlignment.MiddleLeft;
             btnCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCustomer.UseVisualStyleBackColor = true;
-            btnCustomer.Click += btnCustomer_Click;
+            btnCustomer.Click += btnEditDespesa_Click;
             // 
             // btnAddDespesa
             // 
@@ -197,7 +197,7 @@
             btnAddRenda.Padding = new Padding(12, 0, 0, 0);
             btnAddRenda.Size = new Size(220, 45);
             btnAddRenda.TabIndex = 1;
-            btnAddRenda.Text = "   AddRenda";
+            btnAddRenda.Text = "  AddRenda";
             btnAddRenda.TextAlign = ContentAlignment.MiddleLeft;
             btnAddRenda.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddRenda.UseVisualStyleBackColor = true;

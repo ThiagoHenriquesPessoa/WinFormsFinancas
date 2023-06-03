@@ -93,14 +93,11 @@ namespace WinFormsFinancas
             childForm.BringToFront();
             childForm.Show();
             lblPage.Text = childForm.Text;
-            //int x = panelTitleBar.Size.Width / 2;
-            //int y = panelTitleBar.Size.Height / 2;
-            //lblPage.Location = new Point(x, y);
         }
 
-        private void btnCustomer_Click(object sender, EventArgs e)
+        private void btnEditDespesa_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormCostumers(), sender);
+            OpenChildForm(new Forms.FormEditDespesa(), sender);
         }
 
         private void btnReporting_Click(object sender, EventArgs e)
