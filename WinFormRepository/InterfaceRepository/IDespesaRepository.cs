@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using WinFormDomain.Models;
 
 namespace WinFormRepository.InterfaceRepository
@@ -10,5 +11,6 @@ namespace WinFormRepository.InterfaceRepository
         DataTable GetValorDespesaAnoAtualAll();
         DataTable GetValorDespesaMesAtualAll();
         DataTable GetDespesaNaoPagasMesAtualAll();
+        DataTable GetAllDespesaPorData(DateTime inicail, DateTime fim);
     }
 }

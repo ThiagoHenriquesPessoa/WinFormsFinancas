@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Data.SQLite;
 using System.Data;
+using System.Data.SQLite;
 using WinFormDomain.Models;
 using WinFormInfrastructure.Data;
 using WinFormRepository.InterfaceRepository;
@@ -18,7 +18,7 @@ namespace WinFormRepository.Repository
                     var sql = "INSERT INTO [Despesa] ([ValorDespesa], [TipoDespesa], [QuantidadeParcelas], [DataCriacaoDespesa], [DespesaPaga], [FormaPagamento]) VALUES  (@ValorDespesa, @TipoDespesa, @QuantidadeParcelas, @DataCriacaoDespesa, @DespesaPaga, @FormaPagamento);";
                     context.CommandText = sql;
                     context.Parameters.AddWithValue("@ValorDespesa", despesa.ValorDespesa);
-                    context.Parameters.AddWithValue("@TipoDespesa", despesa.TipoDespesa);   
+                    context.Parameters.AddWithValue("@TipoDespesa", despesa.TipoDespesa);
                     context.Parameters.AddWithValue("@QuantidadeParcelas", despesa.QuantidadeParcelas);
                     context.Parameters.AddWithValue("@DataCriacaoDespesa", despesa.DataCriacaoDespesa);
                     context.Parameters.AddWithValue("@DespesaPaga", despesa.DespesaPaga);
@@ -84,7 +84,7 @@ namespace WinFormRepository.Repository
                 {
                     var param0 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.Month}-01 00:00:00");
                     var param1 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.AddMonths(1).Month}-01 00:00:00");
-                    
+
                     context.CommandText = String.Format($"SELECT ValorDespesa FROM [Despesa] WHERE DataCriacaoDespesa >= '{param0}' and DataCriacaoDespesa < '{param1}';");
                     adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
                     adapter.Fill(dataTable);
@@ -107,6 +107,29 @@ namespace WinFormRepository.Repository
                 {
                     var param0 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.Month}-01 00:00:00");
                     var param1 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.AddMonths(1).Month}-01 00:00:00");
+
+                    context.CommandText = String.Format($"SELECT * FROM [Despesa] WHERE DataCriacaoDespesa >= '{param0}' and DataCriacaoDespesa < '{param1}';");
+                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public DataTable GetAllDespesaPorData(DateTime inicail, DateTime fim)
+        {
+            SQLiteDataAdapter adapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                {
+                    var param0 = string.Format($"{inicail.ToString("yyyy-MM-dd")} 00:00:00");
+                    var param1 = string.Format($"{fim.ToString("yyyy-MM-dd")} 23:59:00");
 
                     context.CommandText = String.Format($"SELECT * FROM [Despesa] WHERE DataCriacaoDespesa >= '{param0}' and DataCriacaoDespesa < '{param1}';");
                     adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());

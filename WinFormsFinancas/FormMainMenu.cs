@@ -97,7 +97,7 @@ namespace WinFormsFinancas
 
         private void btnEditDespesa_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormEditDespesa(), sender);
+            OpenChildForm(new Forms.FormEditDespesa(new DespesaBusiness(new DespesaRepository())), sender);
         }
 
         private void btnReporting_Click(object sender, EventArgs e)
