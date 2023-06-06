@@ -25,8 +25,8 @@ namespace WinFormBusiness.Business
                 despesa.ValorDespesa = valor;
                 for (int i = 1; i <= parcelas; i++)
                 {
-                    despesa.DataCriacaoDespesa = i == 1 ? despesa.DataCriacaoDespesa : despesa.DataCriacaoDespesa.AddMonths(1);
-                    despesa.QuantidadeParcelas = i;
+                    despesa.DataVencimentoDespesa = i == 1 ? despesa.DataVencimentoDespesa : despesa.DataVencimentoDespesa.AddMonths(1);
+                    despesa.ParcelaAtual = i;
                     _despesaRepository.InsertDespesa(despesa);
                 }
                 return 1;
@@ -103,7 +103,9 @@ namespace WinFormBusiness.Business
                     ValorDespesa = Convert.ToDouble(((double)row["ValorDespesa"]).ToString("F2")),
                     TipoDespesa = (string)row["TipoDespesa"],
                     QuantidadeParcelas = (Int64)row["QuantidadeParcelas"],
+                    ParcelaAtual = (Int64)row["ParcelaAtual"],
                     DataCriacaoDespesa = Convert.ToDateTime((string)row["DataCriacaoDespesa"]),
+                    DataVencimentoDespesa = Convert.ToDateTime((string)row["DataVencimentoDespesa"]),
                     DespesaPaga = Convert.ToBoolean((Int64)row["DespesaPaga"]),
                     FormaPagamento = (string)row["FormaPagamento"]
                 });

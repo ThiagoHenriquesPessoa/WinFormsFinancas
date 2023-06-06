@@ -5,7 +5,7 @@ namespace WinFormInfrastructure.Data
 {
     public class WinFormDbContext
     {
-        public static string path = Directory.GetCurrentDirectory() + "\\WFBFinancas.db";
+        public static string path = Directory.GetCurrentDirectory() + "\\WinFormsDBFinancas.sqlite";
         public static SQLiteConnection sQLiteconnection;
         public static SQLiteConnection DbConnection()
         {

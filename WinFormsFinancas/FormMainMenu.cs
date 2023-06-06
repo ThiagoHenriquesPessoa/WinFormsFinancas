@@ -1,7 +1,5 @@
-using System.Globalization;
 using WinFormBusiness.Business;
 using WinFormBusiness.InterfaceBusiness;
-using WinFormDomain.Models;
 using WinFormRepository.Repository;
 
 namespace WinFormsFinancas
@@ -14,6 +12,7 @@ namespace WinFormsFinancas
         private Form activeForm;
         private readonly IRendaBusiness _rendaBusiness;
         private readonly IDespesaBusiness _despesaBusiness;
+
         public FormMainMenu(IRendaBusiness rendaBusiness, IDespesaBusiness despesaBusiness)
         {
             InitializeComponent();
@@ -59,7 +58,6 @@ namespace WinFormsFinancas
                     currentButton.Font = new Font("Segoe UI", 11.5F, FontStyle.Regular, GraphicsUnit.Point);
                     panelTitleBar.BackColor = color;
                     btnLogo.BackColor = ThemerColor.ChangerColorBrightness(color, -0.3);
-
                 }
             }
         }

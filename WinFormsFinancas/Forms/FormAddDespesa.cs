@@ -18,11 +18,12 @@ namespace WinFormsFinancas.Forms
             var renda = new Despesa
             {
                 ValorDespesa = txtNovaDespesa.Text != "" ? Convert.ToDouble(txtNovaDespesa.Text) : 0,
-                TipoDespesa = cbTipoDespesa.Text != "" ? cbTipoDespesa.Text : "Outros",
-                QuantidadeParcelas = Convert.ToInt32(NumUpQtdParcelas.Value),
-                DataCriacaoDespesa = cldDataVencimento.SelectionRange.Start,
                 DespesaPaga = cbxDespesaPaga.Checked,
-                FormaPagamento = cbxFormaPagamento.Text != "" ? cbxFormaPagamento.Text : "Outros"
+                TipoDespesa = cbTipoDespesa.Text != "" ? cbTipoDespesa.Text : "Outros",
+                FormaPagamento = cbxFormaPagamento.Text != "" ? cbxFormaPagamento.Text : "Outros",               
+                DataCriacaoDespesa = cldDataCriacao.SelectionRange.Start,
+                DataVencimentoDespesa = cldDataVencimento.SelectionRange.Start,
+                QuantidadeParcelas = Convert.ToInt32(NumUpQtdParcelas.Value)
             };
             var result = _despesaBusiness.InsertDespesa(renda);
             if (result == 1)
@@ -40,7 +41,7 @@ namespace WinFormsFinancas.Forms
             txtNovaDespesa.Text = "";
             cbTipoDespesa.Text = "";
             NumUpQtdParcelas.Value = 1;
-            cldDataVencimento.SelectionStart = DateTime.Now;
+            cldDataCriacao.SelectionStart = DateTime.Now;
             cbxDespesaPaga.Checked = false;
             cbxFormaPagamento.Text = "";
         }
