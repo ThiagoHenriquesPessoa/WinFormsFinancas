@@ -12,6 +12,7 @@ namespace WinFormDomain.Models
         public string TipoDespesa { get; set; }
         public Int64 QuantidadeParcelas { get; set; }
         public DateTime DataCriacaoDespesa { get; set; }
+        public DateTime DataVencimentoDespesa { get; set; }
         public bool DespesaPaga { get; set; }
         public string FormaPagamento { get; set; }
     }
