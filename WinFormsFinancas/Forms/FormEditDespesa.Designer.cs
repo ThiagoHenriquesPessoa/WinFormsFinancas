@@ -87,13 +87,16 @@
             // 
             // dgvListaDespesas
             // 
+            dgvListaDespesas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvListaDespesas.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dgvListaDespesas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvListaDespesas.Location = new Point(36, 82);
             dgvListaDespesas.Name = "dgvListaDespesas";
-            dgvListaDespesas.RowHeadersWidth = 51;
+            dgvListaDespesas.RowHeadersWidth = 4;
             dgvListaDespesas.RowTemplate.Height = 29;
+            dgvListaDespesas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvListaDespesas.Size = new Size(877, 464);
-            dgvListaDespesas.TabIndex = 35;
+            dgvListaDespesas.TabIndex = 13;
             // 
             // FormEditDespesa
             // 

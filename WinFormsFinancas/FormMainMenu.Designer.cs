@@ -252,7 +252,7 @@
             // dgvListDespesasNaoPagas
             // 
             dgvListDespesasNaoPagas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgvListDespesasNaoPagas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dgvListDespesasNaoPagas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListDespesasNaoPagas.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Control;
@@ -277,7 +277,7 @@
             dgvListDespesasNaoPagas.RowTemplate.Height = 20;
             dgvListDespesasNaoPagas.ScrollBars = ScrollBars.Vertical;
             dgvListDespesasNaoPagas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvListDespesasNaoPagas.Size = new Size(390, 170);
+            dgvListDespesasNaoPagas.Size = new Size(455, 170);
             dgvListDespesasNaoPagas.TabIndex = 13;
             // 
             // btnAtualizar
