@@ -49,5 +49,28 @@ namespace WinFormRepository.Repository
                 throw new Exception(ex.Message);
             }
         }
+
+        public DataTable GetAllRendaPorData(DateTime inicail, DateTime fim)
+        {
+            SQLiteDataAdapter adapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                {
+                    var param0 = string.Format($"{inicail.ToString("yyyy-MM-dd")} 00:00:00");
+                    var param1 = string.Format($"{fim.ToString("yyyy-MM-dd")} 23:59:00");
+
+                    context.CommandText = String.Format($"SELECT * FROM [Renda] WHERE DataEntrada >= '{param0}' and DataEntrada < '{param1}';");
+                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

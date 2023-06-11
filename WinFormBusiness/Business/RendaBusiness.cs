@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using WinFormBusiness.InterfaceBusiness;
 using WinFormDomain.Models;
@@ -17,13 +18,13 @@ namespace WinFormBusiness.Business
 
         public int InsertRenda(Renda renda)
         {
-            if (renda.ValorRenda > 0) 
+            if (renda.ValorRenda > 0)
             {
-                return _rendaRepository.InsertRenda(renda);               
+                return _rendaRepository.InsertRenda(renda);
             }
             else
             {
-               return 0;
+                return 0;
             }
         }
 
@@ -36,6 +37,23 @@ namespace WinFormBusiness.Business
                 valorTotal += (double)row["ValorRenda"];
             }
             return valorTotal;
+        }
+
+        public List<Renda> GetAllRendaPorData(DateTime inicio, DateTime fim)
+        {
+            var listRenda = new List<Renda>();
+            var table = _rendaRepository.GetAllRendaPorData(inicio, fim);
+            foreach (DataRow row in table.Rows)
+            {
+                listRenda.Add(new Renda
+                {
+                    IdRenda = (Int64)row["IdRenda"],
+                    ValorRenda = Convert.ToDouble(((double)row["ValorRenda"]).ToString("F2")),
+                    TipoRenda = (string)row["TipoRenda"],
+                    DataEntrada = Convert.ToDateTime((string)row["DataEntrada"])
+                });
+            }
+            return listRenda;
         }
     }
 }

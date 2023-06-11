@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using WinFormDomain.Models;
 
 namespace WinFormRepository.InterfaceRepository
@@ -7,5 +8,6 @@ namespace WinFormRepository.InterfaceRepository
     {
         int InsertRenda(Renda renda);
         DataTable GetRendaAll();
+        DataTable GetAllRendaPorData(DateTime inicail, DateTime fim);
     }
 }
