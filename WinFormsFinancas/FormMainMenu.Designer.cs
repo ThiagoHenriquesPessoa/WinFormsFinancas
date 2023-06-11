@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             panelMenu = new Panel();
             btnLogo = new Button();
             btnSetting = new Button();
             btnNotifications = new Button();
-            btnReporting = new Button();
+            btnEditeRenda = new Button();
             btnCustomer = new Button();
             btnAddDespesa = new Button();
             btnAddRenda = new Button();
@@ -68,7 +68,7 @@
             panelMenu.Controls.Add(btnLogo);
             panelMenu.Controls.Add(btnSetting);
             panelMenu.Controls.Add(btnNotifications);
-            panelMenu.Controls.Add(btnReporting);
+            panelMenu.Controls.Add(btnEditeRenda);
             panelMenu.Controls.Add(btnCustomer);
             panelMenu.Controls.Add(btnAddDespesa);
             panelMenu.Controls.Add(btnAddRenda);
@@ -130,23 +130,23 @@
             btnNotifications.UseVisualStyleBackColor = true;
             btnNotifications.Click += btnNotifications_Click;
             // 
-            // btnReporting
+            // btnEditeRenda
             // 
-            btnReporting.FlatAppearance.BorderSize = 0;
-            btnReporting.FlatStyle = FlatStyle.Flat;
-            btnReporting.ForeColor = SystemColors.GradientInactiveCaption;
-            btnReporting.Image = (Image)resources.GetObject("btnReporting.Image");
-            btnReporting.ImageAlign = ContentAlignment.MiddleLeft;
-            btnReporting.Location = new Point(0, 215);
-            btnReporting.Name = "btnReporting";
-            btnReporting.Padding = new Padding(12, 0, 0, 0);
-            btnReporting.Size = new Size(220, 45);
-            btnReporting.TabIndex = 4;
-            btnReporting.Text = "   =======";
-            btnReporting.TextAlign = ContentAlignment.MiddleLeft;
-            btnReporting.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnReporting.UseVisualStyleBackColor = true;
-            btnReporting.Click += btnReporting_Click;
+            btnEditeRenda.FlatAppearance.BorderSize = 0;
+            btnEditeRenda.FlatStyle = FlatStyle.Flat;
+            btnEditeRenda.ForeColor = SystemColors.GradientInactiveCaption;
+            btnEditeRenda.Image = (Image)resources.GetObject("btnEditeRenda.Image");
+            btnEditeRenda.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEditeRenda.Location = new Point(0, 215);
+            btnEditeRenda.Name = "btnEditeRenda";
+            btnEditeRenda.Padding = new Padding(12, 0, 0, 0);
+            btnEditeRenda.Size = new Size(220, 45);
+            btnEditeRenda.TabIndex = 4;
+            btnEditeRenda.Text = "   EditeRenda";
+            btnEditeRenda.TextAlign = ContentAlignment.MiddleLeft;
+            btnEditeRenda.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnEditeRenda.UseVisualStyleBackColor = true;
+            btnEditeRenda.Click += btnReporting_Click;
             // 
             // btnCustomer
             // 
@@ -254,23 +254,23 @@
             dgvListDespesasNaoPagas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvListDespesasNaoPagas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListDespesasNaoPagas.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Control;
-            dataGridViewCellStyle1.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvListDespesasNaoPagas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgvListDespesasNaoPagas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgvListDespesasNaoPagas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvListDespesasNaoPagas.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            dgvListDespesasNaoPagas.DefaultCellStyle = dataGridViewCellStyle4;
             dgvListDespesasNaoPagas.Location = new Point(362, 135);
             dgvListDespesasNaoPagas.Name = "dgvListDespesasNaoPagas";
             dgvListDespesasNaoPagas.RowHeadersWidth = 5;
@@ -424,7 +424,7 @@
         private Panel panelMenu;
         private Button btnSetting;
         private Button btnNotifications;
-        private Button btnReporting;
+        private Button btnEditeRenda;
         private Button btnCustomer;
         private Button btnAddDespesa;
         private Button btnAddRenda;

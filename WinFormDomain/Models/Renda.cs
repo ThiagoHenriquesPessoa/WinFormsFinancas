@@ -6,7 +6,7 @@ namespace WinFormDomain.Models
     public class Renda
     {
         [Key]
-        public int IdRenda { get; set; }
+        public Int64 IdRenda { get; set; }
 
         public double ValorRenda { get; set; }
         public string TipoRenda { get; set; }

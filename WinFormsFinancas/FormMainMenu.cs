@@ -100,7 +100,7 @@ namespace WinFormsFinancas
 
         private void btnReporting_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormReporting(), sender);
+            OpenChildForm(new Forms.FormEditRenda(new RendaBusiness(new RendaRepository())), sender);
         }
 
         private void btnNotifications_Click(object sender, EventArgs e)
