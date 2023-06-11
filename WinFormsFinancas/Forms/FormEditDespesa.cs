@@ -37,17 +37,22 @@ namespace WinFormsFinancas.Forms
                     FormaPagamento = cbxFormaPagamento.Text
                 };
                 _despesaBusiness.UpdateDespesa(despesa);
-                lblIdDespesa.Text = "0";
-                txtNovaDespesa.Text = "0";
-                cbTipoDespesa.Text = "";
-                cbxDespesaPaga.Checked = false;
-                cbxFormaPagamento.Text = "";
-                cldDataCriacao.Value = DateTime.Now;
-                cldDataVencimento.Value = DateTime.Now;
-                txtQlbParcelas.Text = "0";
-                txtParcelaAtual.Text = "0";
-                dgvListaDespesas.DataSource = _despesaBusiness.GetAllDespesaPorData(dtpDataInicial.Value.Date, dtpDataFim.Value);
+                Atualizar();
             }
+        }
+
+        private void Atualizar()
+        {
+            lblIdDespesa.Text = "0";
+            txtNovaDespesa.Text = "0";
+            cbTipoDespesa.Text = "";
+            cbxDespesaPaga.Checked = false;
+            cbxFormaPagamento.Text = "";
+            cldDataCriacao.Value = DateTime.Now;
+            cldDataVencimento.Value = DateTime.Now;
+            txtQlbParcelas.Text = "0";
+            txtParcelaAtual.Text = "0";
+            dgvListaDespesas.DataSource = _despesaBusiness.GetAllDespesaPorData(dtpDataInicial.Value.Date, dtpDataFim.Value);
         }
 
         private void dgvListaDespesas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -62,6 +67,12 @@ namespace WinFormsFinancas.Forms
             cldDataVencimento.Value = Convert.ToDateTime(linha.Cells[6].Value.ToString());
             txtQlbParcelas.Text = linha.Cells[3].Value.ToString();
             txtParcelaAtual.Text = linha.Cells[4].Value.ToString();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            Int64 idDespesa = Convert.ToInt64(lblIdDespesa.Text);
+            _despesaBusiness.DeleteDespesa(idDespesa);
         }
     }
 }

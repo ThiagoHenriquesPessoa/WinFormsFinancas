@@ -117,5 +117,10 @@ namespace WinFormBusiness.Business
         {
             _despesaRepository.UpdateDespesa(despesa);
         }
+
+        public void DeleteDespesa(Int64 idDespesa)
+        {
+            _despesaRepository.DeleteDespesa(idDespesa);
+        }
     }
 }
