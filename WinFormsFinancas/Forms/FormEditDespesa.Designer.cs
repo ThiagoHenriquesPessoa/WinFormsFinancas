@@ -48,9 +48,10 @@
             lblNovaDespesa = new Label();
             cldDataCriacao = new DateTimePicker();
             cldDataVencimento = new DateTimePicker();
-            NumUpQtdParcelas = new TextBox();
+            txtQlbParcelas = new TextBox();
             txtParcelaAtual = new TextBox();
             lblParcelaAtual = new Label();
+            lblIdDespesa = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvListaDespesas).BeginInit();
             SuspendLayout();
             // 
@@ -240,6 +241,7 @@
             cldDataCriacao.Name = "cldDataCriacao";
             cldDataCriacao.Size = new Size(105, 27);
             cldDataCriacao.TabIndex = 57;
+            cldDataCriacao.Value = new DateTime(2023, 6, 11, 1, 30, 0, 0);
             // 
             // cldDataVencimento
             // 
@@ -249,12 +251,12 @@
             cldDataVencimento.Size = new Size(105, 27);
             cldDataVencimento.TabIndex = 56;
             // 
-            // NumUpQtdParcelas
+            // txtQlbParcelas
             // 
-            NumUpQtdParcelas.Location = new Point(290, 509);
-            NumUpQtdParcelas.Name = "NumUpQtdParcelas";
-            NumUpQtdParcelas.Size = new Size(56, 27);
-            NumUpQtdParcelas.TabIndex = 58;
+            txtQlbParcelas.Location = new Point(290, 509);
+            txtQlbParcelas.Name = "txtQlbParcelas";
+            txtQlbParcelas.Size = new Size(56, 27);
+            txtQlbParcelas.TabIndex = 58;
             // 
             // txtParcelaAtual
             // 
@@ -273,14 +275,26 @@
             lblParcelaAtual.TabIndex = 59;
             lblParcelaAtual.Text = "Parcela Atual";
             // 
+            // lblIdDespesa
+            // 
+            lblIdDespesa.AutoSize = true;
+            lblIdDespesa.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            lblIdDespesa.Location = new Point(86, 552);
+            lblIdDespesa.Name = "lblIdDespesa";
+            lblIdDespesa.Size = new Size(20, 23);
+            lblIdDespesa.TabIndex = 61;
+            lblIdDespesa.Text = "0";
+            lblIdDespesa.Visible = false;
+            // 
             // FormEditDespesa
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 626);
+            Controls.Add(lblIdDespesa);
             Controls.Add(txtParcelaAtual);
             Controls.Add(lblParcelaAtual);
-            Controls.Add(NumUpQtdParcelas);
+            Controls.Add(txtQlbParcelas);
             Controls.Add(cldDataCriacao);
             Controls.Add(cldDataVencimento);
             Controls.Add(lblDataVencimento);
@@ -330,8 +344,9 @@
         private Label lblNovaDespesa;
         private DateTimePicker cldDataCriacao;
         private DateTimePicker cldDataVencimento;
-        private TextBox NumUpQtdParcelas;
+        private TextBox txtQlbParcelas;
         private TextBox txtParcelaAtual;
         private Label lblParcelaAtual;
+        private Label lblIdDespesa;
     }
 }

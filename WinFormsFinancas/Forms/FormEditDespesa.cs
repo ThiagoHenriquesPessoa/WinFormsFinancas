@@ -1,4 +1,6 @@
 ﻿using WinFormBusiness.InterfaceBusiness;
+using WinFormDomain.Models;
+using static System.Windows.Forms.LinkLabel;
 
 namespace WinFormsFinancas.Forms
 {
@@ -20,21 +22,46 @@ namespace WinFormsFinancas.Forms
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            var editar = new FormEditar();
-            editar.Show();
+            if (Convert.ToInt64(lblIdDespesa.Text) != 0)
+            {
+                var despesa = new Despesa
+                {
+                    IdDespesa = Convert.ToInt64(lblIdDespesa.Text),
+                    ValorDespesa = Convert.ToDouble(txtNovaDespesa.Text),
+                    TipoDespesa = cbTipoDespesa.Text,
+                    QuantidadeParcelas = Convert.ToInt64(txtQlbParcelas.Text),
+                    ParcelaAtual = Convert.ToInt64(txtParcelaAtual.Text),
+                    DataCriacaoDespesa = cldDataCriacao.Value,
+                    DataVencimentoDespesa = cldDataVencimento.Value,
+                    DespesaPaga = cbxDespesaPaga.Checked,
+                    FormaPagamento = cbxFormaPagamento.Text
+                };
+                _despesaBusiness.UpdateDespesa(despesa);
+                lblIdDespesa.Text = "0";
+                txtNovaDespesa.Text = "0";
+                cbTipoDespesa.Text = "";
+                cbxDespesaPaga.Checked = false;
+                cbxFormaPagamento.Text = "";
+                cldDataCriacao.Value = DateTime.Now;
+                cldDataVencimento.Value = DateTime.Now;
+                txtQlbParcelas.Text = "0";
+                txtParcelaAtual.Text = "0";
+                dgvListaDespesas.DataSource = _despesaBusiness.GetAllDespesaPorData(dtpDataInicial.Value.Date, dtpDataFim.Value);
+            }
         }
 
         private void dgvListaDespesas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DataGridViewRow linha = dgvListaDespesas.Rows[e.RowIndex];
-            Int64 id = Convert.ToInt64(linha.Cells[0].Value);
+            lblIdDespesa.Text = linha.Cells[0].Value.ToString();
             txtNovaDespesa.Text = linha.Cells[1].Value.ToString();
             cbTipoDespesa.Text = linha.Cells[2].Value.ToString();
             cbxDespesaPaga.Checked = Convert.ToBoolean(linha.Cells[7].Value);
             cbxFormaPagamento.Text = linha.Cells[8].Value.ToString();
             cldDataCriacao.Value = Convert.ToDateTime(linha.Cells[5].Value.ToString());
             cldDataVencimento.Value = Convert.ToDateTime(linha.Cells[6].Value.ToString());
-            NumUpQtdParcelas.Value = Convert.ToDecimal(linha.Cells[3].Value.ToString());
+            txtQlbParcelas.Text = linha.Cells[3].Value.ToString();
+            txtParcelaAtual.Text = linha.Cells[4].Value.ToString();
         }
     }
 }

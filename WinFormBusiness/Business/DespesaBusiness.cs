@@ -112,6 +112,10 @@ namespace WinFormBusiness.Business
             }
             return listDespesas;
         }
+
+        public void UpdateDespesa(Despesa despesa)
+        {
+            _despesaRepository.UpdateDespesa(despesa);
+        }
     }
 }
-
