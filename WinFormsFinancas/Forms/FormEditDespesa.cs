@@ -73,6 +73,7 @@ namespace WinFormsFinancas.Forms
         {
             Int64 idDespesa = Convert.ToInt64(lblIdDespesa.Text);
             _despesaBusiness.DeleteDespesa(idDespesa);
+            Atualizar();
         }
     }
 }
