@@ -144,5 +144,31 @@ namespace WinFormRepository.Repository
                 throw new Exception(ex.Message);
             }
         }
+        
+        public void UpdateDespesa(Despesa despesa)
+        {
+            try
+            {
+                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                {
+                    var sql = "UPDATE [Despesa] SET [ValorDespesa] = @ValorDespesa, [TipoDespesa] = @TipoDespesa, [QuantidadeParcelas] = @QuantidadeParcelas, [ParcelaAtual] = @ParcelaAtual, [DataCriacaoDespesa] = @DataCriacaoDespesa, [DataVencimentoDespesa] = @DataVencimentoDespesa, [DespesaPaga] = @DespesaPaga, [FormaPagamento] = @FormaPagamento WHERE [IdDespesa] == @IdDespesa;";
+                    context.CommandText = sql;
+                    context.Parameters.AddWithValue("@IdDespesa", despesa.IdDespesa);
+                    context.Parameters.AddWithValue("@ValorDespesa", despesa.ValorDespesa);
+                    context.Parameters.AddWithValue("@TipoDespesa", despesa.TipoDespesa);
+                    context.Parameters.AddWithValue("@QuantidadeParcelas", despesa.QuantidadeParcelas);
+                    context.Parameters.AddWithValue("@ParcelaAtual", despesa.ParcelaAtual);
+                    context.Parameters.AddWithValue("@DataCriacaoDespesa", despesa.DataCriacaoDespesa);
+                    context.Parameters.AddWithValue("@DataVencimentoDespesa", despesa.DataVencimentoDespesa);
+                    context.Parameters.AddWithValue("@DespesaPaga", despesa.DespesaPaga);
+                    context.Parameters.AddWithValue("@FormaPagamento", despesa.FormaPagamento);
+                    context.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

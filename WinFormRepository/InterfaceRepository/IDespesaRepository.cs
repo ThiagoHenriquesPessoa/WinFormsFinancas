@@ -12,5 +12,6 @@ namespace WinFormRepository.InterfaceRepository
         DataTable GetValorDespesaMesAtualAll();
         DataTable GetDespesaNaoPagasMesAtualAll();
         DataTable GetAllDespesaPorData(DateTime inicail, DateTime fim);
+        void UpdateDespesa(Despesa despesa);
     }
 }
