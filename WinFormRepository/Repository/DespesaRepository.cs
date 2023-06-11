@@ -170,5 +170,23 @@ namespace WinFormRepository.Repository
                 throw new Exception(ex.Message);
             }
         }
+
+        public void DeleteDespesa(Int64 idDespesa)
+        {
+            try
+            {
+                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                {
+                    var sql = "DELETE FROM [Despesa] WHERE [IdDespesa] == @IdDespesa;";
+                    context.CommandText = sql;
+                    context.Parameters.AddWithValue("@IdDespesa", idDespesa);
+                    context.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
