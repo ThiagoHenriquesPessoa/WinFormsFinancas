@@ -34,6 +34,7 @@
             dtpDataInicial = new DateTimePicker();
             btnExibirLista = new Button();
             dgvListaDespesas = new DataGridView();
+            btnEditar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvListaDespesas).BeginInit();
             SuspendLayout();
             // 
@@ -98,11 +99,22 @@
             dgvListaDespesas.Size = new Size(877, 464);
             dgvListaDespesas.TabIndex = 13;
             // 
+            // btnEditar
+            // 
+            btnEditar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnEditar.Location = new Point(819, 576);
+            btnEditar.Name = "btnEditar";
+            btnEditar.Size = new Size(94, 29);
+            btnEditar.TabIndex = 35;
+            btnEditar.Text = "Editar";
+            btnEditar.UseVisualStyleBackColor = true;
+            // 
             // FormEditDespesa
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(944, 626);
+            Controls.Add(btnEditar);
             Controls.Add(dgvListaDespesas);
             Controls.Add(btnExibirLista);
             Controls.Add(dtpDataInicial);
@@ -136,5 +148,6 @@
         private DateTimePicker dtpDataInicial;
         private Button btnExibirLista;
         private DataGridView dgvListaDespesas;
+        private Button btnEditar;
     }
 }
