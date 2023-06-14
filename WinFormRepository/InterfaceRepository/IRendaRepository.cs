@@ -10,5 +10,6 @@ namespace WinFormRepository.InterfaceRepository
         DataTable GetRendaAll();
         DataTable GetAllRendaPorData(DateTime inicail, DateTime fim);
         void UpdateRenda(Renda renda);
+        void DeleteRenda(Int64 idRenda);
     }
 }

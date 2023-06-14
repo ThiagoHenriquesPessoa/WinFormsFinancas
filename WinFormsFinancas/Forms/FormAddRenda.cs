@@ -1,5 +1,6 @@
 ﻿using WinFormBusiness.InterfaceBusiness;
 using WinFormDomain.Models;
+using static SQLite.SQLite3;
 
 namespace WinFormsFinancas.Forms
 {
@@ -10,31 +11,34 @@ namespace WinFormsFinancas.Forms
         public FormAddRenda(IRendaBusiness rendaService)
         {
             InitializeComponent();
+            txtNovaRenda.Text = "0";
+            cbTipoRenda.Text = "";
+            cldDataEntrada.SelectionStart = DateTime.Now;
             _rendaService = rendaService;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            var renda = new Renda
+            if (txtNovaRenda.Text != "0" && txtNovaRenda.Text != "")
             {
-                ValorRenda = txtNovaRenda.Text != "" ? Convert.ToDouble(txtNovaRenda.Text) : 0,
-                TipoRenda = cbTipoRenda.Text != "" ? cbTipoRenda.Text : "Outros",
-                DataEntrada = cldDataEntrada.SelectionRange.Start
-            };
-            var result = _rendaService.InsertRenda(renda);
-            if (result == 1)
-            {
+                var renda = new Renda
+                {
+                    ValorRenda = txtNovaRenda.Text != "" ? Convert.ToDouble(txtNovaRenda.Text) : 0,
+                    TipoRenda = cbTipoRenda.Text != "" ? cbTipoRenda.Text : "Outros",
+                    DataEntrada = cldDataEntrada.SelectionRange.Start
+                };
+                _rendaService.InsertRenda(renda);            
                 btnCanelar_Click(sender, e);
             }
             else
             {
-                MessageBox.Show("Campo Valor da Renda é obrigatorio!");
+                MessageBox.Show("Valor da renda não pode ser zero!");
             }
         }
 
         private void btnCanelar_Click(object sender, EventArgs e)
         {
-            txtNovaRenda.Text = "";
+            txtNovaRenda.Text = "0";
             cbTipoRenda.Text = "";
             cldDataEntrada.SelectionStart = DateTime.Now;
         }

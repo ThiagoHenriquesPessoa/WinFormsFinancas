@@ -10,29 +10,35 @@ namespace WinFormsFinancas.Forms
         public FormAddDespesa(IDespesaBusiness despesaBusiness)
         {
             InitializeComponent();
+            txtNovaDespesa.Text = "0";
+            cbTipoDespesa.Text = "";
+            NumUpQtdParcelas.Value = 1;
+            cldDataCriacao.SelectionStart = DateTime.Now;
+            cbxDespesaPaga.Checked = false;
+            cbxFormaPagamento.Text = "";
             _despesaBusiness = despesaBusiness;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            var renda = new Despesa
+            if (txtNovaDespesa.Text != "0" && txtNovaDespesa.Text != "")
             {
-                ValorDespesa = txtNovaDespesa.Text != "" ? Convert.ToDouble(txtNovaDespesa.Text) : 0,
-                DespesaPaga = cbxDespesaPaga.Checked,
-                TipoDespesa = cbTipoDespesa.Text != "" ? cbTipoDespesa.Text : "Outros",
-                FormaPagamento = cbxFormaPagamento.Text != "" ? cbxFormaPagamento.Text : "Outros",               
-                DataCriacaoDespesa = cldDataCriacao.SelectionRange.Start,
-                DataVencimentoDespesa = cldDataVencimento.SelectionRange.Start,
-                QuantidadeParcelas = Convert.ToInt32(NumUpQtdParcelas.Value)
-            };
-            var result = _despesaBusiness.InsertDespesa(renda);
-            if (result == 1)
-            {
+                var renda = new Despesa
+                {
+                    ValorDespesa = Convert.ToDouble(txtNovaDespesa.Text),
+                    DespesaPaga = cbxDespesaPaga.Checked,
+                    TipoDespesa = cbTipoDespesa.Text != "" ? cbTipoDespesa.Text : "Outros",
+                    FormaPagamento = cbxFormaPagamento.Text != "" ? cbxFormaPagamento.Text : "Outros",
+                    DataCriacaoDespesa = cldDataCriacao.SelectionRange.Start,
+                    DataVencimentoDespesa = cldDataVencimento.SelectionRange.Start,
+                    QuantidadeParcelas = Convert.ToInt32(NumUpQtdParcelas.Value)
+                };
+                _despesaBusiness.InsertDespesa(renda);
                 btnCanelar_Click(sender, e);
             }
             else
             {
-                MessageBox.Show("Campo Valor da despesa é obrigatorio!");
+                MessageBox.Show("Valor da despesa não pode ser zero!");
             }
         }
 

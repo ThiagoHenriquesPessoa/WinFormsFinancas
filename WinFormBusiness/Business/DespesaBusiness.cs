@@ -16,22 +16,17 @@ namespace WinFormBusiness.Business
             _despesaRepository = despesaRepository;
         }
 
-        public int InsertDespesa(Despesa despesa)
+        public void InsertDespesa(Despesa despesa)
         {
-            if (despesa.ValorDespesa > 0)
+            Int64 parcelas = despesa.QuantidadeParcelas;
+            double valor = despesa.ValorDespesa / parcelas;
+            despesa.ValorDespesa = valor;
+            for (int i = 1; i <= parcelas; i++)
             {
-                Int64 parcelas = despesa.QuantidadeParcelas;
-                double valor = despesa.ValorDespesa / parcelas;
-                despesa.ValorDespesa = valor;
-                for (int i = 1; i <= parcelas; i++)
-                {
-                    despesa.DataVencimentoDespesa = i == 1 ? despesa.DataVencimentoDespesa : despesa.DataVencimentoDespesa.AddMonths(1);
-                    despesa.ParcelaAtual = i;
-                    _despesaRepository.InsertDespesa(despesa);
-                }
-                return 1;
+                despesa.DataVencimentoDespesa = i == 1 ? despesa.DataVencimentoDespesa : despesa.DataVencimentoDespesa.AddMonths(1);
+                despesa.ParcelaAtual = i;
+                _despesaRepository.InsertDespesa(despesa);
             }
-            return 0;
         }
 
         public double GetDespesaTotal()
