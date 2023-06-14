@@ -1,4 +1,5 @@
-﻿using WinFormBusiness.InterfaceBusiness;
+﻿using WinFormBusiness.Business;
+using WinFormBusiness.InterfaceBusiness;
 using WinFormDomain.Models;
 
 namespace WinFormsFinancas.Forms
@@ -45,11 +46,24 @@ namespace WinFormsFinancas.Forms
                 _rendaBusiness.UpdateRenda(renda);
                 Atualizar();
             }
+            else
+            {
+                MessageBox.Show("Valor da renda não pode ser zero!");
+            }            
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            if(lblIdRenda.Text != "0")
+            {
+                Int64 idRenda = Convert.ToInt64(lblIdRenda.Text);
+                _rendaBusiness.DeleteRenda(idRenda);
+                Atualizar();
+            }
+            else
+            {
+                MessageBox.Show("Não há renda para ser excluida!");
+            }
         }
 
         private void Atualizar()

@@ -11,6 +11,15 @@ namespace WinFormsFinancas.Forms
         public FormEditDespesa(IDespesaBusiness despesaBusiness)
         {
             InitializeComponent();
+            lblIdDespesa.Text = "0";
+            txtNovaDespesa.Text = "0";
+            cbTipoDespesa.Text = "";
+            cbxDespesaPaga.Checked = false;
+            cbxFormaPagamento.Text = "";
+            cldDataCriacao.Value = DateTime.Now;
+            cldDataVencimento.Value = DateTime.Now;
+            txtQlbParcelas.Text = "0";
+            txtParcelaAtual.Text = "0";
             _despesaBusiness = despesaBusiness;
         }
 
@@ -22,7 +31,7 @@ namespace WinFormsFinancas.Forms
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (Convert.ToInt64(lblIdDespesa.Text) != 0)
+            if (lblIdDespesa.Text != "0" && txtNovaDespesa.Text != "0" && txtNovaDespesa.Text != "")
             {
                 var despesa = new Despesa
                 {
@@ -38,6 +47,10 @@ namespace WinFormsFinancas.Forms
                 };
                 _despesaBusiness.UpdateDespesa(despesa);
                 Atualizar();
+            }
+            else
+            {
+                MessageBox.Show("Valor da despesa não pode ser zero!");
             }
         }
 
@@ -71,9 +84,17 @@ namespace WinFormsFinancas.Forms
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            Int64 idDespesa = Convert.ToInt64(lblIdDespesa.Text);
-            _despesaBusiness.DeleteDespesa(idDespesa);
-            Atualizar();
+            if (lblIdDespesa.Text != "0")
+            {
+                Int64 idDespesa = Convert.ToInt64(lblIdDespesa.Text);
+                _despesaBusiness.DeleteDespesa(idDespesa);
+                Atualizar();
+            }
+            else
+            {
+                MessageBox.Show("Não há despesa para ser excluida!");
+            }
+           
         }
     }
 }

@@ -7,7 +7,7 @@ namespace WinFormBusiness.InterfaceBusiness
 {
     public interface IDespesaBusiness
     {
-        int InsertDespesa(Despesa despesa);
+        void InsertDespesa(Despesa despesa);
 
         double GetDespesaTotal();
 

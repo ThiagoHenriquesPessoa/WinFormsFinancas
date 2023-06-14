@@ -59,6 +59,11 @@ namespace WinFormBusiness.Business
         public void UpdateRenda(Renda renda)
         {
             _rendaRepository.UpdateRenda(renda);
-        }        
+        }     
+        
+        public void DeleteRenda(Int64 idRenda)
+        {
+            _rendaRepository.DeleteRenda(idRenda);
+        }
     }
 }

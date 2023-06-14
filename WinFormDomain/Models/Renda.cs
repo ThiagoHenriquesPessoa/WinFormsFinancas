@@ -10,7 +10,6 @@ namespace WinFormDomain.Models
 
         public double ValorRenda { get; set; }
         public string TipoRenda { get; set; }
-        public bool ValorFixo { get; set; }
         public DateTime DataEntrada { get; set; }
     }
 }
