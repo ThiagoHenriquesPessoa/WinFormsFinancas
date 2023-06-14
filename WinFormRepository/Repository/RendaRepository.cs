@@ -73,6 +73,51 @@ namespace WinFormRepository.Repository
             }
         }
 
+        public DataTable GetRendaAnoAtualall()
+        {
+            SQLiteDataAdapter adapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                {
+                    var param0 = DateTime.Now.Date.Year.ToString();
+                    var param1 = DateTime.Now.Date.AddYears(1).Year.ToString();
+                    context.CommandText = String.Format($"SELECT ValorRenda FROM [Renda] WHERE DataEntrada >'{param0}-01-01 00:00:00' and DataEntrada<'{param1}-01-01 00:00:00';");
+                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public DataTable GetRendaMesAtualAll()
+        {
+            SQLiteDataAdapter adapter = null;
+            DataTable dataTable = new DataTable();
+            try
+            {
+                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                {
+                    var param0 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.Month}-01 00:00:00");
+                    var param1 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.AddMonths(1).Month}-01 00:00:00");
+
+                    context.CommandText = String.Format($"SELECT ValorRenda FROM [Renda] WHERE DataEntrada >= '{param0}' and DataEntrada < '{param1}';");
+                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
+                    adapter.Fill(dataTable);
+                    return dataTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         public void UpdateRenda(Renda renda)
         {
             try

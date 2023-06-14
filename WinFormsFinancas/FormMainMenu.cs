@@ -28,6 +28,8 @@ namespace WinFormsFinancas
             tbxDespesaTotal.Text = _despesaBusiness.GetDespesaTotal().ToString("F2");
             tbxDespesaAnoAtual.Text = _despesaBusiness.GetDespesaAnoAtualAll().ToString("F2");
             tbxDespesaMesAtual.Text = _despesaBusiness.GetDespesaMesAtualAll().ToString("F2");
+            tbxRendaAnoAtual.Text = _rendaBusiness.GetRendaAnoAtualall().ToString("F2");
+            tbxRendaMesAtual.Text = _rendaBusiness.GetRendaMesAtualAll().ToString("F2");
             dgvListDespesasNaoPagas.DataSource = _despesaBusiness.GetDespesaNaoPagasMesAtualAll();
             dgvListDespesasNaoPagas.Columns["IdDespesa"].Visible = false;
         }

@@ -12,6 +12,10 @@ namespace WinFormBusiness.InterfaceBusiness
 
         List<Renda> GetAllRendaPorData(DateTime inicio, DateTime fim);
 
+        double GetRendaAnoAtualall();
+
+        double GetRendaMesAtualAll();
+
         void UpdateRenda(Renda renda);
 
         void DeleteRenda(Int64 idRenda);

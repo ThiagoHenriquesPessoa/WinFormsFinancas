@@ -198,6 +198,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.InactiveCaption;
             ClientSize = new Size(944, 626);
             Controls.Add(cldDataVencimento);
             Controls.Add(lblDataVencimento);

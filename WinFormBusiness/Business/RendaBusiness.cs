@@ -56,11 +56,33 @@ namespace WinFormBusiness.Business
             return listRenda;
         }
 
+        public double GetRendaAnoAtualall()
+        {
+            double valorTotal = 0;
+            var table = _rendaRepository.GetRendaAnoAtualall();
+            foreach (DataRow row in table.Rows)
+            {
+                valorTotal += (double)row["ValorRenda"];
+            }
+            return valorTotal;
+        }
+
+        public double GetRendaMesAtualAll()
+        {
+            double valorTotal = 0;
+            var table = _rendaRepository.GetRendaMesAtualAll();
+            foreach (DataRow row in table.Rows)
+            {
+                valorTotal += (double)row["ValorRenda"];
+            }
+            return valorTotal;
+        }
+
         public void UpdateRenda(Renda renda)
         {
             _rendaRepository.UpdateRenda(renda);
-        }     
-        
+        }
+
         public void DeleteRenda(Int64 idRenda)
         {
             _rendaRepository.DeleteRenda(idRenda);
