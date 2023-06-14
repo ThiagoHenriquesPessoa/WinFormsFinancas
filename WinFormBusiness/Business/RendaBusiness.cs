@@ -55,5 +55,10 @@ namespace WinFormBusiness.Business
             }
             return listRenda;
         }
+
+        public void UpdateRenda(Renda renda)
+        {
+            _rendaRepository.UpdateRenda(renda);
+        }        
     }
 }

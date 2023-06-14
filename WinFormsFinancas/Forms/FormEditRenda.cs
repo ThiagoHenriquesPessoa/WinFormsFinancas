@@ -1,4 +1,5 @@
 ﻿using WinFormBusiness.InterfaceBusiness;
+using WinFormDomain.Models;
 
 namespace WinFormsFinancas.Forms
 {
@@ -8,6 +9,10 @@ namespace WinFormsFinancas.Forms
         public FormEditRenda(IRendaBusiness rendaBusiness)
         {
             InitializeComponent();
+            lblIdRenda.Text = "0";
+            txtNovaRenda.Text = "0";
+            cbTipoRenda.Text = "";
+            cldDataEntrada.Value = DateTime.Now;
             _rendaBusiness = rendaBusiness;
         }
 
@@ -23,7 +28,37 @@ namespace WinFormsFinancas.Forms
             lblIdRenda.Text = linha.Cells[0].Value.ToString();
             txtNovaRenda.Text = linha.Cells[1].Value.ToString();
             cbTipoRenda.Text = linha.Cells[2].Value.ToString();
-            cldDataEntrada.Value = Convert.ToDateTime(linha.Cells[3].Value.ToString());
+            cldDataEntrada.Value = Convert.ToDateTime(linha.Cells[3].Value);
+        }
+
+        private void btnSalvar_Click(object sender, EventArgs e)
+        {
+            if (lblIdRenda.Text != "0" && txtNovaRenda.Text != "0")
+            {
+                var renda = new Renda
+                {
+                    IdRenda = Convert.ToInt64(lblIdRenda.Text),
+                    ValorRenda = Convert.ToDouble(txtNovaRenda.Text),
+                    TipoRenda = cbTipoRenda.Text,
+                    DataEntrada = Convert.ToDateTime(cldDataEntrada.Value)
+                };
+                _rendaBusiness.UpdateRenda(renda);
+                Atualizar();
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Atualizar()
+        {
+            lblIdRenda.Text = "0";
+            txtNovaRenda.Text = "0";
+            cbTipoRenda.Text = "";
+            cldDataEntrada.Value = DateTime.Now;
+            dgvListaRenda.DataSource = _rendaBusiness.GetAllRendaPorData(dtpDataInicial.Value.Date, dtpDataFim.Value);
         }
     }
 }

@@ -9,5 +9,6 @@ namespace WinFormRepository.InterfaceRepository
         int InsertRenda(Renda renda);
         DataTable GetRendaAll();
         DataTable GetAllRendaPorData(DateTime inicail, DateTime fim);
+        void UpdateRenda(Renda renda);
     }
 }

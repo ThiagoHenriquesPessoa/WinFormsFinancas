@@ -11,5 +11,7 @@ namespace WinFormBusiness.InterfaceBusiness
         double GetRendaTotal();
 
         List<Renda> GetAllRendaPorData(DateTime inicio, DateTime fim);
+
+        void UpdateRenda(Renda renda);
     }
 }
