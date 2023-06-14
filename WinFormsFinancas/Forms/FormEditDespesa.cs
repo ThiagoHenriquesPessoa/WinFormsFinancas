@@ -94,7 +94,7 @@ namespace WinFormsFinancas.Forms
             {
                 MessageBox.Show("Não há despesa para ser excluida!");
             }
-           
+
         }
     }
 }

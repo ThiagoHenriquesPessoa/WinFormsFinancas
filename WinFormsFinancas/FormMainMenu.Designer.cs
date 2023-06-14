@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMainMenu));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelMenu = new Panel();
             btnLogo = new Button();
             btnSetting = new Button();
@@ -47,7 +47,7 @@
             lblDespesaMesAtual = new Label();
             lblRendaMesAtual = new Label();
             tbxDespesaMesAtual = new TextBox();
-            tbxRendaMesAtul = new TextBox();
+            tbxRendaMesAtual = new TextBox();
             lblDespesaAnoAtual = new Label();
             lblRendaAnoAtual = new Label();
             tbxDespesaAnoAtual = new TextBox();
@@ -80,21 +80,25 @@
             // 
             // btnLogo
             // 
-            btnLogo.BackColor = Color.FromArgb(39, 39, 58);
+            btnLogo.BackColor = Color.FromArgb(39, 39, 70);
             btnLogo.Dock = DockStyle.Top;
+            btnLogo.FlatAppearance.BorderSize = 0;
             btnLogo.FlatStyle = FlatStyle.Flat;
             btnLogo.Font = new Font("MS PGothic", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            btnLogo.ForeColor = Color.White;
+            btnLogo.ForeColor = SystemColors.GradientInactiveCaption;
             btnLogo.Location = new Point(0, 0);
+            btnLogo.Margin = new Padding(0);
             btnLogo.Name = "btnLogo";
             btnLogo.Size = new Size(220, 80);
-            btnLogo.TabIndex = 14;
+            btnLogo.TabIndex = 1;
             btnLogo.Text = "HOME";
+            btnLogo.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLogo.UseVisualStyleBackColor = false;
             btnLogo.Click += btnLogo_Click;
             // 
             // btnSetting
             // 
+            btnSetting.BackColor = Color.FromArgb(39, 39, 58);
             btnSetting.FlatAppearance.BorderSize = 0;
             btnSetting.FlatStyle = FlatStyle.Flat;
             btnSetting.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -105,15 +109,16 @@
             btnSetting.Name = "btnSetting";
             btnSetting.Padding = new Padding(12, 0, 0, 0);
             btnSetting.Size = new Size(220, 45);
-            btnSetting.TabIndex = 6;
+            btnSetting.TabIndex = 7;
             btnSetting.Text = "   =======";
             btnSetting.TextAlign = ContentAlignment.MiddleLeft;
             btnSetting.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSetting.UseVisualStyleBackColor = true;
+            btnSetting.UseVisualStyleBackColor = false;
             btnSetting.Click += btnSetting_Click;
             // 
             // btnNotifications
             // 
+            btnNotifications.BackColor = Color.FromArgb(39, 39, 58);
             btnNotifications.FlatAppearance.BorderSize = 0;
             btnNotifications.FlatStyle = FlatStyle.Flat;
             btnNotifications.ForeColor = SystemColors.GradientInactiveCaption;
@@ -123,21 +128,22 @@
             btnNotifications.Name = "btnNotifications";
             btnNotifications.Padding = new Padding(12, 0, 0, 0);
             btnNotifications.Size = new Size(220, 45);
-            btnNotifications.TabIndex = 5;
+            btnNotifications.TabIndex = 6;
             btnNotifications.Text = "  =======";
             btnNotifications.TextAlign = ContentAlignment.MiddleLeft;
             btnNotifications.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnNotifications.UseVisualStyleBackColor = true;
+            btnNotifications.UseVisualStyleBackColor = false;
             btnNotifications.Click += btnNotifications_Click;
             // 
             // btnEditeRenda
             // 
+            btnEditeRenda.BackColor = Color.FromArgb(39, 39, 58);
             btnEditeRenda.FlatAppearance.BorderSize = 0;
             btnEditeRenda.FlatStyle = FlatStyle.Flat;
             btnEditeRenda.ForeColor = SystemColors.GradientInactiveCaption;
             btnEditeRenda.Image = (Image)resources.GetObject("btnEditeRenda.Image");
             btnEditeRenda.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditeRenda.Location = new Point(0, 215);
+            btnEditeRenda.Location = new Point(0, 170);
             btnEditeRenda.Name = "btnEditeRenda";
             btnEditeRenda.Padding = new Padding(12, 0, 0, 0);
             btnEditeRenda.Size = new Size(220, 45);
@@ -145,29 +151,31 @@
             btnEditeRenda.Text = "   EditeRenda";
             btnEditeRenda.TextAlign = ContentAlignment.MiddleLeft;
             btnEditeRenda.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnEditeRenda.UseVisualStyleBackColor = true;
+            btnEditeRenda.UseVisualStyleBackColor = false;
             btnEditeRenda.Click += btnReporting_Click;
             // 
             // btnCustomer
             // 
+            btnCustomer.BackColor = Color.FromArgb(39, 39, 58);
             btnCustomer.FlatAppearance.BorderSize = 0;
             btnCustomer.FlatStyle = FlatStyle.Flat;
             btnCustomer.ForeColor = SystemColors.GradientInactiveCaption;
             btnCustomer.Image = (Image)resources.GetObject("btnCustomer.Image");
             btnCustomer.ImageAlign = ContentAlignment.MiddleLeft;
-            btnCustomer.Location = new Point(0, 170);
+            btnCustomer.Location = new Point(0, 215);
             btnCustomer.Name = "btnCustomer";
             btnCustomer.Padding = new Padding(12, 0, 0, 0);
             btnCustomer.Size = new Size(220, 45);
-            btnCustomer.TabIndex = 3;
+            btnCustomer.TabIndex = 5;
             btnCustomer.Text = "   EditeDespesa";
             btnCustomer.TextAlign = ContentAlignment.MiddleLeft;
             btnCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnCustomer.UseVisualStyleBackColor = true;
+            btnCustomer.UseVisualStyleBackColor = false;
             btnCustomer.Click += btnEditDespesa_Click;
             // 
             // btnAddDespesa
             // 
+            btnAddDespesa.BackColor = Color.FromArgb(39, 39, 58);
             btnAddDespesa.FlatAppearance.BorderSize = 0;
             btnAddDespesa.FlatStyle = FlatStyle.Flat;
             btnAddDespesa.ForeColor = SystemColors.GradientInactiveCaption;
@@ -177,15 +185,16 @@
             btnAddDespesa.Name = "btnAddDespesa";
             btnAddDespesa.Padding = new Padding(12, 0, 0, 0);
             btnAddDespesa.Size = new Size(220, 45);
-            btnAddDespesa.TabIndex = 2;
+            btnAddDespesa.TabIndex = 3;
             btnAddDespesa.Text = "   AddDespesa";
             btnAddDespesa.TextAlign = ContentAlignment.MiddleLeft;
             btnAddDespesa.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnAddDespesa.UseVisualStyleBackColor = true;
+            btnAddDespesa.UseVisualStyleBackColor = false;
             btnAddDespesa.Click += btnAddDespesa_Click;
             // 
             // btnAddRenda
             // 
+            btnAddRenda.BackColor = Color.FromArgb(39, 39, 58);
             btnAddRenda.FlatAppearance.BorderSize = 0;
             btnAddRenda.FlatStyle = FlatStyle.Flat;
             btnAddRenda.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
@@ -193,19 +202,20 @@
             btnAddRenda.Image = Properties.Resources.icons8_apresentação_16;
             btnAddRenda.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddRenda.Location = new Point(0, 80);
+            btnAddRenda.Margin = new Padding(0);
             btnAddRenda.Name = "btnAddRenda";
             btnAddRenda.Padding = new Padding(12, 0, 0, 0);
             btnAddRenda.Size = new Size(220, 45);
-            btnAddRenda.TabIndex = 1;
+            btnAddRenda.TabIndex = 2;
             btnAddRenda.Text = "  AddRenda";
             btnAddRenda.TextAlign = ContentAlignment.MiddleLeft;
             btnAddRenda.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnAddRenda.UseVisualStyleBackColor = true;
+            btnAddRenda.UseVisualStyleBackColor = false;
             btnAddRenda.Click += btnAddRenda_Click;
             // 
             // panelTitleBar
             // 
-            panelTitleBar.BackColor = Color.FromArgb(0, 150, 136);
+            panelTitleBar.BackColor = Color.FromArgb(39, 39, 58);
             panelTitleBar.Controls.Add(lblPage);
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
@@ -229,12 +239,13 @@
             // 
             // panelDesctopPanel
             // 
+            panelDesctopPanel.BackColor = SystemColors.InactiveCaption;
             panelDesctopPanel.Controls.Add(dgvListDespesasNaoPagas);
             panelDesctopPanel.Controls.Add(btnAtualizar);
             panelDesctopPanel.Controls.Add(lblDespesaMesAtual);
             panelDesctopPanel.Controls.Add(lblRendaMesAtual);
             panelDesctopPanel.Controls.Add(tbxDespesaMesAtual);
-            panelDesctopPanel.Controls.Add(tbxRendaMesAtul);
+            panelDesctopPanel.Controls.Add(tbxRendaMesAtual);
             panelDesctopPanel.Controls.Add(lblDespesaAnoAtual);
             panelDesctopPanel.Controls.Add(lblRendaAnoAtual);
             panelDesctopPanel.Controls.Add(tbxDespesaAnoAtual);
@@ -254,23 +265,23 @@
             dgvListDespesasNaoPagas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgvListDespesasNaoPagas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvListDespesasNaoPagas.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvListDespesasNaoPagas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvListDespesasNaoPagas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvListDespesasNaoPagas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvListDespesasNaoPagas.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Arial Narrow", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvListDespesasNaoPagas.DefaultCellStyle = dataGridViewCellStyle2;
             dgvListDespesasNaoPagas.Location = new Point(362, 135);
             dgvListDespesasNaoPagas.Name = "dgvListDespesasNaoPagas";
             dgvListDespesasNaoPagas.RowHeadersWidth = 5;
@@ -319,13 +330,13 @@
             tbxDespesaMesAtual.Size = new Size(125, 27);
             tbxDespesaMesAtual.TabIndex = 9;
             // 
-            // tbxRendaMesAtul
+            // tbxRendaMesAtual
             // 
-            tbxRendaMesAtul.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            tbxRendaMesAtul.Location = new Point(151, 149);
-            tbxRendaMesAtul.Name = "tbxRendaMesAtul";
-            tbxRendaMesAtul.Size = new Size(125, 27);
-            tbxRendaMesAtul.TabIndex = 8;
+            tbxRendaMesAtual.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tbxRendaMesAtual.Location = new Point(151, 149);
+            tbxRendaMesAtual.Name = "tbxRendaMesAtual";
+            tbxRendaMesAtual.Size = new Size(125, 27);
+            tbxRendaMesAtual.TabIndex = 8;
             // 
             // lblDespesaAnoAtual
             // 
@@ -408,8 +419,10 @@
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "FormMainMenu";
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Controle Financeiro";
             panelMenu.ResumeLayout(false);
             panelTitleBar.ResumeLayout(false);
@@ -436,7 +449,7 @@
         private Label lblDespesaMesAtual;
         private Label lblRendaMesAtual;
         private TextBox tbxDespesaMesAtual;
-        private TextBox tbxRendaMesAtul;
+        private TextBox tbxRendaMesAtual;
         private Label lblDespesaAnoAtual;
         private Label lblRendaAnoAtual;
         private TextBox tbxDespesaAnoAtual;

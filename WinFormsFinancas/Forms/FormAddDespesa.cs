@@ -44,7 +44,7 @@ namespace WinFormsFinancas.Forms
 
         private void btnCanelar_Click(object sender, EventArgs e)
         {
-            txtNovaDespesa.Text = "";
+            txtNovaDespesa.Text = "0";
             cbTipoDespesa.Text = "";
             NumUpQtdParcelas.Value = 1;
             cldDataCriacao.SelectionStart = DateTime.Now;
