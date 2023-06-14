@@ -106,6 +106,7 @@
             btnSalvar.TabIndex = 41;
             btnSalvar.Text = "Salvar";
             btnSalvar.UseVisualStyleBackColor = true;
+            btnSalvar.Click += btnSalvar_Click;
             // 
             // btnExcluir
             // 
@@ -116,6 +117,7 @@
             btnExcluir.TabIndex = 40;
             btnExcluir.Text = "Excluir";
             btnExcluir.UseVisualStyleBackColor = true;
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // cbTipoRenda
             // 

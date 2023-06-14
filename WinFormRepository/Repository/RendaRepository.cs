@@ -72,5 +72,25 @@ namespace WinFormRepository.Repository
                 throw new Exception(ex.Message);
             }
         }
+
+        public void UpdateRenda(Renda renda)
+        {
+            try
+            {
+                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                {
+                    var sql = "UPDATE [Renda] SET [ValorRenda] = @ValorRenda ,[TipoRenda] = @TipoRenda,[DataEntrada] = @DataEntrada WHERE [IdRenda] == @IdRenda;";
+                    context.CommandText = sql;
+                    context.Parameters.AddWithValue("@ValorRenda", renda.ValorRenda);
+                    context.Parameters.AddWithValue("@TipoRenda", renda.TipoRenda);
+                    context.Parameters.AddWithValue("@DataEntrada", renda.DataEntrada);
+                    context.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }
