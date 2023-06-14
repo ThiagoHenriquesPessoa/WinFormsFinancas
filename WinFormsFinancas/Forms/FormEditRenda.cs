@@ -34,7 +34,7 @@ namespace WinFormsFinancas.Forms
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (lblIdRenda.Text != "0" && txtNovaRenda.Text != "0")
+            if (lblIdRenda.Text != "0" && txtNovaRenda.Text != "0" && txtNovaRenda.Text != "")
             {
                 var renda = new Renda
                 {
