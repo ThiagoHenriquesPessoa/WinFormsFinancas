@@ -32,10 +32,10 @@ namespace WinFormBusiness.Business
         public double GetDespesaTotal()
         {
             double valorTotal = 0;
-            var table = _despesaRepository.GetValorDespesaAll();
-            foreach (DataRow row in table.Rows)
+            var listValores = _despesaRepository.GetValorDespesaAll();
+            foreach (var valor in listValores)
             {
-                valorTotal += (double)row["ValorDespesa"];
+                valorTotal += valor;
             }
             return valorTotal;
         }
@@ -43,10 +43,10 @@ namespace WinFormBusiness.Business
         public double GetDespesaAnoAtualAll()
         {
             double valorTotal = 0;
-            var table = _despesaRepository.GetValorDespesaAnoAtualAll();
-            foreach (DataRow row in table.Rows)
+            var listValores = _despesaRepository.GetValorDespesaAnoAtualAll();
+            foreach (var valor in listValores)
             {
-                valorTotal += (double)row["ValorDespesa"];
+                valorTotal += valor;
             }
             return valorTotal;
         }
@@ -54,33 +54,31 @@ namespace WinFormBusiness.Business
         public double GetDespesaMesAtualAll()
         {
             double valorTotal = 0;
-            var table = _despesaRepository.GetValorDespesaMesAtualAll();
-            foreach (DataRow row in table.Rows)
+            var listValores = _despesaRepository.GetValorDespesaMesAtualAll();
+            foreach (var valor in listValores)
             {
-                valorTotal += (double)row["ValorDespesa"];
+                valorTotal += valor;
             }
             return valorTotal;
         }
 
         public DataTable GetDespesaNaoPagasMesAtualAll()
         {
-            double valorTotal = 0;
-            var listDespesas = new List<Despesa>();
-            var table = _despesaRepository.GetDespesaNaoPagasMesAtualAll();
+            var listDespesas = _despesaRepository.GetDespesaNaoPagasMesAtualAll();
             DataTable dt = new DataTable();
             dt.Columns.Add("IdDespesa", typeof(Int64));
             dt.Columns.Add("Tipo de despesa", typeof(string));
             dt.Columns.Add("Valor da despesa", typeof(string));
             dt.Columns.Add("Formato usado", typeof(string));
-            foreach (DataRow row in table.Rows)
+            foreach (var despesa in listDespesas)
             {
-                if ((Int64)row["DespesaPaga"] == 0)
+                if (despesa.DespesaPaga == false)
                 {
                     dt.Rows.Add(
-                        (Int64)row["IdDespesa"],
-                        (string)row["TipoDespesa"],
-                        ((double)row["ValorDespesa"]).ToString("C"),
-                        (string)row["FormaPagamento"]);
+                        despesa.IdDespesa,
+                        despesa.TipoDespesa,
+                        despesa.ValorDespesa.ToString("C"),
+                        despesa.FormaPagamento);
                 }
             }
             return dt;
@@ -88,24 +86,7 @@ namespace WinFormBusiness.Business
 
         public List<Despesa> GetAllDespesaPorData(DateTime inicio, DateTime fim)
         {
-            var listDespesas = new List<Despesa>();
-            var table = _despesaRepository.GetAllDespesaPorData(inicio, fim);
-            foreach (DataRow row in table.Rows)
-            {
-                listDespesas.Add(new Despesa
-                {
-                    IdDespesa = (Int64)row["IdDespesa"],
-                    ValorDespesa = Convert.ToDouble(((double)row["ValorDespesa"]).ToString("F2")),
-                    TipoDespesa = (string)row["TipoDespesa"],
-                    QuantidadeParcelas = (Int64)row["QuantidadeParcelas"],
-                    ParcelaAtual = (Int64)row["ParcelaAtual"],
-                    DataCriacaoDespesa = Convert.ToDateTime((string)row["DataCriacaoDespesa"]),
-                    DataVencimentoDespesa = Convert.ToDateTime((string)row["DataVencimentoDespesa"]),
-                    DespesaPaga = Convert.ToBoolean((Int64)row["DespesaPaga"]),
-                    FormaPagamento = (string)row["FormaPagamento"]
-                });
-            }
-            return listDespesas;
+            return _despesaRepository.GetAllDespesaPorData(inicio, fim);
         }
 
         public void UpdateDespesa(Despesa despesa)

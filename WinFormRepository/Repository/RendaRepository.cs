@@ -1,11 +1,7 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
-using System.Data.SQLite;
 using System.Linq;
-using System.Reflection.Metadata;
 using WinFormDomain.Models;
 using WinFormInfrastructure.Data;
 using WinFormRepository.InterfaceRepository;
@@ -20,9 +16,14 @@ namespace WinFormRepository.Repository
             {
                 using (var connection = WinFormDbContext.DbConnection())
                 {
-                    var parameter = new { ValorRenda = renda.ValorRenda, TipoRenda = renda.TipoRenda, DataEntrada = renda.DataEntrada };
+                    var parameter = new 
+                    {
+                        ValorRenda = renda.ValorRenda, 
+                        TipoRenda = renda.TipoRenda,
+                        DataEntrada = renda.DataEntrada 
+                    };
                     var sql = "INSERT INTO [Renda] ([ValorRenda] ,[TipoRenda] ,[DataEntrada]) VALUES  (@ValorRenda, @TipoRenda, @DataEntrada);";
-                    connection.Query(sql, parameter);      
+                    connection.Query(sql, parameter);
                 }
             }
             catch (Exception ex)
@@ -53,10 +54,10 @@ namespace WinFormRepository.Repository
             {
                 using (var connection = WinFormDbContext.DbConnection())
                 {
-                    var parameter = new 
+                    var parameter = new
                     {
-                        param0 = Convert.ToDateTime(inicail.ToString("yyyy-MM-dd 00:00:00")), 
-                        param1 = Convert.ToDateTime(fim.ToString("yyyy-MM-dd 23:59:00")) 
+                        param0 = Convert.ToDateTime(inicail.ToString("yyyy-MM-dd 00:00:00")),
+                        param1 = Convert.ToDateTime(fim.ToString("yyyy-MM-dd 23:59:00"))
                     };
                     var sql = "SELECT * FROM [Renda] WHERE DataEntrada >= @param0 and DataEntrada < @param1;";
                     var ListaRenda = connection.Query<Renda>(sql, parameter).ToList();
@@ -81,7 +82,7 @@ namespace WinFormRepository.Repository
                         param1 = Convert.ToDateTime(DateTime.Now.Date.Year.ToString() + "-12-31 23:59:59")
                     };
                     var sql = "SELECT ValorRenda FROM [Renda] WHERE DataEntrada > @param0 and DataEntrada< @param1;";
-                   var ListaValores = connection.Query<double>(sql, parameter).ToList();
+                    var ListaValores = connection.Query<double>(sql, parameter).ToList();
                     return ListaValores;
                 }
             }
