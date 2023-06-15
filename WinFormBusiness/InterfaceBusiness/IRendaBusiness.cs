@@ -6,7 +6,7 @@ namespace WinFormBusiness.InterfaceBusiness
 {
     public interface IRendaBusiness
     {
-        int InsertRenda(Renda renda);
+        void InsertRenda(Renda renda);
 
         double GetRendaTotal();
 

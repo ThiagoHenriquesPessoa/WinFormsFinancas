@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using WinFormDomain.Models;
 
@@ -6,15 +7,15 @@ namespace WinFormRepository.InterfaceRepository
 {
     public interface IRendaRepository
     {
-        int InsertRenda(Renda renda);
+        void InsertRenda(Renda renda);
 
-        DataTable GetRendaAll();
+        List<double> GetRendaAll();
 
-        DataTable GetAllRendaPorData(DateTime inicail, DateTime fim);
+        List<Renda> GetAllRendaPorData(DateTime inicail, DateTime fim);
 
-        DataTable GetRendaAnoAtualall();
+        List<double> GetRendaAnoAtualall();
 
-        DataTable GetRendaMesAtualAll();
+        List<double> GetRendaMesAtualAll();
 
         void UpdateRenda(Renda renda);
 
