@@ -1,6 +1,11 @@
-﻿using System;
+﻿using Dapper;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Data.SQLite;
+using System.Linq;
+using System.Reflection.Metadata;
 using WinFormDomain.Models;
 using WinFormInfrastructure.Data;
 using WinFormRepository.InterfaceRepository;
@@ -9,19 +14,15 @@ namespace WinFormRepository.Repository
 {
     public class RendaRepository : IRendaRepository
     {
-        public int InsertRenda(Renda renda)
+        public void InsertRenda(Renda renda)
         {
             try
             {
-                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                using (var connection = WinFormDbContext.DbConnection())
                 {
+                    var parameter = new { ValorRenda = renda.ValorRenda, TipoRenda = renda.TipoRenda, DataEntrada = renda.DataEntrada };
                     var sql = "INSERT INTO [Renda] ([ValorRenda] ,[TipoRenda] ,[DataEntrada]) VALUES  (@ValorRenda, @TipoRenda, @DataEntrada);";
-                    context.CommandText = sql;
-                    context.Parameters.AddWithValue("@ValorRenda", renda.ValorRenda);
-                    context.Parameters.AddWithValue("@TipoRenda", renda.TipoRenda);
-                    context.Parameters.AddWithValue("@DataEntrada", renda.DataEntrada);
-                    context.ExecuteNonQuery();
-                    return 1;
+                    connection.Query(sql, parameter);      
                 }
             }
             catch (Exception ex)
@@ -30,18 +31,14 @@ namespace WinFormRepository.Repository
             }
         }
 
-        public DataTable GetRendaAll()
+        public List<double> GetRendaAll()
         {
-            SQLiteDataAdapter adapter = null;
-            DataTable dataTable = new DataTable();
             try
             {
-                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                using (var connection = WinFormDbContext.DbConnection())
                 {
-                    context.CommandText = "SELECT ValorRenda FROM [Renda];";
-                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
-                    adapter.Fill(dataTable);
-                    return dataTable;
+                    var ListaValores = connection.Query<double>("SELECT ValorRenda FROM [Renda];").ToList();
+                    return ListaValores;
                 }
             }
             catch (Exception ex)
@@ -50,21 +47,20 @@ namespace WinFormRepository.Repository
             }
         }
 
-        public DataTable GetAllRendaPorData(DateTime inicail, DateTime fim)
+        public List<Renda> GetAllRendaPorData(DateTime inicail, DateTime fim)
         {
-            SQLiteDataAdapter adapter = null;
-            DataTable dataTable = new DataTable();
             try
             {
-                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                using (var connection = WinFormDbContext.DbConnection())
                 {
-                    var param0 = string.Format($"{inicail.ToString("yyyy-MM-dd")} 00:00:00");
-                    var param1 = string.Format($"{fim.ToString("yyyy-MM-dd")} 23:59:00");
-
-                    context.CommandText = String.Format($"SELECT * FROM [Renda] WHERE DataEntrada >= '{param0}' and DataEntrada < '{param1}';");
-                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
-                    adapter.Fill(dataTable);
-                    return dataTable;
+                    var parameter = new 
+                    {
+                        param0 = Convert.ToDateTime(inicail.ToString("yyyy-MM-dd 00:00:00")), 
+                        param1 = Convert.ToDateTime(fim.ToString("yyyy-MM-dd 23:59:00")) 
+                    };
+                    var sql = "SELECT * FROM [Renda] WHERE DataEntrada >= @param0 and DataEntrada < @param1;";
+                    var ListaRenda = connection.Query<Renda>(sql, parameter).ToList();
+                    return ListaRenda;
                 }
             }
             catch (Exception ex)
@@ -73,20 +69,20 @@ namespace WinFormRepository.Repository
             }
         }
 
-        public DataTable GetRendaAnoAtualall()
+        public List<double> GetRendaAnoAtualall()
         {
-            SQLiteDataAdapter adapter = null;
-            DataTable dataTable = new DataTable();
             try
             {
-                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                using (var connection = WinFormDbContext.DbConnection())
                 {
-                    var param0 = DateTime.Now.Date.Year.ToString();
-                    var param1 = DateTime.Now.Date.AddYears(1).Year.ToString();
-                    context.CommandText = String.Format($"SELECT ValorRenda FROM [Renda] WHERE DataEntrada >'{param0}-01-01 00:00:00' and DataEntrada<'{param1}-01-01 00:00:00';");
-                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
-                    adapter.Fill(dataTable);
-                    return dataTable;
+                    var parameter = new
+                    {
+                        param0 = Convert.ToDateTime(DateTime.Now.Date.Year.ToString() + "-01-01 00:00:00"),
+                        param1 = Convert.ToDateTime(DateTime.Now.Date.Year.ToString() + "-12-31 23:59:59")
+                    };
+                    var sql = "SELECT ValorRenda FROM [Renda] WHERE DataEntrada > @param0 and DataEntrada< @param1;";
+                   var ListaValores = connection.Query<double>(sql, parameter).ToList();
+                    return ListaValores;
                 }
             }
             catch (Exception ex)
@@ -95,21 +91,20 @@ namespace WinFormRepository.Repository
             }
         }
 
-        public DataTable GetRendaMesAtualAll()
+        public List<double> GetRendaMesAtualAll()
         {
-            SQLiteDataAdapter adapter = null;
-            DataTable dataTable = new DataTable();
             try
             {
-                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                using (var connection = WinFormDbContext.DbConnection())
                 {
-                    var param0 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.Month}-01 00:00:00");
-                    var param1 = string.Format($"{DateTime.Now.Date.Year}-0{DateTime.Now.Date.AddMonths(1).Month}-01 00:00:00");
-
-                    context.CommandText = String.Format($"SELECT ValorRenda FROM [Renda] WHERE DataEntrada >= '{param0}' and DataEntrada < '{param1}';");
-                    adapter = new SQLiteDataAdapter(context.CommandText, WinFormDbContext.DbConnection());
-                    adapter.Fill(dataTable);
-                    return dataTable;
+                    var parameter = new
+                    {
+                        param0 = Convert.ToDateTime(DateTime.Now.Date.Year.ToString() + "-" + DateTime.Now.Date.Month.ToString() + "-01 00:00:00"),
+                        param1 = Convert.ToDateTime(DateTime.Now.Date.Year.ToString() + "-" + DateTime.Now.Date.AddMonths(1).Month + "-01 00:00:00")
+                    };
+                    var sql = "SELECT ValorRenda FROM [Renda] WHERE DataEntrada >= @param0 and DataEntrada < @param1;";
+                    var ListaValores = connection.Query<double>(sql, parameter).ToList();
+                    return ListaValores;
                 }
             }
             catch (Exception ex)
@@ -122,15 +117,17 @@ namespace WinFormRepository.Repository
         {
             try
             {
-                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                using (var connection = WinFormDbContext.DbConnection())
                 {
-                    var sql = "UPDATE [Renda] SET [ValorRenda] = @ValorRenda ,[TipoRenda] = @TipoRenda,[DataEntrada] = @DataEntrada WHERE [IdRenda] == @IdRenda;";
-                    context.CommandText = sql;
-                    context.Parameters.AddWithValue("@IdRenda", renda.IdRenda);
-                    context.Parameters.AddWithValue("@ValorRenda", renda.ValorRenda);
-                    context.Parameters.AddWithValue("@TipoRenda", renda.TipoRenda);
-                    context.Parameters.AddWithValue("@DataEntrada", renda.DataEntrada);
-                    context.ExecuteNonQuery();
+                    var parameter = new
+                    {
+                        IdRenda = renda.IdRenda,
+                        ValorRenda = renda.ValorRenda,
+                        TipoRenda = renda.TipoRenda,
+                        DataEntrada = renda.DataEntrada
+                    };
+                    var sql = "UPDATE [Renda] SET [ValorRenda] = @ValorRenda, [TipoRenda] = @TipoRenda, [DataEntrada] = @DataEntrada WHERE [IdRenda] == @IdRenda;";
+                    connection.Query(sql, parameter);
                 }
             }
             catch (Exception ex)
@@ -143,12 +140,14 @@ namespace WinFormRepository.Repository
         {
             try
             {
-                using (var context = WinFormDbContext.DbConnection().CreateCommand())
+                using (var connection = WinFormDbContext.DbConnection())
                 {
+                    var parameter = new
+                    {
+                        IdRenda = idRenda
+                    };
                     var sql = "DELETE FROM [Renda] WHERE [IdRenda] == @IdRenda;";
-                    context.CommandText = sql;
-                    context.Parameters.AddWithValue("@IdRenda", idRenda);
-                    context.ExecuteNonQuery();
+                    connection.Query(sql, parameter);
                 }
             }
             catch (Exception ex)

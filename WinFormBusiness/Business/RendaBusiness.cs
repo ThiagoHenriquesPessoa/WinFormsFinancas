@@ -16,53 +16,34 @@ namespace WinFormBusiness.Business
             _rendaRepository = rendaRepository;
         }
 
-        public int InsertRenda(Renda renda)
+        public void InsertRenda(Renda renda)
         {
-            if (renda.ValorRenda > 0)
-            {
-                return _rendaRepository.InsertRenda(renda);
-            }
-            else
-            {
-                return 0;
-            }
+            _rendaRepository.InsertRenda(renda);
         }
 
         public double GetRendaTotal()
         {
             double valorTotal = 0;
-            var table = _rendaRepository.GetRendaAll();
-            foreach (DataRow row in table.Rows)
+            var listaValores = _rendaRepository.GetRendaAll();
+            foreach (var valor in listaValores)
             {
-                valorTotal += (double)row["ValorRenda"];
+                valorTotal += valor;
             }
             return valorTotal;
         }
 
         public List<Renda> GetAllRendaPorData(DateTime inicio, DateTime fim)
         {
-            var listRenda = new List<Renda>();
-            var table = _rendaRepository.GetAllRendaPorData(inicio, fim);
-            foreach (DataRow row in table.Rows)
-            {
-                listRenda.Add(new Renda
-                {
-                    IdRenda = (Int64)row["IdRenda"],
-                    ValorRenda = Convert.ToDouble(((double)row["ValorRenda"]).ToString("F2")),
-                    TipoRenda = (string)row["TipoRenda"],
-                    DataEntrada = Convert.ToDateTime((string)row["DataEntrada"])
-                });
-            }
-            return listRenda;
+            return _rendaRepository.GetAllRendaPorData(inicio, fim);
         }
 
         public double GetRendaAnoAtualall()
         {
             double valorTotal = 0;
-            var table = _rendaRepository.GetRendaAnoAtualall();
-            foreach (DataRow row in table.Rows)
+            var listaValores = _rendaRepository.GetRendaAnoAtualall();
+            foreach (var valor in listaValores)
             {
-                valorTotal += (double)row["ValorRenda"];
+                valorTotal += valor;
             }
             return valorTotal;
         }
@@ -70,10 +51,10 @@ namespace WinFormBusiness.Business
         public double GetRendaMesAtualAll()
         {
             double valorTotal = 0;
-            var table = _rendaRepository.GetRendaMesAtualAll();
-            foreach (DataRow row in table.Rows)
+            var listaValores = _rendaRepository.GetRendaMesAtualAll();
+            foreach (var valor in listaValores)
             {
-                valorTotal += (double)row["ValorRenda"];
+                valorTotal += valor;
             }
             return valorTotal;
         }

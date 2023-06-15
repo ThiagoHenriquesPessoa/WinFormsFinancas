@@ -12,7 +12,11 @@
            "#00688B",
            "#87CEFF",
            "#7EC0EE",
-           "#6CA6CD"
+           "#6CA6CD",
+           "#7ed2ee",
+           "#1e6073",
+           "#223a75",
+           "#1007b5"
        };
 
         public static Color ChangerColorBrightness(Color color, double correctionFactor)
