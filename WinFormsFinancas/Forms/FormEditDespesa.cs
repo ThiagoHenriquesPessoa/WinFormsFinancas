@@ -1,6 +1,5 @@
 ﻿using WinFormBusiness.InterfaceBusiness;
 using WinFormDomain.Models;
-using static System.Windows.Forms.LinkLabel;
 
 namespace WinFormsFinancas.Forms
 {
@@ -94,7 +93,6 @@ namespace WinFormsFinancas.Forms
             {
                 MessageBox.Show("Não há despesa para ser excluida!");
             }
-
         }
     }
 }

@@ -34,7 +34,7 @@
             panelMenu = new Panel();
             btnLogo = new Button();
             btnSetting = new Button();
-            btnNotifications = new Button();
+            btnPagamentos = new Button();
             btnEditeRenda = new Button();
             btnCustomer = new Button();
             btnAddDespesa = new Button();
@@ -67,7 +67,7 @@
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
             panelMenu.Controls.Add(btnLogo);
             panelMenu.Controls.Add(btnSetting);
-            panelMenu.Controls.Add(btnNotifications);
+            panelMenu.Controls.Add(btnPagamentos);
             panelMenu.Controls.Add(btnEditeRenda);
             panelMenu.Controls.Add(btnCustomer);
             panelMenu.Controls.Add(btnAddDespesa);
@@ -116,24 +116,24 @@
             btnSetting.UseVisualStyleBackColor = false;
             btnSetting.Click += btnSetting_Click;
             // 
-            // btnNotifications
+            // btnPagamentos
             // 
-            btnNotifications.BackColor = Color.FromArgb(39, 39, 58);
-            btnNotifications.FlatAppearance.BorderSize = 0;
-            btnNotifications.FlatStyle = FlatStyle.Flat;
-            btnNotifications.ForeColor = SystemColors.GradientInactiveCaption;
-            btnNotifications.Image = (Image)resources.GetObject("btnNotifications.Image");
-            btnNotifications.ImageAlign = ContentAlignment.MiddleLeft;
-            btnNotifications.Location = new Point(0, 260);
-            btnNotifications.Name = "btnNotifications";
-            btnNotifications.Padding = new Padding(12, 0, 0, 0);
-            btnNotifications.Size = new Size(220, 45);
-            btnNotifications.TabIndex = 6;
-            btnNotifications.Text = "  =======";
-            btnNotifications.TextAlign = ContentAlignment.MiddleLeft;
-            btnNotifications.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnNotifications.UseVisualStyleBackColor = false;
-            btnNotifications.Click += btnNotifications_Click;
+            btnPagamentos.BackColor = Color.FromArgb(39, 39, 58);
+            btnPagamentos.FlatAppearance.BorderSize = 0;
+            btnPagamentos.FlatStyle = FlatStyle.Flat;
+            btnPagamentos.ForeColor = SystemColors.GradientInactiveCaption;
+            btnPagamentos.Image = (Image)resources.GetObject("btnPagamentos.Image");
+            btnPagamentos.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPagamentos.Location = new Point(0, 260);
+            btnPagamentos.Name = "btnPagamentos";
+            btnPagamentos.Padding = new Padding(12, 0, 0, 0);
+            btnPagamentos.Size = new Size(220, 45);
+            btnPagamentos.TabIndex = 6;
+            btnPagamentos.Text = "   Pagamentos";
+            btnPagamentos.TextAlign = ContentAlignment.MiddleLeft;
+            btnPagamentos.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnPagamentos.UseVisualStyleBackColor = false;
+            btnPagamentos.Click += btnNotifications_Click;
             // 
             // btnEditeRenda
             // 
@@ -148,7 +148,7 @@
             btnEditeRenda.Padding = new Padding(12, 0, 0, 0);
             btnEditeRenda.Size = new Size(220, 45);
             btnEditeRenda.TabIndex = 4;
-            btnEditeRenda.Text = "   EditeRenda";
+            btnEditeRenda.Text = "   Editar Renda";
             btnEditeRenda.TextAlign = ContentAlignment.MiddleLeft;
             btnEditeRenda.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnEditeRenda.UseVisualStyleBackColor = false;
@@ -167,7 +167,7 @@
             btnCustomer.Padding = new Padding(12, 0, 0, 0);
             btnCustomer.Size = new Size(220, 45);
             btnCustomer.TabIndex = 5;
-            btnCustomer.Text = "   EditeDespesa";
+            btnCustomer.Text = "   Editar Despesa";
             btnCustomer.TextAlign = ContentAlignment.MiddleLeft;
             btnCustomer.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnCustomer.UseVisualStyleBackColor = false;
@@ -186,7 +186,7 @@
             btnAddDespesa.Padding = new Padding(12, 0, 0, 0);
             btnAddDespesa.Size = new Size(220, 45);
             btnAddDespesa.TabIndex = 3;
-            btnAddDespesa.Text = "   AddDespesa";
+            btnAddDespesa.Text = "   Adicionar Despesa";
             btnAddDespesa.TextAlign = ContentAlignment.MiddleLeft;
             btnAddDespesa.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddDespesa.UseVisualStyleBackColor = false;
@@ -207,7 +207,7 @@
             btnAddRenda.Padding = new Padding(12, 0, 0, 0);
             btnAddRenda.Size = new Size(220, 45);
             btnAddRenda.TabIndex = 2;
-            btnAddRenda.Text = "  AddRenda";
+            btnAddRenda.Text = "   Adicionar Renda";
             btnAddRenda.TextAlign = ContentAlignment.MiddleLeft;
             btnAddRenda.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddRenda.UseVisualStyleBackColor = false;
@@ -436,7 +436,7 @@
 
         private Panel panelMenu;
         private Button btnSetting;
-        private Button btnNotifications;
+        private Button btnPagamentos;
         private Button btnEditeRenda;
         private Button btnCustomer;
         private Button btnAddDespesa;

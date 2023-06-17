@@ -51,7 +51,7 @@ namespace WinFormBusiness.Business
             return valorTotal;
         }
 
-        public double GetDespesaMesAtualAll()
+        public double GetValorDespesaMesAtualAll()
         {
             double valorTotal = 0;
             var listValores = _despesaRepository.GetValorDespesaMesAtualAll();
@@ -64,7 +64,7 @@ namespace WinFormBusiness.Business
 
         public DataTable GetDespesaNaoPagasMesAtualAll()
         {
-            var listDespesas = _despesaRepository.GetDespesaNaoPagasMesAtualAll();
+            var listDespesas = _despesaRepository.GetDespesaMesAtualAll();
             DataTable dt = new DataTable();
             dt.Columns.Add("IdDespesa", typeof(Int64));
             dt.Columns.Add("Tipo de despesa", typeof(string));
@@ -80,6 +80,35 @@ namespace WinFormBusiness.Business
                         despesa.ValorDespesa.ToString("C"),
                         despesa.FormaPagamento);
                 }
+            }
+            return dt;
+        }
+
+        public DataTable GetDespesaMesAtualAll()
+        {
+            var listDespesas = _despesaRepository.GetDespesaMesAtualAll();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("IdDespesa", typeof(Int64));
+            dt.Columns.Add("Valor da despesa", typeof(string));
+            dt.Columns.Add("Tipo de despesa", typeof(string));
+            dt.Columns.Add("Quantidade de parcelas", typeof(Int64));
+            dt.Columns.Add("Parcela atual", typeof(Int64));
+            dt.Columns.Add("Criação da despesa", typeof(DateTime));
+            dt.Columns.Add("Vencimento da despesa", typeof(DateTime));
+            dt.Columns.Add("Despesa Paga", typeof(bool));
+            dt.Columns.Add("Forma de pagamento", typeof(string));
+            foreach (var despesa in listDespesas)
+            {
+                dt.Rows.Add(
+                        despesa.IdDespesa,                      
+                        despesa.ValorDespesa.ToString("C"),
+                        despesa.TipoDespesa,
+                        despesa.QuantidadeParcelas,
+                        despesa.ParcelaAtual,
+                        despesa.DataCriacaoDespesa,
+                        despesa.DataVencimentoDespesa,
+                        despesa.DespesaPaga,
+                        despesa.FormaPagamento);
             }
             return dt;
         }

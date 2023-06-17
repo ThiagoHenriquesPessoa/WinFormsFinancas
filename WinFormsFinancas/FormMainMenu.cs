@@ -12,63 +12,20 @@ namespace WinFormsFinancas
         private Form activeForm;
         private readonly IRendaBusiness _rendaBusiness;
         private readonly IDespesaBusiness _despesaBusiness;
+        private readonly IServiceBusiness _serviceBusiness;
 
-        public FormMainMenu(IRendaBusiness rendaBusiness, IDespesaBusiness despesaBusiness)
+        public FormMainMenu(IRendaBusiness rendaBusiness, IDespesaBusiness despesaBusiness, IServiceBusiness serviceBusiness)
         {
             InitializeComponent();
-            lblRendaAnoAtual.Text += " " + DateTime.Now.Year.ToString();
-            lblDespesaAnoAtual.Text += " " + DateTime.Now.Year.ToString();
-            lblRendaMesAtual.Text += " " + MesAtual(DateTime.Now.Month);
-            lblDespesaMesAtual.Text += " " + MesAtual(DateTime.Now.Month);
-            random = new Random();
+            _serviceBusiness = serviceBusiness;
             _rendaBusiness = rendaBusiness;
             _despesaBusiness = despesaBusiness;
+            lblRendaAnoAtual.Text += " " + DateTime.Now.Year.ToString();
+            lblDespesaAnoAtual.Text += " " + DateTime.Now.Year.ToString();           
+            lblRendaMesAtual.Text += " " + _serviceBusiness.MesAtual(DateTime.Now.Month);
+            lblDespesaMesAtual.Text += " " + _serviceBusiness.MesAtual(DateTime.Now.Month);
+            random = new Random();            
             AtualizaHome();
-        }
-
-        private string MesAtual(int mes)
-        {
-            string mesAtual = "";
-            switch (mes)
-            {
-                case 1:
-                    mesAtual = "janeiro";
-                    break;
-                case 2:
-                    mesAtual = "fevereiro";
-                    break;
-                case 3:
-                    mesAtual = "março";
-                    break;
-                case 4:
-                    mesAtual = "abril";
-                    break;
-                case 5:
-                    mesAtual = "maio";
-                    break;
-                case 6:
-                    mesAtual = "junho";
-                    break;
-                case 7:
-                    mesAtual = "julho";
-                    break;
-                case 8:
-                    mesAtual = "agosto";
-                    break;
-                case 9:
-                    mesAtual = "setembro";
-                    break;
-                case 10:
-                    mesAtual = "outubro";
-                    break;
-                case 11:
-                    mesAtual = "novembro";
-                    break;
-                case 12:
-                    mesAtual = "dezembro";
-                    break;
-            }
-            return mesAtual;
         }
 
         private void AtualizaHome()
@@ -76,7 +33,7 @@ namespace WinFormsFinancas
             tbxRendaTotal.Text = _rendaBusiness.GetRendaTotal().ToString("F2");
             tbxDespesaTotal.Text = _despesaBusiness.GetDespesaTotal().ToString("F2");
             tbxDespesaAnoAtual.Text = _despesaBusiness.GetDespesaAnoAtualAll().ToString("F2");
-            tbxDespesaMesAtual.Text = _despesaBusiness.GetDespesaMesAtualAll().ToString("F2");
+            tbxDespesaMesAtual.Text = _despesaBusiness.GetValorDespesaMesAtualAll().ToString("F2");
             tbxRendaAnoAtual.Text = _rendaBusiness.GetRendaAnoAtualall().ToString("F2");
             tbxRendaMesAtual.Text = _rendaBusiness.GetRendaMesAtualAll().ToString("F2");
             dgvListDespesasNaoPagas.DataSource = _despesaBusiness.GetDespesaNaoPagasMesAtualAll();
@@ -156,7 +113,7 @@ namespace WinFormsFinancas
 
         private void btnNotifications_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new Forms.FormNotifications(), sender);
+            OpenChildForm(new Forms.FormPagamentos(new ServiceBusiness(), new DespesaBusiness(new DespesaRepository())), sender);
         }
 
         private void btnSetting_Click(object sender, EventArgs e)

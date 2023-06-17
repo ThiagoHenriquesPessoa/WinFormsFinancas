@@ -14,7 +14,7 @@ namespace WinFormRepository.InterfaceRepository
 
         List<double> GetValorDespesaMesAtualAll();
 
-        List<Despesa> GetDespesaNaoPagasMesAtualAll();
+        List<Despesa> GetDespesaMesAtualAll();
 
         List<Despesa> GetAllDespesaPorData(DateTime inicail, DateTime fim);
 

@@ -97,7 +97,7 @@ namespace WinFormRepository.Repository
             }
         }
 
-        public List<Despesa> GetDespesaNaoPagasMesAtualAll()
+        public List<Despesa> GetDespesaMesAtualAll()
         {
             try
             {

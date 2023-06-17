@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using WinFormDomain.Models;
 
@@ -13,11 +13,16 @@ namespace WinFormBusiness.InterfaceBusiness
 
         double GetDespesaAnoAtualAll();
 
-        double GetDespesaMesAtualAll();
+        double GetValorDespesaMesAtualAll();
+
+        DataTable GetDespesaMesAtualAll();
 
         DataTable GetDespesaNaoPagasMesAtualAll();
+
         List<Despesa> GetAllDespesaPorData(DateTime inicio, DateTime fim);
+
         void UpdateDespesa(Despesa despesa);
+
         void DeleteDespesa(Int64 idDespesa);
     }
 }
