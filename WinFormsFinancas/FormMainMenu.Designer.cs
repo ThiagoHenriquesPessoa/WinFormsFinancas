@@ -308,9 +308,9 @@
             lblDespesaMesAtual.AutoSize = true;
             lblDespesaMesAtual.Location = new Point(10, 192);
             lblDespesaMesAtual.Name = "lblDespesaMesAtual";
-            lblDespesaMesAtual.Size = new Size(135, 20);
+            lblDespesaMesAtual.Size = new Size(86, 20);
             lblDespesaMesAtual.TabIndex = 11;
-            lblDespesaMesAtual.Text = "Despesa Mês Atual";
+            lblDespesaMesAtual.Text = "Despesa de";
             // 
             // lblRendaMesAtual
             // 
@@ -318,9 +318,9 @@
             lblRendaMesAtual.AutoSize = true;
             lblRendaMesAtual.Location = new Point(10, 155);
             lblRendaMesAtual.Name = "lblRendaMesAtual";
-            lblRendaMesAtual.Size = new Size(121, 20);
+            lblRendaMesAtual.Size = new Size(72, 20);
             lblRendaMesAtual.TabIndex = 10;
-            lblRendaMesAtual.Text = "Renda Mês Atual";
+            lblRendaMesAtual.Text = "Renda de";
             // 
             // tbxDespesaMesAtual
             // 
@@ -344,9 +344,9 @@
             lblDespesaAnoAtual.AutoSize = true;
             lblDespesaAnoAtual.Location = new Point(362, 57);
             lblDespesaAnoAtual.Name = "lblDespesaAnoAtual";
-            lblDespesaAnoAtual.Size = new Size(135, 20);
+            lblDespesaAnoAtual.Size = new Size(86, 20);
             lblDespesaAnoAtual.TabIndex = 7;
-            lblDespesaAnoAtual.Text = "Despesa Ano Atual";
+            lblDespesaAnoAtual.Text = "Despesa de";
             // 
             // lblRendaAnoAtual
             // 
@@ -354,9 +354,9 @@
             lblRendaAnoAtual.AutoSize = true;
             lblRendaAnoAtual.Location = new Point(362, 20);
             lblRendaAnoAtual.Name = "lblRendaAnoAtual";
-            lblRendaAnoAtual.Size = new Size(121, 20);
+            lblRendaAnoAtual.Size = new Size(72, 20);
             lblRendaAnoAtual.TabIndex = 6;
-            lblRendaAnoAtual.Text = "Renda Ano Atual";
+            lblRendaAnoAtual.Text = "Renda de";
             // 
             // tbxDespesaAnoAtual
             // 
