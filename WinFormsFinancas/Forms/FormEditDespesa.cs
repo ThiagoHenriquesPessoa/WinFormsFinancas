@@ -83,15 +83,19 @@ namespace WinFormsFinancas.Forms
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (lblIdDespesa.Text != "0")
+            DialogResult dialog =  MessageBox.Show("Realmente deseja excluir essa despesa ?", "Excluir", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
             {
-                Int64 idDespesa = Convert.ToInt64(lblIdDespesa.Text);
-                _despesaBusiness.DeleteDespesa(idDespesa);
-                Atualizar();
-            }
-            else
-            {
-                MessageBox.Show("Não há despesa para ser excluida!");
+                if (lblIdDespesa.Text != "0")
+                {
+                    Int64 idDespesa = Convert.ToInt64(lblIdDespesa.Text);
+                    _despesaBusiness.DeleteDespesa(idDespesa);
+                    Atualizar();
+                }
+                else
+                {
+                    MessageBox.Show("Não há despesa para ser excluida!");
+                }
             }
         }
     }
