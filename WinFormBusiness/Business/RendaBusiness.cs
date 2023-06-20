@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using WinFormBusiness.InterfaceBusiness;
 using WinFormDomain.Models;
 using WinFormRepository.InterfaceRepository;
@@ -31,9 +31,23 @@ namespace WinFormBusiness.Business
             return valorTotal;
         }
 
-        public List<Renda> GetAllRendaPorData(DateTime inicio, DateTime fim)
+        public DataTable GetAllRendaPorData(DateTime inicio, DateTime fim)
         {
-            return _rendaRepository.GetAllRendaPorData(inicio, fim);
+            var listDespesas = _rendaRepository.GetAllRendaPorData(inicio, fim);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("IdRenda", typeof(Int64));
+            dt.Columns.Add("Valor da renda", typeof(string));
+            dt.Columns.Add("Tipo de renda", typeof(string));
+            dt.Columns.Add("data de entrada", typeof(DateTime));
+            foreach (var despesa in listDespesas)
+            {
+                dt.Rows.Add(
+                        despesa.IdRenda,
+                        despesa.ValorRenda.ToString("C"),
+                        despesa.TipoRenda,
+                        despesa.DataEntrada);
+            }
+            return dt;
         }
 
         public double GetRendaAnoAtualall()

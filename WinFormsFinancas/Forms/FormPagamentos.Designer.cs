@@ -102,6 +102,7 @@
             dgvListaDespesas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvListaDespesas.Size = new Size(920, 267);
             dgvListaDespesas.TabIndex = 18;
+            dgvListaDespesas.CellMouseClick += dgvListaDespesas_CellMouseClick;
             // 
             // btnSalvar
             // 
