@@ -19,7 +19,7 @@ namespace WinFormBusiness.InterfaceBusiness
 
         DataTable GetDespesaNaoPagasMesAtualAll();
 
-        List<Despesa> GetAllDespesaPorData(DateTime inicio, DateTime fim);
+        DataTable GetAllDespesaPorData(DateTime inicio, DateTime fim);
 
         void UpdateDespesa(Despesa despesa);
 
