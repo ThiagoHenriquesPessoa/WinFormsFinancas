@@ -21,6 +21,9 @@ namespace WinFormsFinancas.Forms
         {
             dgvListaRenda.DataSource = _rendaBusiness.GetAllRendaPorData(dtpDataInicial.Value.Date, dtpDataFim.Value);
             dgvListaRenda.Columns["IdRenda"].Visible = false;
+            dgvListaRenda.Columns["Valor da renda"].ReadOnly = true;
+            dgvListaRenda.Columns["Tipo de renda"].ReadOnly = true;
+            dgvListaRenda.Columns["data de entrada"].ReadOnly = true;
         }
 
         private void dgvListaRenda_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -34,12 +37,13 @@ namespace WinFormsFinancas.Forms
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            if (lblIdRenda.Text != "0" && txtNovaRenda.Text != "0" && txtNovaRenda.Text != "")
+            var rendaList = new List<string> { "0", "0,00", "" };
+            if (lblIdRenda.Text != "0" && !rendaList.Contains(txtNovaRenda.Text.Replace("R$ ", "")))
             {
                 var renda = new Renda
                 {
                     IdRenda = Convert.ToInt64(lblIdRenda.Text),
-                    ValorRenda = Convert.ToDouble(txtNovaRenda.Text),
+                    ValorRenda = Convert.ToDouble(txtNovaRenda.Text.Replace("R$ ", "")),
                     TipoRenda = cbTipoRenda.Text,
                     DataEntrada = Convert.ToDateTime(cldDataEntrada.Value)
                 };

@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Data;
 using WinFormDomain.Models;
 
 namespace WinFormBusiness.InterfaceBusiness
@@ -10,7 +10,7 @@ namespace WinFormBusiness.InterfaceBusiness
 
         double GetRendaTotal();
 
-        List<Renda> GetAllRendaPorData(DateTime inicio, DateTime fim);
+        DataTable GetAllRendaPorData(DateTime inicio, DateTime fim);
 
         double GetRendaAnoAtualall();
 

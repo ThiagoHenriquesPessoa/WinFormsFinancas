@@ -29,5 +29,19 @@ namespace WinFormsFinancas.Forms
         private void btnSalvar_Click(object sender, EventArgs e)
         {
         }
+
+        private void dgvListaDespesas_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow linha = dgvListaDespesas.Rows[e.RowIndex];
+            lblIdDespesa.Text = linha.Cells[0].Value.ToString();
+            txtNovaDespesa.Text = linha.Cells[1].Value.ToString();
+            cbTipoDespesa.Text = linha.Cells[2].Value.ToString();
+            cbxDespesaPaga.Checked = Convert.ToBoolean(linha.Cells[7].Value);
+            cbxFormaPagamento.Text = linha.Cells[8].Value.ToString();
+            cldDataCriacao.Value = Convert.ToDateTime(linha.Cells[5].Value.ToString());
+            cldDataVencimento.Value = Convert.ToDateTime(linha.Cells[6].Value.ToString());
+            txtQlbParcelas.Text = linha.Cells[3].Value.ToString();
+            txtParcelaAtual.Text = linha.Cells[4].Value.ToString();
+        }
     }
 }
