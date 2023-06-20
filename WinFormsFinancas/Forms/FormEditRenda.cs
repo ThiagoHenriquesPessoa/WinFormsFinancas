@@ -54,15 +54,19 @@ namespace WinFormsFinancas.Forms
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-            if (lblIdRenda.Text != "0")
+            DialogResult dialog = MessageBox.Show("Realmente deseja excluir essa renda ?", "Excluir", MessageBoxButtons.YesNo);
+            if (dialog == DialogResult.Yes)
             {
-                Int64 idRenda = Convert.ToInt64(lblIdRenda.Text);
-                _rendaBusiness.DeleteRenda(idRenda);
-                Atualizar();
-            }
-            else
-            {
-                MessageBox.Show("Não há renda para ser excluida!");
+                if (lblIdRenda.Text != "0")
+                {
+                    Int64 idRenda = Convert.ToInt64(lblIdRenda.Text);
+                    _rendaBusiness.DeleteRenda(idRenda);
+                    Atualizar();
+                }
+                else
+                {
+                    MessageBox.Show("Não há renda para ser excluida!");
+                }
             }
         }
 

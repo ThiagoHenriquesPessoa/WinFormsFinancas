@@ -26,16 +26,25 @@ namespace WinFormsFinancas.Forms
         {
             dgvListaDespesas.DataSource = _despesaBusiness.GetAllDespesaPorData(dtpDataInicial.Value.Date, dtpDataFim.Value);
             dgvListaDespesas.Columns["IdDespesa"].Visible = false;
+            dgvListaDespesas.Columns["Valor da despesa"].ReadOnly = true;
+            dgvListaDespesas.Columns["Tipo de despesa"].ReadOnly = true;
+            dgvListaDespesas.Columns["Quantidade de parcelas"].ReadOnly = true;
+            dgvListaDespesas.Columns["Parcela atual"].ReadOnly = true;
+            dgvListaDespesas.Columns["Criação da despesa"].ReadOnly = true;
+            dgvListaDespesas.Columns["Vencimento da despesa"].ReadOnly = true;
+            dgvListaDespesas.Columns["Despesa Paga"].ReadOnly = true;
+            dgvListaDespesas.Columns["Forma de pagamento"].ReadOnly = true;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (lblIdDespesa.Text != "0" && txtNovaDespesa.Text != "0" && txtNovaDespesa.Text != "")
+            var despesaList = new List<string> { "0", "0,00", "" };
+            if (lblIdDespesa.Text != "0" && !despesaList.Contains(txtNovaDespesa.Text.Replace("R$ ", "")))
             {
                 var despesa = new Despesa
                 {
                     IdDespesa = Convert.ToInt64(lblIdDespesa.Text),
-                    ValorDespesa = Convert.ToDouble(txtNovaDespesa.Text),
+                    ValorDespesa = Convert.ToDouble(txtNovaDespesa.Text.Replace("R$ ","")),
                     TipoDespesa = cbTipoDespesa.Text,
                     QuantidadeParcelas = Convert.ToInt64(txtQlbParcelas.Text),
                     ParcelaAtual = Convert.ToInt64(txtParcelaAtual.Text),

@@ -113,9 +113,33 @@ namespace WinFormBusiness.Business
             return dt;
         }
 
-        public List<Despesa> GetAllDespesaPorData(DateTime inicio, DateTime fim)
+        public DataTable GetAllDespesaPorData(DateTime inicio, DateTime fim)
         {
-            return _despesaRepository.GetAllDespesaPorData(inicio, fim);
+            var listDespesas = _despesaRepository.GetAllDespesaPorData(inicio, fim);
+            DataTable dt = new DataTable();
+            dt.Columns.Add("IdDespesa", typeof(Int64));
+            dt.Columns.Add("Valor da despesa", typeof(string));
+            dt.Columns.Add("Tipo de despesa", typeof(string));
+            dt.Columns.Add("Quantidade de parcelas", typeof(Int64));
+            dt.Columns.Add("Parcela atual", typeof(Int64));
+            dt.Columns.Add("Criação da despesa", typeof(DateTime));
+            dt.Columns.Add("Vencimento da despesa", typeof(DateTime));
+            dt.Columns.Add("Despesa Paga", typeof(bool));
+            dt.Columns.Add("Forma de pagamento", typeof(string));
+            foreach (var despesa in listDespesas)
+            {
+                dt.Rows.Add(
+                        despesa.IdDespesa,
+                        despesa.ValorDespesa.ToString("C"),
+                        despesa.TipoDespesa,
+                        despesa.QuantidadeParcelas,
+                        despesa.ParcelaAtual,
+                        despesa.DataCriacaoDespesa,
+                        despesa.DataVencimentoDespesa,
+                        despesa.DespesaPaga,
+                        despesa.FormaPagamento);
+            }
+            return dt;
         }
 
         public void UpdateDespesa(Despesa despesa)

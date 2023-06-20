@@ -16,7 +16,14 @@ namespace WinFormsFinancas.Forms
             lblDespesaMesAtual.Text += " " + _serviceBusiness.MesAtual(DateTime.Now.Month);
             dgvListaDespesas.DataSource = _despesaBusiness.GetDespesaMesAtualAll();
             dgvListaDespesas.Columns["IdDespesa"].Visible = false;
-
+            dgvListaDespesas.Columns["Valor da despesa"].ReadOnly = true;
+            dgvListaDespesas.Columns["Tipo de despesa"].ReadOnly = true;
+            dgvListaDespesas.Columns["Quantidade de parcelas"].ReadOnly = true;
+            dgvListaDespesas.Columns["Parcela atual"].ReadOnly = true;
+            dgvListaDespesas.Columns["Criação da despesa"].ReadOnly = true;
+            dgvListaDespesas.Columns["Vencimento da despesa"].ReadOnly = true;
+            dgvListaDespesas.Columns["Despesa Paga"].ReadOnly = true;
+            dgvListaDespesas.Columns["Forma de pagamento"].ReadOnly = true;
         }
 
         private void btnSalvar_Click(object sender, EventArgs e)
