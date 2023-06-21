@@ -33,7 +33,6 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             panelMenu = new Panel();
             btnLogo = new Button();
-            btnSetting = new Button();
             btnPagamentos = new Button();
             btnEditeRenda = new Button();
             btnCustomer = new Button();
@@ -66,7 +65,6 @@
             // 
             panelMenu.BackColor = Color.FromArgb(51, 51, 76);
             panelMenu.Controls.Add(btnLogo);
-            panelMenu.Controls.Add(btnSetting);
             panelMenu.Controls.Add(btnPagamentos);
             panelMenu.Controls.Add(btnEditeRenda);
             panelMenu.Controls.Add(btnCustomer);
@@ -95,26 +93,6 @@
             btnLogo.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnLogo.UseVisualStyleBackColor = false;
             btnLogo.Click += btnLogo_Click;
-            // 
-            // btnSetting
-            // 
-            btnSetting.BackColor = Color.FromArgb(39, 39, 58);
-            btnSetting.FlatAppearance.BorderSize = 0;
-            btnSetting.FlatStyle = FlatStyle.Flat;
-            btnSetting.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            btnSetting.ForeColor = SystemColors.GradientInactiveCaption;
-            btnSetting.Image = (Image)resources.GetObject("btnSetting.Image");
-            btnSetting.ImageAlign = ContentAlignment.MiddleLeft;
-            btnSetting.Location = new Point(0, 305);
-            btnSetting.Name = "btnSetting";
-            btnSetting.Padding = new Padding(12, 0, 0, 0);
-            btnSetting.Size = new Size(220, 45);
-            btnSetting.TabIndex = 7;
-            btnSetting.Text = "   =======";
-            btnSetting.TextAlign = ContentAlignment.MiddleLeft;
-            btnSetting.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnSetting.UseVisualStyleBackColor = false;
-            btnSetting.Click += btnSetting_Click;
             // 
             // btnPagamentos
             // 
@@ -199,7 +177,7 @@
             btnAddRenda.FlatStyle = FlatStyle.Flat;
             btnAddRenda.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
             btnAddRenda.ForeColor = SystemColors.GradientInactiveCaption;
-            btnAddRenda.Image = Properties.Resources.icons8_apresentação_16;
+            btnAddRenda.Image = (Image)resources.GetObject("btnAddRenda.Image");
             btnAddRenda.ImageAlign = ContentAlignment.MiddleLeft;
             btnAddRenda.Location = new Point(0, 80);
             btnAddRenda.Margin = new Padding(0);
@@ -435,7 +413,6 @@
         #endregion
 
         private Panel panelMenu;
-        private Button btnSetting;
         private Button btnPagamentos;
         private Button btnEditeRenda;
         private Button btnCustomer;
