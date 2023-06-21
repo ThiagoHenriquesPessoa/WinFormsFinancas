@@ -63,6 +63,16 @@ namespace WinFormsFinancas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap adicionar_aplicativos {
+            get {
+                object obj = ResourceManager.GetObject("adicionar-aplicativos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap icons8_apresentação_16 {
             get {
                 object obj = ResourceManager.GetObject("icons8-apresentação-16", resourceCulture);

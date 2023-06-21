@@ -21,10 +21,10 @@ namespace WinFormsFinancas
             _rendaBusiness = rendaBusiness;
             _despesaBusiness = despesaBusiness;
             lblRendaAnoAtual.Text += " " + DateTime.Now.Year.ToString();
-            lblDespesaAnoAtual.Text += " " + DateTime.Now.Year.ToString();           
+            lblDespesaAnoAtual.Text += " " + DateTime.Now.Year.ToString();
             lblRendaMesAtual.Text += " " + _serviceBusiness.MesAtual(DateTime.Now.Month);
             lblDespesaMesAtual.Text += " " + _serviceBusiness.MesAtual(DateTime.Now.Month);
-            random = new Random();            
+            random = new Random();
             AtualizaHome();
         }
 
